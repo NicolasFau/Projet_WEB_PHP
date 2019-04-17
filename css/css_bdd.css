@@ -1,0 +1,43 @@
+table
+{
+	/*border-collapse: collapse;*/
+	margin: auto;
+	position:center;
+	width: 100%;
+}
+
+td
+{
+	border: 1px solid black;
+	text-align: center;
+	min-width: 50px;
+}
+
+tr
+{
+	border: 1px solid black;
+	text-align: center;
+	width: 150px;
+}
+
+th
+{
+	border: 1px solid black;
+	text-align: center;
+	width: 150px;
+}
+
+h1
+{
+	text-align: center;
+}
+
+h4
+{
+	text-align: center;
+}
+
+
+
+
+
