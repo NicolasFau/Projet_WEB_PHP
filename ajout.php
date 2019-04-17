@@ -7,22 +7,29 @@ echo $nomSerie;
 echo $numeroSaison;
 echo $listeSerie;
 //Connection à la base de donnée
+
 $n="test";
 $u="test";
 $p="123456789";
 $connect=pg_connect("host=localhost port=5432 dbname=$n user=$u password=$p");
-$queryNomserie="Select nomSerie from serie";
+$queryNomserie="Select * from serie";
 $resulatNomListe=pg_exec($connect, $queryNomserie);
 //datalist dynamique
-
-if(!$resulatNomListe){
+/*echo '<input  list="listeSerie" type="text" name="listeSerie">';
+echo '<datalist id="listeSerie">';
+while ($data =pg_fetch_array($resulatNomListe)) {
+	// on affiche les résultats
+	echo '<option value='.$data['nomserie'].'>';
+}
+echo  '</datalist>';*/
+/*if(!$resulatNomListe){
 		echo  "erreur";
   }
 	else{
 		while( $row = $resulatNomListe->fetch_object() )
 			echo "<option value='".$row->name."'>";
 }
-
+*/
 //Insertion du numéro de la Saison
 $queryNomserie=pg_insert($connect, 'Saison', $numeroSaison, PG_DML_ESCAPE);
 if ($queryNomserie) {
