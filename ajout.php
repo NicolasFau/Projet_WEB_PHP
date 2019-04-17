@@ -7,12 +7,12 @@ echo $nomSerie;
 echo $numeroSaison;
 echo $listeSerie;
 //Connection à la base de donnée
-$n="postgres";
-$u="postgres";
+$n="test";
+$u="test";
 $p="123456789";
-$connect=pg_connect("dbname=$n user=$u password=$p");
-$queryNomserie="Select nomserie from serie";
-$resulatNomListe=pg_exec($connect, $query);
+$connect=pg_connect("host=localhost port=5432 dbname=$n user=$u password=$p");
+$queryNomserie="Select nomSerie from serie";
+$resulatNomListe=pg_exec($connect, $queryNomserie);
 //datalist dynamique
 
 if(!$resulatNomListe){
