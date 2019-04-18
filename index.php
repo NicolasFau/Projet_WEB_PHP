@@ -6,11 +6,11 @@
     </head>
     <body>
     <form action="ajout.php" method="post">
-	       <p>Nom Saison <input type="text" name="nomsaison"/></p>
+	       <p>Date Sortie <input type="date" name="date"></p>
 	       <p>Numéro Saison<input type="number" id="tentacles" name="num" min="1" max="100"></p>
 
   <label for="choix_serie">Nom Série </label>
-  
+
   <?
   $n="test";
   $u="test";

@@ -1,37 +1,24 @@
 <?php
-//Récupération des vriables
-$nomSerie=$_POST['nomsaison'];
+//Récupération des variables
+$date=$_POST['date'];
 $numeroSaison=$_POST['num'];
 $listeSerie=$_POST['listeSerie'];
+/*Debug
 echo $nomSerie;
 echo $numeroSaison;
 echo $listeSerie;
 //Connection à la base de donnée
+echo $date;*/
 
 $n="test";
 $u="test";
 $p="123456789";
 $connect=pg_connect("host=localhost port=5432 dbname=$n user=$u password=$p");
-$queryNomserie="Select * from serie";
-$resulatNomListe=pg_exec($connect, $queryNomserie);
-//datalist dynamique
-/*echo '<input  list="listeSerie" type="text" name="listeSerie">';
-echo '<datalist id="listeSerie">';
-while ($data =pg_fetch_array($resulatNomListe)) {
-	// on affiche les résultats
-	echo '<option value='.$data['nomserie'].'>';
-}
-echo  '</datalist>';*/
-/*if(!$resulatNomListe){
-		echo  "erreur";
-  }
-	else{
-		while( $row = $resulatNomListe->fetch_object() )
-			echo "<option value='".$row->name."'>";
-}
-*/
+
 //Insertion du numéro de la Saison
-$queryNomserie=pg_insert($connect, 'Saison', $numeroSaison, PG_DML_ESCAPE);
+$queryinsert="INSERT INTO Saison(idSaison, numeroSaison, dateParution) VALUES('$listeSerie','$numeroSaison','$date')";
+$queryNomserie=pg_query($connect,$queryinsert);
+
 if ($queryNomserie) {
     echo "Les données POSTées ont pu être enregistrées avec succès.\n";
 } else {
