@@ -277,12 +277,10 @@
         <p>Synopsis</br></br><textarea name="synopsis" rows="4" cols="40">Synopsis</textarea></p>
         <label for="image">Image</label>
         <input type="file" id="image" name="image" accept="image/png, image/jpeg">
-        <p>Réalisateur <input type="text" name="realisateur"></p>
-	      <p>Acteurs* <input type="text" name="acteurs"></p>
-        <p>Ville <input type="text" name="ville"></p>
+        
         <p><input type="submit" value="Ajouter"></p>
         </form>
-        <p>* Champs optionel</p>
+
 
 
   </body>
