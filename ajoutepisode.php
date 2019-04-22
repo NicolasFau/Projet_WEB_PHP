@@ -6,7 +6,7 @@
     </head>
     <body>
     <label for="choix_serie">Nom Série </label>
-    <form action="formajoutsaison.php" method="post">
+    <form action="formajoutepisode.php" method="post">
             <?
             $n="test";
             $u="test";
