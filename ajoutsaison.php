@@ -5,7 +5,7 @@
         <meta charset="utf-8" />
     </head>
     <body>
-    <form action="ajout.php" method="post">
+    <form action="formajoutsaison.php" method="post">
 	       <p>Date Sortie <input type="date" name="date"></p>
 	       <p>Numéro Saison<input type="number" id="tentacles" name="num" min="1" max="100"></p>
 

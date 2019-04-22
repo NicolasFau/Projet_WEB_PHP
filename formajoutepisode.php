@@ -1,15 +1,15 @@
 <?php
 //Appel du fichier de fonction
 require(connexionbdd.php);
-//Récuperation des variablezs via post
+//Récuperation des variables via post
 $serie=$_POST['listeSerie'];
 $saison=$_POST['listeSaison'];
 $nomepisode=$_POST['nom'];
 $numeroepisode=$_POST['num'];
 $duree=$_POST['duree'];
 //Connexion bdd
-$connect=connexionbdd(test,test,"123456789");
-//Requete d'insertion à affinnée delon correction model
+$connect=connexionbdd('test','test',"123456789");
+//Requete d'insertion à affinnée selon correction model
 $query="INSERT INTO Episode(idSerie,idSaison,nomEpisode,numeroEpisode,dureeEpisode)
           VALUES('$serie','$saison','$nomEpisode','$numeroepisode','$duree')";
 $insert=pg_query($connect,$query);
