@@ -1,0 +1,3 @@
+Je pense qu'il modifier la table des réalisateurs, car il n'y a pas de clef etrangère sur la table série. 
+On pourrait en rajouter une vers nomSerie mais cela implique qu'un réalisateur ne peut realiser qu'une seule série.
+Sinon on pourrais créer une table de série pour chaque réalisateur mais ça ne me parait pas être une bonne solution.
