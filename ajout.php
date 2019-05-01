@@ -16,13 +16,13 @@ $p="123456789";
 $connect=pg_connect("host=localhost port=5432 dbname=$n user=$u password=$p");
 
 //Insertion du numéro de la Saison
-$queryinsert="INSERT INTO Saison(idSaison, numeroSaison, dateParution) VALUES('$listeSerie','$numeroSaison','$date')";
+$queryinsert="INSERT INTO Saison(idsaison, numéroSaison, dateparutionsaison,nomSerie) VALUES(2,'$numeroSaison','$date','$listeSerie')";
 $queryNomserie=pg_query($connect,$queryinsert);
 
 if ($queryNomserie) {
-    echo "Les données POSTées ont pu être enregistrées avec succès.\n";
+    header("Location: ajoutepisode.php");
 } else {
-    echo "Il y a un problème avec les données.\n";
+    echo "Echec";
 }
 
 

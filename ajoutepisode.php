@@ -29,14 +29,14 @@
           $u="test";
           $p="123456789";
           $connect=pg_connect("host=localhost port=5432 dbname=$n user=$u password=$p");
-          $queryNomserie="Select * from Serie,Saison WHERE Serie.NomSerie=Saison.idSaison";
-          $resulatNomListe=pg_exec($connect, $queryNomserie);
+          $query="Select * from Serie,Saison WHERE serie.nomserie=saison.nomserie";
+          $resulat=pg_exec($connect, $query);
           //datalist dynamique
           echo '<input  list="listeSaison" type="text" name="listeSaison">';
           echo '<datalist id="listeSaison">';
-          while ($data =pg_fetch_array($resulatNomListe)) {
+          while ($data =pg_fetch_array($resulat)) {
           	// on affiche les résultats
-          	echo '<option value='.$data['numeroSaison'].'>';
+          	echo '<option value='.$data['numérosaison'].'>';
           }
           echo  '</datalist>';
         ?>
