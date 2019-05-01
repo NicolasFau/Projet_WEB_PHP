@@ -6,11 +6,11 @@
     </head>
     <body>
 
-    <form action="formActeur.php" method="post">
+    <form action="formacteur.php" method="post">
 	       <p>Nom <input type="text" name="nom"></p>
 	       <p>Prenom<input type="text" name="prenom"></p>
          <p>Date de naissance<input type="date" name="date"></p>
-         <p><a href="ajoutacteur.php"<input type="submit" value="Ajouter"></a></p>
+         <p><a href="ajoutacteur.php"><input type="submit" name="1" value="Ajouter Acteur"></a></p>
     </form>
     <form action="ajoutacteurserie.php" method="post">
       <label for="choix_serie">Nom Série </label>
@@ -37,16 +37,16 @@
   $u="test";
   $p="123456789";
   $connect=pg_connect("host=localhost port=5432 dbname=$n user=$u password=$p");
-  $queryacteur="Select * from prixdecerne";
+  $queryacteur="Select * from acteur";
   $resulatacteur=pg_exec($connect, $queryacteur);
   //datalist dynamique
   echo '<input  list="listeActeur type="text" name="listeActeur">';
   echo '<datalist id="listeActeur">';
   while ($data =pg_fetch_array($resulatacteur)) {
     // on affiche les résultats
-    echo '<option value='.$data['nomActeur'].'>';
+    echo '<option value='.$data['nomacteur'].'>';
   }
   echo  '</datalist>';
 ?>
-    <p><a href="ajoutacteur.php"><input type="submit" value="Ajouter"></a></p>
+    <p><a href="ajoutacteur.php"><input type="submit" name="2" value="Ajouter Acteur/Serie"></a></p>
     </form>
