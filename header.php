@@ -9,7 +9,7 @@ session_start();
 <script type="text/javascript" src="./autoSuggest/autoSuggest.js"></script>
 <script type="text/javascript" src="./autoSuggest/series.js"></script>
 
-        <a href="/accueil.php"><img src="./image/logo.png" width="150px" ></a>    
+        <a href="./accueil.php"><img src="./image/logo.png" width="150px" ></a>    
         <div class="options">
                 <ul class="optionsSecondaires">  
                     <li> <a href="./aide.php"><img src="./image/aide.png" width="20px"></a></li>

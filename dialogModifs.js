@@ -26,17 +26,23 @@ function supprimer(idcritique){
     var selectEl = document.getElementsByTagName('select')[0];
     var confirmBtnType = document.getElementById('confirmBtnType');
              
-    modifierType.addEventListener('click', function onOpen() {
+    if (modifierType != null){
+        modifierType.addEventListener('click', function onOpen() {
         if (typeof dialogMajType.showModal === "function") {
             dialogMajType.showModal();
         } else {
             console.error("L'API dialog n'est pas prise en charge par votre navigateur");
         }
     });
-    selectEl.addEventListener('change', function onSelect(e) {
+    }
+    if (selectEl !=null){
+        selectEl.addEventListener('change', function onSelect(e) {
         confirmBtnType.value = selectEl.value;
-    });
-    dialogMajType.addEventListener('close', function onClose() {
+        });   
+    }
+    
+    if (dialogMajType != null){
+        dialogMajType.addEventListener('close', function onClose() {
         var nouveau_type = dialogMajType.returnValue;
         $.ajax({
             type: "POST",
@@ -50,7 +56,9 @@ function supprimer(idcritique){
                     location.reload();
                 }
         })
-    });
+        });
+    }
+    
        
     var modifierDesc = document.getElementById('modifierDesc');
     var dialogMajDesc = document.getElementById('dialogMajDesc');
@@ -58,17 +66,18 @@ function supprimer(idcritique){
     var textarea = document.getElementsByTagName('textarea')[0];
     var confirmBtn1 = document.getElementById('confirmBtn1');
 
-    // Le bouton "mettre à jour les détails" ouvre la boîte de dialogue
-    modifierDesc.addEventListener('click', function onOpen() {
-    if (typeof dialogMajDesc.showModal === "function") {
-        dialogMajDesc.showModal();
-    } else {
-        console.error("L'API dialog n'est pas prise en charge par votre navigateur");
+    if (modifierDesc != null){
+        modifierDesc.addEventListener('click', function onOpen() {
+        if (typeof dialogMajDesc.showModal === "function") {
+            dialogMajDesc.showModal();
+        } else {
+            console.error("L'API dialog n'est pas prise en charge par votre navigateur");
+        }
+        });   
     }
-    });
-       
-    // Le bouton "Confirmer" déclenche l'évènement "close" sur le dialog avec [method="dialog"]
-    dialogMajDesc.addEventListener('close', function onClose() {
+
+     if (dialogMajDesc != null){
+        dialogMajDesc.addEventListener('close', function onClose() {
         if ((textarea.value != "") && (textarea.value != " ")){
            var nouvelle_description = textarea.value;
            $.ajax({
@@ -83,9 +92,10 @@ function supprimer(idcritique){
                     location.reload();
                 }
             }) 
-        }
+            }
+        });   
+     }  
     
-    });
        
     var modifierMdp = document.getElementById('modifierMdp');
     var dialogMajMdp = document.getElementById('dialogMajMdp');
@@ -94,18 +104,21 @@ function supprimer(idcritique){
     var passwordu = document.getElementsByTagName('input')[3];
     var confirmationMdp = document.getElementById('confirmation');
     var confirmBtnMdp = document.getElementById('confirmBtnMdp');
-        
-    modifierMdp.addEventListener('click', function onOpen() {
-        if (confirm('Etes vous sûr de vouloir modifier le mot de passe ?')){
-            if (typeof dialogMajMdp.showModal === "function") {
-                dialogMajMdp.showModal();
-            } else {
-                console.error("L'API dialog n'est pas prise en charge par votre navigateur");   
-            }            
-        }
-    });
        
-    confirmBtnMdp.addEventListener('click', function(){
+    if (modifierMdp !=null){
+        modifierMdp.addEventListener('click', function onOpen() {
+            if (confirm('Etes vous sûr de vouloir modifier le mot de passe ?')){
+                if (typeof dialogMajMdp.showModal === "function") {
+                    dialogMajMdp.showModal();
+                } else {
+                    console.error("L'API dialog n'est pas prise en charge par votre navigateur");   
+                }            
+            }
+        });   
+    }
+    
+    if(confirmBtnMdp !=null){
+       confirmBtnMdp.addEventListener('click', function(){
        var mdp = passwordu.value;
        var confirmation_mdp = confirmationMdp.value;
         $.ajax({
@@ -141,6 +154,8 @@ function supprimer(idcritique){
                     }   
                 }
         }) 
-    });
+        });     
+    } 
+    
 })();
 </script>

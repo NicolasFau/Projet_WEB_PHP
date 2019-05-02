@@ -146,7 +146,11 @@ if ($_GET['PseudoU']==$_SESSION['PseudoU']){
                         }
                     }
                 }else{
-                    echo 'Aucun critique n\'est associée à cet utilisateur';
+                    if ($modifs){
+                        echo 'Vous n\'avez encore fait aucune critique';
+                    }else{
+                        echo 'Aucun critique n\'est associée à cet utilisateur';
+                    }
                 }
             }
         }

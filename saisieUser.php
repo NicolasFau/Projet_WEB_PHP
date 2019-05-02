@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-    <html>		
-		<head>
-			<meta charset="utf-8" />
-		        <link rel="stylesheet" href="css/style.css" />
-		        <!-- Latest compiled and minified CSS -->
-		</head>
-
+<?php
+require 'connexion.php';
+include 'head.php';
+include 'header.php';
+?>
 		<body>
 				<fieldset>
                     <legend>Inscription</legend>

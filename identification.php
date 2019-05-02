@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-    <html>       
-        <head>
-        	<meta charset="utf-8" />
-            <link rel="stylesheet" href="css/css.css" />
-            <!-- Latest compiled and minified CSS -->
-        </head>
-
-		<?php
-		require 'connexion.php';
-        include 'header.php';
-		?>
-            <fieldset>
+<?php
+require 'connexion.php';
+include 'head.php';
+include 'header.php';
+?>
+<body>      
+<fieldset>
             <legend>Connexion</legend>
                 <div id="infos">
 						<form action="identification.php" method="post">
@@ -59,4 +53,6 @@
                         }
 					session_commit();
 					?>
+<body>
+
 </html>
