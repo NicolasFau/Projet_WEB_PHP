@@ -7,13 +7,23 @@
     <head>
         <title>PHP</title>
         <meta charset="utf-8" />
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
+
     </head>
     <body>
 
     <form action="formPrix.php" method="post">
 	       <p>Nom <input type="text" name="nom"></p>
 	       <p>Ville<input type="text" name="ville"></p>
-         <p>Date<input type="date" name="date"></p>
+         <p>Date<input type="text" name="date" id="datepicker"></p>
          <p><a href="ajoutprix.php"><input type="submit" value="Ajouter"></a></p>
     </form>
     <form action="ajoutprixserie.php" method="post">

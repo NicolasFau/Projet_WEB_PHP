@@ -8,12 +8,21 @@
         <title>PHP</title>
         <meta charset="utf-8" />
     </head>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
     <body>
 
     <form action="formacteur.php" method="post">
 	       <p>Nom <input type="text" name="nom"></p>
 	       <p>Prenom<input type="text" name="prenom"></p>
-         <p>Date de naissance<input type="date" name="date"></p>
+         <p>Date de naissance<input type="text" name="date" id="datepicker"></p>
          <p><a href="ajoutacteur.php"><input type="submit" name="1" value="Ajouter Acteur"></a></p>
     </form>
     <form action="ajoutacteurserie.php" method="post">
