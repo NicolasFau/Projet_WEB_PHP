@@ -8,8 +8,8 @@ $date=$_POST['date'];
 //Connexion bdd
 $connect=connexionbdd('test','test',"123456789");
 //Requete d'insertion
-$query="INSERT INTO Acteur(idacteur,nomacteur,prenomacteur, ddnacteur)
-        VALUES('4','$nom','$prenom','$date')";
+$query="INSERT INTO Acteur(nomacteur,prenomacteur, ddnacteur)
+        VALUES($nom','$prenom','$date')";
 $insert=pg_query($connect,$query);
 //Controle d'insertion
 

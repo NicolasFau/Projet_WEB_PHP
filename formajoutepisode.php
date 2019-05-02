@@ -10,8 +10,8 @@ $duree=$_POST['duree'];
 //Connexion bdd
 $connect=connexionbdd('test','test',"123456789");
 //Requete d'insertion à affinnée selon correction model
-$query="INSERT INTO Episode(idepisode,nomepisode,numeroepisode,duréeeepisode, idsaison)
-          VALUES('$idepisode','$nomEpisode','$numeroepisode','$duree','$saison')";
+$query="INSERT INTO Episode(nomepisode,numeroepisode,duréeeepisode, idsaison)
+          VALUES($nomEpisode','$numeroepisode','$duree','$saison')";
 $insert=pg_query($connect,$query);
 //Controle d'insertion
 

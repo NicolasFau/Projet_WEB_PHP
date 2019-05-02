@@ -12,7 +12,7 @@ $queryinsert=pg_query($connect,$query);
 //Controle de l'insertion
 
 if ($queryinsert) {
-    echo "Succès";
+  header("Location: ajoutrealisateur.php");
 } else {
     echo "Echec";
 }
