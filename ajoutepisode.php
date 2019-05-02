@@ -21,7 +21,7 @@
             echo '<datalist id="listeSerie">';
             while ($data =pg_fetch_array($resulatNomListe)) {
               // on affiche les résultats
-              echo '<option value='.$data['nomserie'].'>';
+              echo '<option value="'.$data['nomserie'].'">';
             }
             echo  '</datalist>';
           ?>
