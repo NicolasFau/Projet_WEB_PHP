@@ -8,10 +8,8 @@
     <label for="choix_serie">Nom Série </label>
     <form action="formajoutepisode.php" method="post">
             <?
-            $n="test";
-            $u="test";
-            $p="123456789";
-            $connect=pg_connect("host=localhost port=5432 dbname=$n user=$u password=$p");
+            require("connexion.php");
+            $connect=$linkpdo;
             $queryNomserie="Select * from serie";
             $resulatNomListe=pg_exec($connect, $queryNomserie);
             //datalist dynamique
@@ -25,10 +23,8 @@
           ?>
           <label for="choix_saison">Saison </label>
           <?
-          $n="test";
-          $u="test";
-          $p="123456789";
-          $connect=pg_connect("host=localhost port=5432 dbname=$n user=$u password=$p");
+          require("connexion.php");
+          $connect=$linkpdo;
           $query="Select * from Serie,Saison WHERE serie.nomserie=saison.nomserie";
           $resulat=pg_exec($connect, $query);
           //datalist dynamique

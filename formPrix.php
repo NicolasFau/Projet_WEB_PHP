@@ -1,12 +1,12 @@
 <?php
 //Appel du fichier de fonction
-require("connexionbdd.php");
+require("connexion.php");
 //Récuperation des variables via post
 $nom=$_POST['nom'];
 $ville=$_POST['ville'];
 $date=$_POST['date'];
 //Connexion bdd
-$connect=connexionbdd('test','test',"123456789");
+$connect=$linkpdo;
 //Requete d'insertion
 $query="INSERT INTO prixdecerne(nomprix, villeprix)
         VALUES('$nom','$ville')";

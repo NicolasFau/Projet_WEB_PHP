@@ -1,13 +1,13 @@
 <?php
 //import des fonction
-require("connexionbdd.php");
+require("connexion.php");
 //Récupération des variables
 $serie=$_POST['listeSerie'];
 $realisateur=$_POST['listeRea'];
 //Connexion à la base de donnée
-$connect=connexionbdd('test','test','123456789')
+$connect=$linkpdo;
 //Requete
-$query="INSERT INTO realise(nomSerie,idRealisateur)
+$query="INSERT INTO realise(nomserie,idrealisateur)
         VALUES('$serie','$realisateur')";
 //Réalisation de la requete
 $queryupdate=pg_connect($connect,$query);

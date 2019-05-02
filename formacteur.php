@@ -1,12 +1,12 @@
 <?php
 //Appel du fichier de fonction
-require("connexionbdd.php");
+require("connexion.php");
 //Récuperation des variables via post
 $nom=$_POST['nom'];
 $prenom=$_POST['prenom'];
 $date=$_POST['date'];
 //Connexion bdd
-$connect=connexionbdd('test','test',"123456789");
+$connect=$linkpdo;
 //Requete d'insertion
 $query="INSERT INTO Acteur(nomacteur,prenomacteur, ddnacteur)
         VALUES($nom','$prenom','$date')";

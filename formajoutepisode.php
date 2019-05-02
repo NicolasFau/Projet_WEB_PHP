@@ -1,6 +1,6 @@
 <?php
 //Appel du fichier de fonction
-require("connexionbdd.php");
+require("connexion.php");
 //Récuperation des variables via post
 $serie=$_POST['listeSerie'];
 $saison=$_POST['listeSaison'];
@@ -8,7 +8,7 @@ $nomepisode=$_POST['nom'];
 $numeroepisode=$_POST['num'];
 $duree=$_POST['duree'];
 //Connexion bdd
-$connect=connexionbdd('test','test',"123456789");
+$connect=$linkpdo;
 //Requete d'insertion à affinnée selon correction model
 $query="INSERT INTO Episode(nomepisode,numeroepisode,duréeeepisode, idsaison)
           VALUES($nomEpisode','$numeroepisode','$duree','$saison')";

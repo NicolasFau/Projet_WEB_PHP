@@ -14,10 +14,8 @@
     <form action="ajoutrealisateurserie.php" method="post">
       <label for="choix_serie">Nom Série </label>
       <?
-      $n="test";
-      $u="test";
-      $p="123456789";
-      $connect=pg_connect("host=localhost port=5432 dbname=$n user=$u password=$p");
+      require("connexion.php");
+      $connect=$linkpdo;
       $queryNomserie="Select * from serie";
       $resulatNomListe=pg_exec($connect, $queryNomserie);
       //datalist dynamique
@@ -31,10 +29,8 @@
     ?>
     <label for="choix_serie">Sélectionner une Saison </label>
     <?
-    $n="test";
-    $u="test";
-    $p="123456789";
-    $connect=pg_connect("host=localhost port=5432 dbname=$n user=$u password=$p");
+    require("connexion.php");
+    $connect=$linkpdo;
     $queryNomserie="Select * from Serie,Saison WHERE Serie.idSerie=Saison.idSerie";
     $resulatNomListe=pg_exec($connect, $queryNomserie);
     //datalist dynamique

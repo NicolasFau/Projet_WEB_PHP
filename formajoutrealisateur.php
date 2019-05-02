@@ -1,9 +1,10 @@
 <?php
+require("connexion.php");
 $nom=$_POST['nom'];
 $prenom=$_POST['prenom'];
 $date=$_POST['date'];
 //Connexion bdd
-$connect=connexionbdd('test','test','123456789');
+$connect=$linkpdo;
 //Requete
 $query="INSERT INTO realisateur(nomrealisateur, prenomrealisateur, ddnrealisateur)
         VALUES('$nom',''$prenom','$date')";

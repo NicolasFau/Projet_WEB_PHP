@@ -1,6 +1,6 @@
 <?php
 //import des fonction
-require("connexionbdd.php");
+require("connexion.php");
 //Récupération des variables
 $serie=$_POST['listeSerie'];
 $acteur=$_POST['listeActeur'];

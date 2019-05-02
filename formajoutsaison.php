@@ -1,5 +1,6 @@
 <?php
 //Récupération des variables
+require("connexion.php");
 $date=$_POST['date'];
 $numeroSaison=$_POST['num'];
 $listeSerie=$_POST['listeSerie'];
@@ -10,10 +11,8 @@ echo $listeSerie;
 //Connection à la base de donnée
 echo $date;*/
 
-$n="test";
-$u="test";
-$p="123456789";
-$connect=pg_connect("host=localhost port=5432 dbname=$n user=$u password=$p");
+
+$connect=$linkpdo;
 
 //Insertion du numéro de la Saison
 $queryinsert="INSERT INTO Saison(numeroSaison, dateParution) VALUES($numeroSaison','$date')";

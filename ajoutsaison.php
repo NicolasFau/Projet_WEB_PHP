@@ -12,10 +12,8 @@
   <label for="choix_serie">Nom Série </label>
 
   <?
-  $n="test";
-  $u="test";
-  $p="123456789";
-  $connect=pg_connect("host=localhost port=5432 dbname=$n user=$u password=$p");
+  require("connexion.php");
+  $connect=$linkpdo;
   $queryNomserie="Select * from serie";
   $resulatNomListe=pg_exec($connect, $queryNomserie);
   //datalist dynamique

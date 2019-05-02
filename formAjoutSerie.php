@@ -1,6 +1,6 @@
 <?php
 //import des fichiers de fonctions
-require("connexionbdd.php");
+require("connexion.php");
 //Récupération des valeurs des champs
 $titre=$_POST['titre'];
 $pays=$_POST['pays'];
@@ -11,7 +11,7 @@ $synopsis=$_POST['synospsis'];
 $target_dir=".\\image\\";
 $target_file=$target_dir . $_FILES["image"]["name"];
 //Connexion Bdd
-$connect=connexionbdd(test,test,'123456789');
+$connect=$linkpdo;
 //Test du contenue de la variable acteur
 
   $query="INSERT INTO Serie(nomserie,themeserie,paysorigineserie,urlimageserie)
