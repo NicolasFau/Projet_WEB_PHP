@@ -50,9 +50,7 @@ function supprimer(idcritique){
                 },
                 success: function(data)
                 {
-                    if (retourType.value == ''){
-                        retourType.value += data;
-                    }
+                    location.reload();
                 }
         })
     });
@@ -74,8 +72,9 @@ function supprimer(idcritique){
        
     // Le bouton "Confirmer" déclenche l'évènement "close" sur le dialog avec [method="dialog"]
     dialogMajDesc.addEventListener('close', function onClose() {
-    var nouvelle_description = textarea.value;
-    $.ajax({
+        if ((textarea.value != "") && (textarea.value != " ")){
+           var nouvelle_description = textarea.value;
+           $.ajax({
             type: "POST",
             url: "modifs_compte.php",
             data: {
@@ -84,11 +83,11 @@ function supprimer(idcritique){
                 },
                 success: function(data)
                 {
-                    if (retourDesc.value == ''){
-                        retourDesc.value += data;
-                    }
+                    location.reload();
                 }
-            })
+            }) 
+        }
+    
     });
        
     var modifierMdp = document.getElementById('modifierMdp');
@@ -98,36 +97,56 @@ function supprimer(idcritique){
     var passwordu = document.getElementsByTagName('input')[3];
     var confirmationMdp = document.getElementById('confirmation');
     var confirmBtnMdp = document.getElementById('confirmBtnMdp');
-    var val_pwd_origin = passwordu.value;
-    var val_cfm_origin = confirmationMdp.value;
     // Le bouton "mettre à jour les détails" ouvre la boîte de dialogue
         
     modifierMdp.addEventListener('click', function onOpen() {
-        if (typeof dialogMajMdp.showModal === "function") {
-            dialogMajMdp.showModal();
-        } else {
-            console.error("L'API dialog n'est pas prise en charge par votre navigateur");   
-        } 
+        if (confirm('Etes vous sûr de vouloir modifier le mot de passe ?')){
+            if (typeof dialogMajMdp.showModal === "function") {
+                dialogMajMdp.showModal();
+            } else {
+                console.error("L'API dialog n'est pas prise en charge par votre navigateur");   
+            }            
+        }
     });
-    confirmBtnMdp.addEventListener('click', function(){
-       if(confirmationMdp.value == passwordu.value){
-            dialogMajMdp.addEventListener('close', function onClose() {
-                $.ajax({
-                        type: "POST",
-                        url: "modifs_compte.php",
-                        data: 'nouveau_mdp=' + passwordu.value
-                    })
-                    if (retourMdp.value == ''){
-                        retourMdp.value += "Rafraichissez la page pour voir les modifications ";
+       
+       confirmBtnMdp.addEventListener('click', function(){
+           var mdp = passwordu.value;
+           var confirmation_mdp = confirmationMdp.value;
+            $.ajax({
+                type: "POST",
+                url: "modifs_compte.php",
+                data: {
+                    fonction:'verification_mdp',
+                    params: {mdp, confirmation_mdp, pseudoU},
+                    },
+                    success: function(data)
+                    {
+                        switch (data){
+                            case '-1' : 
+                                document.getElementById('Type_erreur').innerHTML = 'Champs différents';
+                                passwordu.value = "";
+                                confirmationMdp.value="";
+                                break;
+                            case '-2' :
+                                document.getElementById('Type_erreur').innerHTML = 'Erreur dans le traitement de la requête';
+                                passwordu.value = "";
+                                confirmationMdp.value="";
+                                break;
+                            case '-3':
+                                document.getElementById('Type_erreur').innerHTML = 'Il faut une majuscule et un chiffre';
+                                passwordu.value = "";
+                                confirmationMdp.value="";
+                                break;
+                            case '0':
+                                document.getElementById('Type_erreur').innerHTML = '';
+                                $('.btnsubmit').click();
+                                retourMdp.value = 'Les changements ont été pris en compte';
+                                break;
+                        }
+                         
+                        
                     }
-                });
-           }else{
-               if (verification.value == ''){
-                    verification.value = "Les champs ne sont pas identiques";
-               }
-               confirmationMdp.value == val_cfm_origin;
-               passwordu.value = val_pwd_origin;
-           } 
+            }) 
        });
     })();
 </script>

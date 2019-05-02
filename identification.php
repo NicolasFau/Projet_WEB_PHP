@@ -2,7 +2,7 @@
     <html>       
         <head>
         	<meta charset="utf-8" />
-            <link rel="stylesheet" href="css/style.css" />
+            <link rel="stylesheet" href="css/css.css" />
             <!-- Latest compiled and minified CSS -->
         </head>
 
@@ -33,12 +33,9 @@
                             if (isset($_POST['PseudoU'])) {
                                 $pseudo = $_POST['PseudoU'];
                                 $pass = $_POST['PasswordU'];
-                                $result = $linkpdo->prepare('SELECT PasswordU, estadministrateur FROM utilisateur WHERE PseudoU = :PseudoU');
-						        $result->execute(array('PseudoU' => $_POST['PseudoU']));
-                                /*$result = pg_query($linkpdo, "SELECT PasswordU, estadministrateur FROM utilisateur WHERE PseudoU = '$pseudo';");*/
+                                $result = pg_query($linkpdo, "SELECT PasswordU, estadministrateur FROM utilisateur WHERE PseudoU = '$pseudo';");
                                 if ($result) {
-                                    $donnees = $result->fetch();
-                                    /*$donnees = pg_fetch_array($result);*/
+                                    $donnees = pg_fetch_array($result);
                                     if (!strcmp($donnees["passwordu"], $pass)) {
                                         session_start();
                                         $_SESSION['PseudoU'] = $_POST['PseudoU'];

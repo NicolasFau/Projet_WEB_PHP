@@ -12,7 +12,7 @@
                     <div id="infos">
                             <form action="enregistrerUser.php" method="post">
                                         <p>Pseudo <br><input type="text" name="PseudoU" required="required"/></p>
-                                        <p>Password  <br><input type="password" name="PasswordU" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,30}$" required="required" onInvalid="setCustomValidity('Veuillez entrer un mot de passe avec au moins une majuscule et un chiffre')"/></p>
+                                        <p>Password  <br><input type="password" name="PasswordU" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,30}$" required="required" onInvalid="setCustomValidity('Veuillez entrer un mot de passe avec au moins une majuscule et un chiffre')" /></p>
                                         <p>Mail <br><input type="email" name="MailU" required="required" placeholder="test@gmail.com" style="text-align: center"/></p>
                                         <p>Description <br><textarea rows = "5" cols = "50" name="DescriptionU" required="required" maxlength="255" placeholder="Entrer votre description" style="text-align: center"></textarea></p>
                                         <p>Type <br><select name="TypeU" required="required"/>

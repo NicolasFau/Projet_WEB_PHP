@@ -2,7 +2,7 @@
 include 'head.php';
 include 'header.php';
 if(!est_connecte() || !est_admin()) {header('deconnexion.php');}
-if (isset($_GET['PseudoU']) || isset($_SESSION['PseudoU'])){
+if (isset($_GET['PseudoU']) && isset($_SESSION['PseudoU'])){
 if ($_GET['PseudoU']==$_SESSION['PseudoU']){
     $modifs=TRUE;
 }else{
@@ -105,11 +105,15 @@ if ($_GET['PseudoU']==$_SESSION['PseudoU']){
                <dialog id="dialogMajMdp">
                             <form method="dialog">
                                 <p><label>Modifier le mot de passe :</label></p>
-                                    <input type="password" name="PasswordU" value="<?php echo $utilisateur['passwordu']?>" required/>
-                                    <input type="password" id="confirmation" value="" required/>
+                                <p>Mot de Passe : </p><input type="password" name="PasswordU" value="" required/>
+                                <br>
+                                <p>Confirmation</p><input type="password" id="confirmation" value="" required/>
+                                    <div id="Type_erreur"></div>
                                 <menu>
                                     <button type="cancel" value="<?php echo $utilisateur['passwordu']; ?>">Annuler</button>
-                                    <button type="submit" id="confirmBtnMdp" value="<?php echo $utilisateur['passwordu']; ?>">Confirmer</button>
+                                    <button type="button" id="confirmBtnMdp" value="<?php echo $utilisateur['passwordu']; ?>">Confirmer</button>
+                                    <input class='btnsubmit' type='submit' value='Envoyer' style="display:none">
+
                                 </menu>
                             </form>
                         </dialog>

@@ -35,5 +35,5 @@ if($resultatsSeries != NULL){
 else{
     echo 'Aucun réultat pour cette recherche';
 }
-
+}
 ?>					

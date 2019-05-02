@@ -1,5 +1,7 @@
 <?php
+    include 'head.php';
     include 'header.php';
+    $titre = 'accueil';
 ?>
 <body>
 
