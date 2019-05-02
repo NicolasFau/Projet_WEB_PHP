@@ -7,7 +7,7 @@ $date=$_POST['date'];
 $connect=$linkpdo;
 //Requete
 $query="INSERT INTO realisateur(nomrealisateur, prenomrealisateur, ddnrealisateur)
-        VALUES('$nom',''$prenom','$date')";
+        VALUES('$nom','$prenom','$date')";
 //Insertion dans la base
 $queryinsert=pg_query($connect,$query);
 //Controle de l'insertion

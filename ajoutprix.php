@@ -10,7 +10,7 @@
 	       <p>Nom <input type="text" name="nom"></p>
 	       <p>Ville<input type="text" name="ville"></p>
          <p>Date<input type="date" name="date"></p>
-         <p><a href="ajoutprix.php"<input type="submit" value="Ajouter"></a></p>
+         <p><a href="ajoutprix.php"><input type="submit" value="Ajouter"></a></p>
     </form>
     <form action="ajoutprixserie.php" method="post">
       <label for="choix_serie">Nom Série </label>
@@ -40,7 +40,7 @@
   echo '<datalist id="listePrix">';
   while ($data =pg_fetch_array($resulatprix)) {
     // on affiche les résultats
-    echo '<option value='.$data['nomPrix'].'>';
+    echo '<option value='.$data['nomprix'].'>';
   }
   echo  '</datalist>';
 ?>

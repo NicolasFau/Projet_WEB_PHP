@@ -14,7 +14,7 @@ $target_file=$target_dir . $_FILES["image"]["name"];
 $connect=$linkpdo;
 //Test du contenue de la variable acteur
 
-  $query="INSERT INTO Serie(nomserie,themeserie,paysorigineserie,urlimageserie)
+  $query="INSERT INTO serie(nomserie,themeserie,paysorigineserie,urlimageserie)
           VALUES('$titre','$genre','$pays','$target_file')";
 
 //requete d'insertion

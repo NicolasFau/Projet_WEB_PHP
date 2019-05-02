@@ -5,7 +5,7 @@
         <meta charset="utf-8" />
     </head>
     <body>
-    <form action="formrealisateur.php" method="post">
+    <form action="formajoutrealisateur.php" method="post">
 	       <p>Nom <input type="text" name="nom"></p>
 	       <p>Prenom<input type="text" name="prenom"></p>
          <p>Date de naissance<input type="date" name="date"></p>

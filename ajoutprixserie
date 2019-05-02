@@ -7,7 +7,7 @@ $realisateur=$_POST['listeRea'];
 //Connexion à la base de donnée
 $connect=$linkpdo;
 //Requete
-$query="INSERT INTO realise(nomSerie,idRealisateur)
+$query="INSERT INTO realiser(nomserie,idrealisateur)
         VALUES('$serie','$realisateur')";
 //Réalisation de la requete
 $queryupdate=pg_connect($connect,$query);

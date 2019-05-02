@@ -9,7 +9,7 @@ $date=$_POST['date'];
 $connect=$linkpdo;
 //Requete d'insertion
 $query="INSERT INTO Acteur(nomacteur,prenomacteur, ddnacteur)
-        VALUES($nom','$prenom','$date')";
+        VALUES('$nom','$prenom','$date')";
 $insert=pg_query($connect,$query);
 //Controle d'insertion
 

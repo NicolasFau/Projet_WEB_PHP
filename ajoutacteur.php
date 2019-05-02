@@ -36,7 +36,7 @@
   $queryacteur="Select * from acteur";
   $resulatacteur=pg_exec($connect, $queryacteur);
   //datalist dynamique
-  echo '<input  list="listeActeur type="text" name="listeActeur">';
+  echo '<input  list="listeActeur" type="text" name="listeActeur">';
   echo '<datalist id="listeActeur">';
   while ($data =pg_fetch_array($resulatacteur)) {
     // on affiche les résultats

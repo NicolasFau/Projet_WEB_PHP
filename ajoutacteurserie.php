@@ -5,12 +5,12 @@ require("connexion.php");
 $serie=$_POST['listeSerie'];
 $acteur=$_POST['listeActeur'];
 //Connexion à la base de donnée
-$connect=connexionbdd('test','test','123456789');
+$connect=$linkpdo;
 //Requete
 $query="INSERT INTO jouer(nomserie,idacteur)
         VALUES('$serie','$acteur')";
 //Réalisation de la requete
-$queryupdate=pg_connect($connect,$query);
+$insert=pg_connect($connect,$query);
 //Controle sur la requete
 if ($insert) {
     header("Location: ajoutacteur.php");

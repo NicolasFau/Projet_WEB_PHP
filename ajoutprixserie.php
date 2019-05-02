@@ -2,8 +2,8 @@
 //import des fonction
 require("connexion.php");
 //Récupération des variables
-$serie=$_POST('listeSerie');
-$prix=$_POST('listePrix');
+$serie=$_POST['listeSerie'];
+$prix=$_POST['listePrix'];
 //Connexion à la base de donnée
 $connect=$linkpdo;
 //Requete

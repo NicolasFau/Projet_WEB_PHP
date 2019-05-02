@@ -15,7 +15,7 @@ echo $date;*/
 $connect=$linkpdo;
 
 //Insertion du numéro de la Saison
-$queryinsert="INSERT INTO Saison(numeroSaison, dateParution) VALUES($numeroSaison','$date')";
+$queryinsert="INSERT INTO saison(numéroSaison, dateparutionsaison, nomserie) VALUES('$numeroSaison','$date','$listeSerie')";
 $queryNomserie=pg_query($connect,$queryinsert);
 
 if ($queryNomserie) {
