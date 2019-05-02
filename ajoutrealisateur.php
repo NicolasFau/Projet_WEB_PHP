@@ -27,27 +27,11 @@
       }
       echo  '</datalist>';
     ?>
-    <label for="choix_serie">Sélectionner une Saison </label>
-    <?
-    require("connexion.php");
-    $connect=$linkpdo;
-    $queryNomserie="Select * from Serie,Saison WHERE Serie.idSerie=Saison.idSerie";
-    $resulatNomListe=pg_exec($connect, $queryNomserie);
-    //datalist dynamique
-    echo '<input  list="listeSaison" type="text" name="listeSaison">';
-    echo '<datalist id="listeSaison">';
-    while ($data =pg_fetch_array($resulatNomListe)) {
-    	// on affiche les résultats
-    	echo '<option value='.$data['numeroSaison'].'>';
-    }
-    echo  '</datalist>';
-  ?>
+    
   <label for="choix_realisateur">Nom du réalisateur </label>
   <?
-  $n="test";
-  $u="test";
-  $p="123456789";
-  $connect=pg_connect("host=localhost port=5432 dbname=$n user=$u password=$p");
+  require("connexion.php");
+  $connect=$linkpdo;
   $queryNomserie="Select * from realisateur";
   $resulatNomListe=pg_exec($connect, $queryNomserie);
   //datalist dynamique
