@@ -5,7 +5,7 @@ function supprimer(idcritique){
    if (confirm('Etes-vous sûr de vouloir supprimer cette critique')){
        $.ajax({
            type : "POST",
-           url: "modifs_compte.php",
+           url: "fonctions_compte.php",
            data:{
                 fonction:'supprimer_critique',
                 params: {pseudoU, idcritique},
@@ -26,7 +26,6 @@ function supprimer(idcritique){
     var selectEl = document.getElementsByTagName('select')[0];
     var confirmBtnType = document.getElementById('confirmBtnType');
              
-    // Le bouton "modifier" ouvre la boîte de dialogue
     modifierType.addEventListener('click', function onOpen() {
         if (typeof dialogMajType.showModal === "function") {
             dialogMajType.showModal();
@@ -34,16 +33,14 @@ function supprimer(idcritique){
             console.error("L'API dialog n'est pas prise en charge par votre navigateur");
         }
     });
-    // Le champ "animal préféré" définit la valeur pour le bouton submit
     selectEl.addEventListener('change', function onSelect(e) {
         confirmBtnType.value = selectEl.value;
     });
-    // Le bouton "Confirmer" déclenche l'évènement "close" sur le dialog avec [method="dialog"]
     dialogMajType.addEventListener('close', function onClose() {
         var nouveau_type = dialogMajType.returnValue;
         $.ajax({
             type: "POST",
-            url: "modifs_compte.php",
+            url: "fonctions_compte.php",
             data: {
                 fonction:'modif_type',
                 params: {pseudoU, nouveau_type},
@@ -76,7 +73,7 @@ function supprimer(idcritique){
            var nouvelle_description = textarea.value;
            $.ajax({
             type: "POST",
-            url: "modifs_compte.php",
+            url: "fonctions_compte.php",
             data: {
                 fonction:'modif_description',
                 params: {pseudoU, nouvelle_description},
@@ -97,7 +94,6 @@ function supprimer(idcritique){
     var passwordu = document.getElementsByTagName('input')[3];
     var confirmationMdp = document.getElementById('confirmation');
     var confirmBtnMdp = document.getElementById('confirmBtnMdp');
-    // Le bouton "mettre à jour les détails" ouvre la boîte de dialogue
         
     modifierMdp.addEventListener('click', function onOpen() {
         if (confirm('Etes vous sûr de vouloir modifier le mot de passe ?')){
@@ -109,44 +105,42 @@ function supprimer(idcritique){
         }
     });
        
-       confirmBtnMdp.addEventListener('click', function(){
-           var mdp = passwordu.value;
-           var confirmation_mdp = confirmationMdp.value;
-            $.ajax({
-                type: "POST",
-                url: "modifs_compte.php",
-                data: {
-                    fonction:'verification_mdp',
-                    params: {mdp, confirmation_mdp, pseudoU},
-                    },
-                    success: function(data)
-                    {
-                        switch (data){
-                            case '-1' : 
-                                document.getElementById('Type_erreur').innerHTML = 'Champs différents';
-                                passwordu.value = "";
-                                confirmationMdp.value="";
-                                break;
-                            case '-2' :
-                                document.getElementById('Type_erreur').innerHTML = 'Erreur dans le traitement de la requête';
-                                passwordu.value = "";
-                                confirmationMdp.value="";
-                                break;
-                            case '-3':
-                                document.getElementById('Type_erreur').innerHTML = 'Il faut une majuscule et un chiffre';
-                                passwordu.value = "";
-                                confirmationMdp.value="";
-                                break;
-                            case '0':
-                                document.getElementById('Type_erreur').innerHTML = '';
-                                $('.btnsubmit').click();
-                                retourMdp.value = 'Les changements ont été pris en compte';
-                                break;
-                        }
-                         
-                        
-                    }
-            }) 
-       });
-    })();
+    confirmBtnMdp.addEventListener('click', function(){
+       var mdp = passwordu.value;
+       var confirmation_mdp = confirmationMdp.value;
+        $.ajax({
+            type: "POST",
+            url: "fonctions_compte.php",
+            data: {
+                fonction:'verification_mdp',
+                params: {mdp, confirmation_mdp, pseudoU},
+                },
+                success: function(data)
+                {
+                    switch (data){
+                        case '-1' : 
+                            document.getElementById('Type_erreur').innerHTML = 'Champs différents';
+                            passwordu.value = "";
+                            confirmationMdp.value="";
+                            break;
+                        case '-2' :
+                            document.getElementById('Type_erreur').innerHTML = 'Erreur dans le traitement de la requête';
+                            passwordu.value = "";
+                            confirmationMdp.value="";
+                            break;
+                        case '-3':
+                            document.getElementById('Type_erreur').innerHTML = 'Il faut une majuscule et un chiffre';
+                            passwordu.value = "";
+                            confirmationMdp.value="";
+                            break;
+                        case '0':
+                            document.getElementById('Type_erreur').innerHTML = '';
+                            $('.btnsubmit').click();
+                            retourMdp.value = 'Les changements ont été pris en compte';
+                            break;
+                    }   
+                }
+        }) 
+    });
+})();
 </script>
