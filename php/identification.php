@@ -8,6 +8,7 @@
 
 		<?php
 		require 'connexion.php';
+        session_start();
 		?>
             <fieldset>
             <legend>Connexion</legend>
@@ -37,7 +38,6 @@
                                 if ($result) {
                                     $donnees = pg_fetch_array($result);
                                     if (!strcmp($donnees["passwordu"], $pass)) {
-                                        session_start();
                                         $_SESSION['PseudoU'] = $_POST['PseudoU'];
                                         $_SESSION['PasswordU'] = $donnees['PasswordU'];
                                         header('Location: accueil.php');

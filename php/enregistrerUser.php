@@ -18,10 +18,10 @@
 
                 <?php
                     $pseudo=$_POST['PseudoU'];
-                    $mail=$_POST['MailU'];
+                    $mail=strtolower(htmlentities(pg_escape_string ($_POST['MailU'])));
                     $pass=$_POST['PasswordU'];
                     $dateCrea=date("Y-m-d");
-                    $description=$_POST['DescriptionU'];
+                    $description=pg_escape_string($_POST['DescriptionU']);
                     $ddn=$_POST['DDNU'];
                     $type=$_POST['TypeU'];
                     if(!isset($_SESSION['PseudoU'])) {
