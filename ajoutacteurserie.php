@@ -1,6 +1,7 @@
 <?php
 //import des fonction
 require("connexion.php");
+require("header.php");
 //Récupération des variables
 $serie=$_POST['listeSerie'];
 $acteur=$_POST['listeActeur'];

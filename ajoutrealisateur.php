@@ -1,3 +1,7 @@
+<?php require("header.php");
+
+ ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -27,7 +31,7 @@
       }
       echo  '</datalist>';
     ?>
-    
+
   <label for="choix_realisateur">Nom du réalisateur </label>
   <?
   require("connexion.php");
