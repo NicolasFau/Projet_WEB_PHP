@@ -67,7 +67,10 @@
     $resulatNomListe=pg_exec($connect, $queryNomserie);
     //datalist dynamique
     echo '<table>';
-
+    echo "<tr>
+       <th>Prenom</th>
+       <th>Nom</th>
+   </tr>";
     while ($data =pg_fetch_array($resulatNomListe)) {
       // on affiche les résultats
       echo "<tr>";

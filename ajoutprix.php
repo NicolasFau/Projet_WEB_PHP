@@ -60,3 +60,24 @@
 ?>
     <p><a href="ajoutprix.php"><input type="submit" value="Ajouter"></a></p>
     </form>
+    <h2>Prix dans la base</h2>
+    <?
+    require("connexion.php");
+    $connect=$linkpdo;
+    $queryNomserie="Select * from prixdecerne";
+    $resulatNomListe=pg_exec($connect, $queryNomserie);
+    //datalist dynamique
+    echo '<table>';
+    echo "<tr>
+       <th>Nom</th>
+       <th>Ville</th>
+   </tr>";
+    while ($data =pg_fetch_array($resulatNomListe)) {
+      // on affiche les résultats
+      echo "<tr>";
+      echo '<td>'.$data['nomprix'].'</td>';
+      echo '<td>'.$data['villeprix'].'</td>';
+      echo "</tr>";
+    }
+    echo  '</table>';
+    ?>

@@ -59,3 +59,24 @@
 ?>
     <p><a href="ajoutacteur.php"><input type="submit" name="2" value="Ajouter Acteur/Serie"></a></p>
     </form>
+    <h2>Acteur dans la base</h2>
+    <?
+    require("connexion.php");
+    $connect=$linkpdo;
+    $queryNomserie="Select * from acteur";
+    $resulatNomListe=pg_exec($connect, $queryNomserie);
+    //datalist dynamique
+    echo '<table>';
+    echo "<tr>
+       <th>Prenom</th>
+       <th>Nom</th>
+   </tr>";
+    while ($data =pg_fetch_array($resulatNomListe)) {
+      // on affiche les résultats
+      echo "<tr>";
+      echo '<td>'.$data['prenomacteur'].'</td>';
+      echo '<td>'.$data['nomacteur'].'</td>';
+      echo "</tr>";
+    }
+    echo  '</table>';
+    ?>
