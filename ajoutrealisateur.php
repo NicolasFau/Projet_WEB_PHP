@@ -59,3 +59,21 @@
 ?>
     <p><input type="submit" value="Ajouter"></p>
     </form>
+    <h2>Réalisateur dans la base</h2>
+    <?
+    require("connexion.php");
+    $connect=$linkpdo;
+    $queryNomserie="Select * from realisateur";
+    $resulatNomListe=pg_exec($connect, $queryNomserie);
+    //datalist dynamique
+    echo '<table>';
+
+    while ($data =pg_fetch_array($resulatNomListe)) {
+      // on affiche les résultats
+      echo "<tr>";
+      echo '<td>'.$data['prenomrealisateur'].'</td>';
+      echo '<td>'.$data['nomrealisateur'].'</td>';
+      echo "</tr>";
+    }
+    echo  '</table>';
+    ?>
