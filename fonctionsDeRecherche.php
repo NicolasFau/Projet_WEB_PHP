@@ -1,6 +1,6 @@
 <?php
 
-function rechercher_serie($linkpdo, $recherche){
+/*function rechercher_serie($linkpdo, $recherche){
     $result = $linkpdo->prepare('SELECT * FROM Serie WHERE NomSerie LIKE :recherche ORDER BY NomSerie ASC');
     $result->execute(array('recherche' => $recherche));
     $donnees = $result->fetchAll();
@@ -13,27 +13,19 @@ function rechercher_acteur($linkpdo, $recherche){
     $result->execute(array('recherche' => $recherche));
     $donnees = $result->fetchAll();
     return $donnees;
+}*/
+
+function listeTheme($linkpdo){
+    $requete='SELECT distinct themeserie FROM serie' ;
+    $result=pg_exec($linkpdo,$requete);
+    $donnees = pg_fetch_all($result);
+    return $donnees;
+}
+function rechercheParTheme($linkpdo, $theme){
+    $requete='SELECT * FROM serie WHERE themeserie=\''.$theme.'\'';
+    $result=pg_exec($linkpdo,$requete);
+    $donnees = pg_fetch_all($result);
+    return $donnees;
 }
 
-function rechercher_categorie($linkpdo, $recherche){
-    
-}
-
-
-
-
-$recherche = strtolower($_GET['search']);
-
-$resultatsSeries = rechercher_serie($linkpdo, $recherche);
-
-if($resultatsSeries != NULL){
-    foreach($resultatsSeries as $Serie) {
-            echo $Serie['NomSerie'];
-            echo $Serie['ThemeSerie'];
-            echo $Serie['SynopsisSerie'];
-    }
-else{
-    echo 'Aucun réultat pour cette recherche';
-}
-}
 ?>					
