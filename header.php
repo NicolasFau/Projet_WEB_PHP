@@ -45,10 +45,10 @@ session_start();
         </div>
         <nav>    
             <ul >
-                <li><a href="/accueil.php">Accueil</a></li>
-                <li><a href="/serie.php">Série</a></li>
-                <li><a href="/rechercheAvancee.php">Recherche Avancée</a></li>
-                <li><a href="/propserSerie.php">Proposer une Série</a></li>  
+                <li><a href="./accueil.php">Accueil</a></li>
+                <li><a href="./serie.php">Série</a></li>
+                <li><a href="./rechercheAvancee.php">Recherche Avancée</a></li>
+                <li><a href="./proposer_Serie.php">Proposer une Série</a></li>  
                 <?php if ( est_admin() ) { ?>
                     <li class="sous-menu"><a class="" href="/administration.php">Administration</a>
                     <div class="contenu-sous-menu">
