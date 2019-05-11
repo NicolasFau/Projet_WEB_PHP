@@ -1,0 +1,28 @@
+<?php
+
+
+/*function rechercher_serie($linkpdo, $recherche){
+    $result = $linkpdo->prepare('SELECT * FROM Serie WHERE NomSerie LIKE :recherche ORDER BY NomSerie ASC');
+    $result->execute(array('recherche' => $recherche));
+    $donnees = $result->fetchAll();
+    return $donnees;
+}
+function rechercher_acteur($linkpdo, $recherche){
+    $result = $linkpdo->prepare('SELECT * FROM Acteur WHERE NomActeur LIKE :recherche ORDER BY NomActeur ASC');
+    $result->execute(array('recherche' => $recherche));
+    $donnees = $result->fetchAll();
+    return $donnees;
+}*/
+function listeTheme($linkpdo){
+    $requete='SELECT distinct themeserie FROM serie' ;
+    $result=pg_exec($linkpdo,$requete);
+    $donnees = pg_fetch_all($result);
+    return $donnees;
+}
+function rechercheParTheme($linkpdo, $theme){
+    $requete='SELECT * FROM serie WHERE themeserie=\''.$theme.'\'';
+    $result=pg_exec($linkpdo,$requete);
+    $donnees = pg_fetch_all($result);
+    return $donnees;
+}
+?>					
