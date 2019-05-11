@@ -1,8 +1,14 @@
+<!DOCTYPE html>
+    <html>
 
+        <head>
+            <meta charset="utf-8" />
+            <link rel="stylesheet" href="css/menu.css" />
+            <!-- Latest compiled and minified CSS -->
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        </head>
 
         <?php
-            include 'head.php';
-            include 'header.php';
             require 'connexion.php';
         ?>
 
@@ -12,10 +18,10 @@
 
                 <?php
                     $pseudo=$_POST['PseudoU'];
-                    $mail=$_POST['MailU'];
+                    $mail=strtolower(htmlentities(pg_escape_string ($_POST['MailU'])));
                     $pass=$_POST['PasswordU'];
                     $dateCrea=date("Y-m-d");
-                    $description=$_POST['DescriptionU'];
+                    $description=pg_escape_string($_POST['DescriptionU']);
                     $ddn=$_POST['DDNU'];
                     $type=$_POST['TypeU'];
                     if(!isset($_SESSION['PseudoU'])) {
@@ -23,11 +29,11 @@
                                 $result = pg_query($linkpdo, "SELECT CodeUtilisateur FROM utilisateur WHERE PseudoU = '$pseudo' AND MailU = '$mail'  AND PasswordU = '$pass' AND DateCreationU = '$dateCrea' AND DescriptionU = '$description' AND DDNU = '$ddn' AND TypeU = '$type';");
                                 $row = pg_fetch_array($result);
                                 if (!strcmp($row['PseudoU'], $pseudo)) {
-                                    header('Location: acueil.php?error=Login déjà utilisé.');
+                                    header('Location: index.php?error=Login déjà utilisé.');
                                 } else {
                                     $result = pg_query($linkpdo, "INSERT INTO utilisateur (PseudoU,MailU,PasswordU,DateCreationU,DescriptionU,DDNU,estadministrateur,TYPEU) VALUES('$pseudo', '$mail', '$pass','$dateCrea', '$description', '$ddn',false , '$type');");
                                     if ($result) {
-                                        header('Location: accueil.php');
+                                        header('Location: index.php');
                                     } else {
                                         header('Location: saisieUser.php?error=Erreur lors de la création du compte.');
                                     }
@@ -36,6 +42,7 @@
                     }else{
                         header('Location: accueil.php');
                     }
+
                 ?>
         </body>
     </html>

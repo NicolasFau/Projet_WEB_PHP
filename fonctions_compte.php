@@ -1,4 +1,4 @@
-<?php
+    <?php
 include 'connexion.php';
 
 if (isset($_REQUEST['fonction']) && $_REQUEST['fonction'] != '')
@@ -34,10 +34,10 @@ function rechercher_utilisateur($linkpdo, $pseudoU){
 }
 
 function rechercher_critiques($linkpdo, $pseudoU){
-    $requete='SELECT * FROM critique WHERE codeutilisateurcritiquant = (SELECT codeutilisateur FROM utilisateur WHERE pseudou=\'' .$pseudoU. '\')';
-    $result=pg_exec($linkpdo,$requete);
-    $donnees = pg_fetch_All($result);
-    return $donnees;
+        $requete='SELECT * FROM critique, utilisateur WHERE codeutilisateurcritiquant = codeutilisateur AND pseudou =\'' .$pseudoU. '\'';
+        $result=pg_exec($linkpdo,$requete);
+        $donnees = pg_fetch_All($result);
+        return $donnees;
 }
 
 

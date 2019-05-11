@@ -1,10 +1,17 @@
-<?php
-require 'connexion.php';
-include 'head.php';
-include 'header.php';
-?>
-<body>      
-<fieldset>
+<!DOCTYPE html>
+    <html>       
+        <head>
+        	<meta charset="utf-8" />
+            <link rel="stylesheet" href="css/style.css" />
+            <!-- Latest compiled and minified CSS -->
+        </head>
+
+		<?php
+		require 'connexion.php';
+        include 'head.php';
+        include 'header.php';
+		?>
+            <fieldset>
             <legend>Connexion</legend>
                 <div id="infos">
 						<form action="identification.php" method="post">
@@ -19,21 +26,22 @@ include 'header.php';
                                 ?>
                                 <p><input type="submit" value="Connexion"></p>
                                 <p id="enregistrer">Si vous n'avez pas de compte <a href="saisieUser.php" title="Créer un compte">cliquez ici</a>.</p>
-                    	</form>
+
+                        </form>
                 </div>
             </fieldset>
 						<?php
+
                         if(!isset($_SESSION['PseudoU'])) {
                             if (isset($_POST['PseudoU'])) {
                                 $pseudo = $_POST['PseudoU'];
                                 $pass = $_POST['PasswordU'];
-                                $result = pg_query($linkpdo, "SELECT PasswordU, estadministrateur FROM utilisateur WHERE PseudoU = '$pseudo';");
+                                $result = pg_query($linkpdo, "SELECT Passwordu, estAdministrateur FROM utilisateur WHERE Pseudou = '$pseudo';");
                                 if ($result) {
                                     $donnees = pg_fetch_array($result);
                                     if (!strcmp($donnees["passwordu"], $pass)) {
-                                        session_start();
-                                        $_SESSION['PseudoU'] = $_POST['PseudoU'];
-                                        $_SESSION['PasswordU'] = $donnees['PasswordU'];
+                                        $_SESSION['PseudoU'] = $pseudo;
+                                        $_SESSION['PasswordU'] = $pass;
                                         $_SESSION['estadmin'] = $donnees['estadministrateur'];
                                         header('Location: accueil.php');
                                         if (isset($_POST['cookie']) && $_POST['cookie'] == 'on') {
@@ -49,10 +57,7 @@ include 'header.php';
                             }
                         }else{
                             header('Location: accueil.php');
-                            
                         }
 					session_commit();
 					?>
-<body>
-
 </html>
