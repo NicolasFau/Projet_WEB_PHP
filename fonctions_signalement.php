@@ -11,14 +11,38 @@
             $donnees=pg_exec($linkpdo, $requete);
         
         if(pg_result_error($donnees)==''){
-            echo 'ca marche';
             $requete2="UPDATE critique SET estsignalee='true' WHERE idcritique='" .$idcritique. "'";
             $donnees=pg_exec($linkpdo, $requete2);
+            echo '<p>Signalement effectué</p>';
+
         }else{
             echo '<p>Erreur dans le traitement de la requete</p>';
         }
         }else{
             echo '<p>Erreur dans le traitement de la requete</p>';
+        }
+    }
+
+    function ignorer_signalement($linkpdo, $idsignalement){
+        $requete="SELECT * FROM signalement WHERE idsignalement='".$idsignalement."'";
+        $donnees=pg_exec($linkpdo, $requete);
+        $donnees=pg_fetch_all($donnees);
+
+        if(pg_result_error($donnees)==''){
+            $idcritique=$donnees[0]['idcritique'];
+            $requete2="UPDATE critique SET estsignalee='false' WHERE idcritique='" .$idcritique. "'";
+            $donnees=pg_exec($linkpdo, $requete2);
+            
+            if(pg_result_error($donnees)==''){
+                $requete3="DELETE FROM signalement WHERE idcritique='".$idcritique."' AND idsignalement='".$idsignalement."'";
+                $donnees=pg_exec($linkpdo, $requete3);
+                echo '<p>Signalement retiré</p>';
+
+            }else{
+                echo'<p>Erreur dans le traitement de la requete</p>';
+            }   
+        }else{
+                echo'<p>Erreur dans le traitement de la requete</p>';
         }
     }
 ?>
