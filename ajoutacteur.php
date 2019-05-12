@@ -27,7 +27,7 @@
     </form>
     <form action="ajoutacteurserie.php" method="post">
       <label for="choix_serie">Nom Série </label>
-      <?
+      <?php
       require("connexion.php");
       $connect=$linkpdo;
       $queryNomserie="Select * from serie";
@@ -43,7 +43,7 @@
     ?>
 
   <label for="choix_acteur">Acteur </label>
-  <?
+  <?php
   require("connexion.php");
   $connect=$linkpdo;
   $queryacteur="Select * from acteur";
@@ -60,7 +60,7 @@
     <p><a href="ajoutacteur.php"><input type="submit" name="2" value="Ajouter Acteur/Serie"></a></p>
     </form>
     <h2>Acteur dans la base</h2>
-    <?
+    <?php
     require("connexion.php");
     $connect=$linkpdo;
     $queryNomserie="Select * from acteur";
