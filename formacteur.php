@@ -1,7 +1,7 @@
 <?php
 //Appel du fichier de fonction
 require("connexion.php");
-
+require("header.php");
 //Récuperation des variables via post
 $nom=$_POST['nom'];
 $prenom=$_POST['prenom'];

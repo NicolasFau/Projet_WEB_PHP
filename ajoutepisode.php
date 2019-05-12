@@ -11,7 +11,7 @@
     <body>
     <label for="choix_serie">Nom Série </label>
     <form action="formajoutepisode.php" method="post">
-            <?
+            <?php
             require("connexion.php");
             $connect=$linkpdo;
             $queryNomserie="Select * from serie";
@@ -26,7 +26,7 @@
             echo  '</datalist>';
           ?>
           <label for="choix_saison">Saison </label>
-          <?
+          <?php
           require("connexion.php");
           $connect=$linkpdo;
           $query="Select * from Serie,Saison WHERE serie.nomserie=saison.nomserie";

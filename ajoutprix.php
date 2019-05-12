@@ -28,7 +28,7 @@
     </form>
     <form action="ajoutprixserie.php" method="post">
       <label for="choix_serie">Nom Série </label>
-      <?
+      <?php
       require("connexion.php");
       $connect=$linkpdo;
       $queryNomserie="Select * from serie";
@@ -44,7 +44,7 @@
     ?>
 
   <label for="choix_prix">Prix </label>
-  <?
+  <?php
   require("connexion.php");
   $connect=$linkpdo;
   $queryprix="Select * from prixdecerne";
@@ -61,7 +61,7 @@
     <p><a href="ajoutprix.php"><input type="submit" value="Ajouter"></a></p>
     </form>
     <h2>Prix dans la base</h2>
-    <?
+    <?php
     require("connexion.php");
     $connect=$linkpdo;
     $queryNomserie="Select * from prixdecerne";
