@@ -13,7 +13,6 @@ function signaler_critique($linkpdo, $idcritique, $motif){
         if(pg_result_error($donnees)==''){
             $requete2="UPDATE critique SET estsignalee='true' WHERE idcritique='" .$idcritique. "'";
             $donnees=pg_exec($linkpdo, $requete2);
-            echo '<p>Signalement effectué</p>';
         }else{
             echo '<p>Erreur dans le traitement de la requete</p>';
         }

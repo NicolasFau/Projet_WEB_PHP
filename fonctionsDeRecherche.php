@@ -25,4 +25,10 @@ function rechercheParTheme($linkpdo, $theme){
     $donnees = pg_fetch_all($result);
     return $donnees;
 }
+function rechercher_critiqueSaison($linkpdo, $idsaison){
+    $requete="Select * FROM critique WHERE idsaison= '$idsaison' ORDER BY datecritique DESC";
+    $result=pg_exec($linkpdo, $requete);
+    $donnees=pg_fetch_all($result);
+    return $donnees;
+}
 ?>					

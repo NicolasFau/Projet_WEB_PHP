@@ -109,19 +109,21 @@ function modif_mdp($nouveau_mdp, $pseudoU){
         echo -2;
     }
 }
-    
-function supprimer_critique($data){
-    include 'connexion.php';
-    $idcritique=$_REQUEST['params'] ['idcritique'];
-    $pseudoU=$_REQUEST['params'] ['pseudoU'];
-    $requete='DELETE FROM critique WHERE idcritique=' . $idcritique . 'AND codeutilisateurcritiquant = (SELECT codeutilisateur FROM utilisateur WHERE PseudoU=\'' . $pseudoU . '\' ) ';
-    $donnees=pg_exec($linkpdo, $requete);
-    $result=pg_result_error($donnees);
-    if ($result==""){
-        echo 'L\'opération a été effectuée';
-    }else{
-        echo 'L\'opération a échouée';
+
+    function supprimer_critique($data){
+        include 'connexion.php';
+        $idcritique=$_REQUEST['params'] ['idcritique'];
+        $pseudoU=$_REQUEST['params'] ['pseudoU'];
+        $requete2='DELETE FROM signalement WHERE idcritique='.$idcritique;
+        $donnees=pg_exec($linkpdo,$requete2);
+        $requete='DELETE FROM critique WHERE idcritique=' . $idcritique . 'AND codeutilisateurcritiquant = (SELECT codeutilisateur FROM utilisateur WHERE PseudoU=\'' . $pseudoU . '\' ) ';
+        $donnees=pg_exec($linkpdo, $requete);
+        $result=pg_result_error($donnees);
+        if ($result==""){
+            echo 'L\'opération a été effectuée';
+        }else{
+            echo 'L\'opération a échouée';
+        }
     }
-}
 
 ?>
