@@ -9,22 +9,35 @@ $pays=$_POST['pays'];
 $genre=$_POST['Genre'];
 $synopsis=$_POST['synospsis'];
 
+$querycontrol="SELECT * FROM serie";
+$result=pg_query($linkpdo,$querycontrol);
+
+while ($tab=pg_fetch_array($result)) {
+      if($tab['nomserie']==$titre){
+        $exit=1;
+      }
+
+}
+if($exit!=1){
 //Upload fichiers
 $target_dir=".\\image\\";
 $target_file=$target_dir . $_FILES["image"]["name"];
-//Connexion Bdd
-$connect=$linkpdo;
+
 //Test du contenue de la variable acteur
 
   $query="INSERT INTO serie(nomserie,themeserie,paysorigineserie,urlimageserie)
           VALUES('$titre','$genre','$pays','$target_file')";
 
 //requete d'insertion
-$queryInsertSerie=pg_query($connect,$query);
+$queryInsertSerie=pg_query($linkpdo,$query);
 if($queryInsertSerie){
   header("Location: ajoutsaison.php");
 }
 else{
-  echo "Echec";
+  echo "Location: erreur.php";
+}
+}
+else{
+    echo "La série existe déjà";
 }
 ?>
