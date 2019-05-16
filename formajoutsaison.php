@@ -24,8 +24,9 @@ $queryinsert="INSERT INTO saison(numérosaison, dateparutionsaison, nomserie) VA
 $queryNomserie=pg_query($linkpdo,$queryinsert);
 
 if ($queryNomserie) {
-    echo "Succès";
-    header("Location: ajoutepisode.php");
+    $url="Location: ajoutepisode.php?nom=".$listeSerie."&saison=".$numeroSaison;
+    header($url);
+
 } else {
     echo "Location: erreur.php";
 }
@@ -34,6 +35,13 @@ if ($queryNomserie) {
 else{
     echo "La saison existe déjà";
 }
+
+  <?php
+        if(isset($_GET['nom'])){
+        echo "<input list=\"listeSerie\" type=\"text\" name=\"listeSerie\" value=\"".$_GET['nom']."\">";
+}
+
+else{
 
 
  ?>

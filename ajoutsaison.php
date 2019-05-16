@@ -25,7 +25,13 @@ include 'header.php';
 
   <label for="choix_serie">Nom Série </label>
 
-  <?php
+<?php
+        if(isset($_GET['nom'])){
+         echo "<input list=\"listeSerie\" type=\"text\" name=\"listeSerie\" value=\"".$_GET['nom']."\">";
+}
+
+else{
+  
   require("connexion.php");
   $connect=$linkpdo;
   $queryNomserie="Select * from serie";
@@ -34,11 +40,13 @@ include 'header.php';
   echo '<input  list="listeSerie" type="text" name="listeSerie">';
   echo '<datalist id="listeSerie">';
   while ($data =pg_fetch_array($resulatNomListe)) {
-  	// on affiche les résultats
-  	echo '<option value="'.$data['nomserie'].'">';
+        // on affiche les résultats
+        echo '<option value="'.$data['nomserie'].'">';
   }
   echo  '</datalist>';
+}
 ?>
+
 
 <p><input type="submit" value="Ajouter"></p>
         </form>

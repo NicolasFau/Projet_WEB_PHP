@@ -31,7 +31,9 @@ $target_file=$target_dir . $_FILES["image"]["name"];
 //requete d'insertion
 $queryInsertSerie=pg_query($linkpdo,$query);
 if($queryInsertSerie){
-  header("Location: ajoutsaison.php");
+  $url="Location: ajoutsaison.php?nom=".$titre;
+  header($url);
+
 }
 else{
   echo "Location: erreur.php";
