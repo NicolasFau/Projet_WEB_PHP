@@ -12,7 +12,7 @@ session_start();
         <a href="./accueil.php"><img src="./image/logo.png" width="150px" ></a>    
         <div class="options">
                 <ul class="optionsSecondaires">  
-                    <li> <a href="./aide.php"><img src="./image/aide.png" width="20px"></a></li>
+                    <li> <a href="./aPropos.php"><img src="./image/aide.png" width="20px"></a></li>
                     <?php if ( est_connecte() ) { 
                             $PseudoU=$_SESSION['PseudoU'];?>
                         <li><a href="<?php echo"./compte.php?PseudoU=" . $PseudoU; ?> "><img src="./image/rouage.png" width="20px"></a></li>

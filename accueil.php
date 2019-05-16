@@ -1,8 +1,8 @@
 <?php
+    $titre = 'accueil';
     include 'head.php';
     include 'header.php';
     include 'fonctionsDeRecherche.php';
-    $titre = 'accueil';
 ?>
 <body>
     <center><img src="image/logo.png" style="width: 30%;" /></center>
