@@ -7,18 +7,31 @@ include 'header.php';
 $nom=$_POST['nom'];
 $prenom=$_POST['prenom'];
 $date=$_POST['date'];
-//Connexion bdd
-$connect=$linkpdo;
+$exit=0;
+//Control d'Acteur
+$querycontrol="SELECT * FROM Acteur";
+$result=pg_query($linkpdo,$querycontrol);
+
+while ($tab=pg_fetch_array($result)) {
+      if($tab['nomacteur']==$nom && $tab['prenomacteur']==$prenom){
+        $exit=1;
+      }
+
+}
+echo "exit:".$exit;
+if($exit!=1){
 //Requete d'insertion
-$query="INSERT INTO Acteur(nomacteur,prenomacteur, ddnacteur)
-        VALUES('$nom','$prenom','$date')";
-$insert=pg_query($connect,$query);
-//Controle d'insertion
-
-    if ($insert) {
-        header("Location: ajoutacteur.php");
-    } else {
-        echo "Echec\n";
-    }
-
+          $query="INSERT INTO Acteur(nomacteur,prenomacteur, ddnacteur)
+                  VALUES('$nom','$prenom','$date')";
+          $insert=pg_query($linkpdo,$query);
+          //Controle d'insertion
+          if ($insert) {
+              header("Location: ajoutacteur.php");
+          } else {
+              header("Location: erreur.php");
+          }
+}
+else{
+    echo "L'acteur existe deja";
+}
 ?>
