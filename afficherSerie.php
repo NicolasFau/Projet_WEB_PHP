@@ -10,6 +10,7 @@
         require 'connexion.php';
         include 'head.php';
         include 'header.php';
+       
         ?>
 
         <body>
@@ -32,10 +33,31 @@
                     echo "<b>Saisons existantes :</b>" . "<br>" . "<br>";
                     $result2 = pg_query($linkpdo, "SELECT numérosaison FROM Saison WHERE nomSerie = '$nomserie';");
                     $row2 = pg_fetch_all($result2);
-                    $count = count($row2);
-                    for ($i = 0; $i < $count; $i++) {
-                        $s = $row2[$i]['numérosaison'];
-                        echo "<a href='afficherSaison.php?numsai=$s&nomserie=$nomserie'>Saison $s</a>" . "<br>";
+                    if($row2!=null){
+                        $count = count($row2);
+                        for ($i = 0; $i < $count; $i++) {
+                            $s = $row2[$i]['numérosaison'];
+                            echo "<a href='afficherSaison.php?numsai=$s&nomserie=$nomserie'>Saison $s</a>" . "<br>";
+                        }
+                
+                     if (est_connecte()){
+                        $requete= "SELECT * FROM consulter WHERE dateconsultation='".date("Y-m-d")."'";
+                        $resultat=pg_query($linkpdo, $requete);
+                        $resultat=pg_fetch_all($resultat);
+                     
+                           if(count($resultat)==0){
+                            $requete="SELECT codeutilisateur, typeu FROM utilisateur WHERE pseudou='". $_SESSION['PseudoU']."'";
+                            $resultat=pg_query($linkpdo, $requete);
+                            $resultat=pg_fetch_array($resultat);
+                            $date=date("Y-m-d");
+                            $requete="INSERT INTO consulter VALUES ('".$resultat['codeutilisateur']."', '". $nomserie . "','".$date."','".$resultat['typeu']."')";
+                            $resultat=pg_query($linkpdo, $requete);
+                            $resultat=pg_query($linkpdo, $requete);
+                        }   
+                         
+                       
+
+                    }
                     }
                 }else{
                     echo("Série introuvable");

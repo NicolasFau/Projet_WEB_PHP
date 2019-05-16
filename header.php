@@ -49,7 +49,7 @@ session_start();
                 <li><a href="./serie.php">Série</a></li>
                 <li><a href="./rechercheAvancee.php">Recherche Avancée</a></li>
                 <li><a href="./proposer_Serie.php">Proposer une Série</a></li>  
-                <?php if ( est_admin() ) { ?>
+                <?php if ( est_admin() ) { ?> 
                     <li class="sous-menu"><a class="" href="/administration.php">Administration</a>
                     <div class="contenu-sous-menu">
                     <a href="./ajouterSerie.php">Ajouter une Série</a>

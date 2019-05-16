@@ -19,11 +19,13 @@ function est_connecte(){
 
 function est_admin() {
     if (est_connecte()) {
-        if ($_SESSION['estadmin']) {
+        if ($_SESSION['estadmin']=="t") {
             return true;
         }
+    }else if ($_SESSION['estadmin']=="f"){
+            return false;
+
     }
-    return false;
 }
 
 function rechercher_utilisateur($linkpdo, $pseudoU){
