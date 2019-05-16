@@ -4,11 +4,21 @@ require("connexion.php");
 include 'head.php';
 include 'header.php';
 //Récuperation des variables via post
-$nom=$_POST['nom'];
-$ville=$_POST['ville'];
+$nomprix=$_POST['nom'];
+$villeprix=$_POST['ville'];
 $date=$_POST['date'];
 //Connexion bdd
-$connect=$linkpdo;
+
+$querycontrol="SELECT * FROM prixdecerne";
+$result=pg_query($linkpdo,$querycontrol);
+
+while ($tab=pg_fetch_array($result)) {
+      if($tab['nomprix']==$nomprix && $tab['villeprix']==$villeprix){
+        $exit=1;
+      }
+
+}
+if($exit!=1){
 //Requete d'insertion
 $query="INSERT INTO prixdecerne(nomprix, villeprix)
         VALUES('$nom','$ville')";
@@ -18,7 +28,13 @@ $insert=pg_query($connect,$query);
     if ($insert) {
         header("Location: ajoutprix.php");
     } else {
-        echo "Echec\n";
+        echo "Location: erreur.php";
     }
+    }
+else{
+    echo "Le prix existe déjà";
+}
 
 ?>
+
+
