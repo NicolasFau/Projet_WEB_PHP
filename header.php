@@ -15,7 +15,7 @@ session_start();
             <li> <a href="./aPropos.php"><img src="./image/aide.png" width="20px"></a></li>
             <?php if ( est_connecte() ) {
                 $PseudoU=$_SESSION['PseudoU'];?>
-                <li><a href="<?php echo"./pagesMenu/compte.php?PseudoU=" . $PseudoU; ?> "><img src="./image/rouage.png" width="20px"></a></li>
+                <li><a href="<?php echo"compte.php?PseudoU=" . $PseudoU; ?> "><img src="./image/rouage.png" width="20px"></a></li>
                 <li> <form name="deconnexion" id="deconnexion" method="post" action="deconnexion.php">
                         <input type="hidden" name="validate" id="validate" value="ko" />
                         <input type="submit" value="Se deconnecter" class="optionsConnexion"/>
