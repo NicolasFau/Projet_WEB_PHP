@@ -5,7 +5,7 @@ include './autoSuggest/autoSuggestSeries.php';
 session_start(); 
 ?>
 
-<header>
+<header >
 <script type="text/javascript" src="./autoSuggest/autoSuggest.js"></script>
 <script type="text/javascript" src="./autoSuggest/series.js"></script>
 
