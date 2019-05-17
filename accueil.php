@@ -61,10 +61,16 @@ $listeserie=pg_fetch_all($resultat);
 <div class="liste" style="width: 800; height: 300; overflow-x: scroll; overflow-y: hidden;">
     <ul style=" width: 1500; height: 270; margin: 0; padding: 0;list-style-type: none;">
         <?php
-        foreach($listeserie as $serie){
-            ?>
-            <li style ="float: left; margin: 7px;" > <a href="./afficherSerie.php?search=<?php echo $serie['nomserie']; ?>"> <img src="<?php echo $serie['urlimageserie']?>"></a></li>
-            <?php
+        if($listeserie) {
+            foreach ($listeserie as $serie) {
+                ?>
+                <li style="float: left; margin: 7px;"><a
+                            href="./afficherSerie.php?search=<?php echo $serie['nomserie']; ?>"> <img
+                                src="<?php echo $serie['urlimageserie'] ?>"></a></li>
+                <?php
+            }
+        }else{
+            echo "Aucune série n'est critiquée actuellement";
         }
         ?>
     </ul>
