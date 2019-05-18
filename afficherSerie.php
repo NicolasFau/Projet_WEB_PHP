@@ -16,6 +16,7 @@
         <body>
             <?php
             $nomserie=pg_escape_string($_GET['search']);
+            $nomserie=$_GET['search'];
             $result = pg_query($linkpdo, "SELECT * FROM Serie WHERE NomSerie = '$nomserie';");
             $row = pg_fetch_array($result);
             $test=count($row);
