@@ -28,6 +28,7 @@
           ?>  
          <li style ="float: left; margin-left: 30px; margin-right:30px ; margin-top:20px; margin-bottom:5px" > 
              <div><a href="afficherSerie.php?search=<?php echo $serie['nomserie']; ?>"> <img src="<?php echo $serie['urlimageserie']?>" heigth="268" width ="182"></a></div> 
+             <div><a href="afficherSerie.php?search=<?php echo $serie['nomserie']; ?>"> <img src="<?php echo $serie['urlimageserie']?>"></a></div> 
              <div><center><a href="afficherSerie.php?search=<?php echo $serie['nomserie']; ?>"><?php echo $serie['nomserie']; ?></a></center></div>
              <div style=" width:200;
                          heigth:100;
