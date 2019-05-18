@@ -1,6 +1,6 @@
   window.onload = function(){
 	var form = document.getElementById("auto-suggest");
-	var input = form.search;
+	var input = form.nomserie;
 	
 	var list = document.createElement("ul");
 	list.className = "suggestions";

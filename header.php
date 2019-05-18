@@ -5,14 +5,14 @@ include './autoSuggest/autoSuggestSeries.php';
 session_start(); 
 ?>
 
-<header>
+<header >
 <script type="text/javascript" src="./autoSuggest/autoSuggest.js"></script>
 <script type="text/javascript" src="./autoSuggest/series.js"></script>
 
         <a href="./accueil.php"><img src="./image/logo.png" width="150px" ></a>    
         <div class="options">
                 <ul class="optionsSecondaires">  
-                    <li> <a href="./aide.php"><img src="./image/aide.png" width="20px"></a></li>
+                    <li> <a href="./aPropos.php"><img src="./image/aide.png" width="20px"></a></li>
                     <?php if ( est_connecte() ) { 
                             $PseudoU=$_SESSION['PseudoU'];?>
                         <li><a href="<?php echo"./compte.php?PseudoU=" . $PseudoU; ?> "><img src="./image/rouage.png" width="20px"></a></li>
@@ -37,8 +37,8 @@ session_start();
                     <?php } ?>
                 </ul>
 
-               <form id="auto-suggest" action="recherche.php" method="get">
-                <input type="text" class="search" name="search" value="Rechercher..." onfocus="if(this.value=='Rechercher...')this.value=''" onblur="if(this.value=='')this.value='Rechercher...'" autocomplete="off"/>
+               <form id="auto-suggest" action="resultatRecherche.php" method="get">
+                <input type="text" class="search" name="nomserie" value="Rechercher..." onfocus="if(this.value=='Rechercher...')this.value=''" onblur="if(this.value=='')this.value='Rechercher...'" autocomplete="off"/>
             </form>
                             
 
@@ -49,7 +49,7 @@ session_start();
                 <li><a href="./serie.php">Série</a></li>
                 <li><a href="./rechercheAvancee.php">Recherche Avancée</a></li>
                 <li><a href="./proposer_Serie.php">Proposer une Série</a></li>  
-                <?php if ( est_admin() ) { ?>
+                <?php if ( est_admin() ) { ?> 
                     <li class="sous-menu"><a class="" href="/administration.php">Administration</a>
                     <div class="contenu-sous-menu">
                     <a href="./ajouterSerie.php">Ajouter une Série</a>
