@@ -13,6 +13,7 @@ function supprimer(idcritique){
                 success: function(data)
                 {
                     alert(data);
+                    location.reload();
                 }
        }); 
     }                    
