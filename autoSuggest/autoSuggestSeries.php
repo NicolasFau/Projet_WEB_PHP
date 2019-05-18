@@ -1,21 +1,17 @@
 <?php
-/*
-$result = $linkpdo->prepare('SELECT nomserie FROM Serie ');
-$result->execute();
-$donnees = $result->fetchAll();
-*/
 
-    $requete='SELECT nomserie From Serie';
-    $result = pg_exec($linkpdo, $requete);
-    $donnees = pg_fetch_all($result);
+$requete='SELECT nomserie From Serie';
+$result = pg_exec($linkpdo, $requete);
+$donnees = pg_fetch_all($result);
 
 
 $nb=count($donnees);
-$file = fopen('./autoSuggest/series.js', 'r+');
+$file = fopen((__DIR__ ). '/../autoSuggest/series.js', 'r+');
+ftruncate($file,0);
 $titres="var motsClefs = [";
 
 for($i=0 ; $i<$nb ; $i++){
-    $titres= $titres . "'" . $donnees[$i]['nomserie'] . "', \r\n";
+    $titres= $titres . "\"" . $donnees[$i]['nomserie'] . "\", \r\n";
 
 }
 $titres = $titres . "];" ;
