@@ -34,4 +34,3 @@ var motsClefs = ["Narcos",
 "Shameless", 
 "Altered Carbon", 
 "Mr.Robot", 
-];
