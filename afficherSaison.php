@@ -54,7 +54,6 @@
                         echo "<br />";
                         if (est_connecte()){
                             if($row['pseudou']==$_SESSION['PseudoU']){
-                                echo 'Vous ne pouvez pas signaler votre critique mais rendez vous sur votre page pour la supprimer';
                                 echo "<br />";
                                 echo "<br />";
                             }else{

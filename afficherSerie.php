@@ -16,8 +16,6 @@
         <body>
             <?php
             $nomserie=pg_escape_string($_GET['nomserie']);
-            $nomserie=pg_escape_string($_GET['search']);
-            $nomserie=$_GET['search'];
             $result = pg_query($linkpdo, "SELECT * FROM Serie WHERE NomSerie = '$nomserie';");
             $row = pg_fetch_array($result);
             $test=count($row);
@@ -57,24 +55,6 @@
                                 //}        
                             }            
                         }
-
-                        $requete= "SELECT * FROM consulter WHERE dateconsultation='".date("Y-m-d")."'";
-                        $resultat=pg_query($linkpdo, $requete);
-                        $resultat=pg_fetch_all($resultat);
-                     
-                           if(count($resultat)==0){
-                            $requete="SELECT codeutilisateur, typeu FROM utilisateur WHERE pseudou='". $_SESSION['PseudoU']."'";
-                            $resultat=pg_query($linkpdo, $requete);
-                            $resultat=pg_fetch_array($resultat);
-                            $date=date("Y-m-d");
-                            $requete="INSERT INTO consulter VALUES ('".$resultat['codeutilisateur']."', '". $nomserie . "','".$date."','".$resultat['typeu']."')";
-                            $resultat=pg_query($linkpdo, $requete);
-                            $resultat=pg_query($linkpdo, $requete);
-                        }   
-                         
-                       
-
-                    }
                     }
                 }else{
                     echo("Série introuvable");
