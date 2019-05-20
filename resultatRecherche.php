@@ -9,13 +9,11 @@
 <?php
 if(isset($_GET['nomserie']) and $_GET['nomserie']!=null){
     $nomserie=pg_escape_string($_GET['nomserie']);
-    $nomserie=$_GET['nomserie'];
 }else{
     $nomserie="%";
 }
 if(isset($_GET['categorie']) and $_GET['categorie']!=null){
     $categorie=pg_escape_string($_GET['categorie']);
-    $categorie=$_GET['categorie'];
 }else{
     $categorie="%";
 }
@@ -39,12 +37,11 @@ $resultat=pg_fetch_all($resultat);
             <?php
             if($resultat!=null){
                 foreach($resultat as $serie){
-        foreach($resultat as $serie){
             
           ?>  
          <li style ="float: left; margin-left: 30px; margin-right:30px ; margin-top:20px; margin-bottom:5px" > 
-             <div><a href="afficherSerie.php?search=<?php echo $serie['nomserie']; ?>"> <img src="<?php echo $serie['urlimageserie']; ?>" heigth="268" width ="182"></a></div> 
-             <div><center><a href="afficherSerie.php?search=<?php echo $serie['nomserie']; ?>"><?php echo $serie['nomserie']; ?></a></center></div>
+             <div><a href="afficherSerie.php?nomserie=<?php echo $serie['nomserie']; ?>"> <img src="<?php echo $serie['urlimageserie']; ?>" heigth="268" width ="182"></a></div> 
+             <div><center><a href="afficherSerie.php?nomserie=<?php echo $serie['nomserie']; ?>"><?php echo $serie['nomserie']; ?></a></center></div>
         </li>
 
         <?php 
