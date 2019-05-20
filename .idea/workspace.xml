@@ -8,7 +8,10 @@
       <change beforePath="$PROJECT_DIR$/autoSuggest/autoSuggest.js" beforeDir="false" afterPath="$PROJECT_DIR$/autoSuggest/autoSuggest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/autoSuggest/autoSuggestSeries.php" beforeDir="false" afterPath="$PROJECT_DIR$/autoSuggest/autoSuggestSeries.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/autoSuggest/series.js" beforeDir="false" afterPath="$PROJECT_DIR$/autoSuggest/series.js" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/css/css.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/css.css" afterDir="false" />
+=======
+>>>>>>> 2bfe5ac4e6d33c00c0a038e4b858aed874da4691
       <change beforePath="$PROJECT_DIR$/fonctionsDeRecherche.php" beforeDir="false" afterPath="$PROJECT_DIR$/fonctionsDeRecherche.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/image/Gomorra.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/Gomorra.jpg" afterDir="false" />
@@ -26,14 +29,31 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/supprimerUtilisateur.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="561">
               <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+=======
+        <entry file="file://$PROJECT_DIR$/recherche.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/serie.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="27" column="68" selection-start-line="27" selection-start-column="68" selection-end-line="27" selection-end-column="68" />
+              <folding>
+                <element signature="n#style#0;n#div#3;n#li#0;n#ul#0;n#center#0;n#div#0;n#body#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#3;n#li#0;n#ul#0;n#center#0;n#div#0;n#body#0;n#!!top" expanded="true" />
+              </folding>
+>>>>>>> 2bfe5ac4e6d33c00c0a038e4b858aed874da4691
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/accueil.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -42,6 +62,40 @@
               <folding>
                 <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
               </folding>
+=======
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resultatRecherche.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="606">
+              <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/header.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="436">
+              <caret line="49" column="47" selection-start-line="49" selection-start-column="47" selection-end-line="49" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/afficherSerie.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="33" column="133" selection-start-line="33" selection-start-column="133" selection-end-line="33" selection-end-column="133" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/supprimerUtilisateur.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+>>>>>>> 2bfe5ac4e6d33c00c0a038e4b858aed874da4691
             </state>
           </provider>
         </entry>
@@ -70,6 +124,7 @@
         <option value="$PROJECT_DIR$/../ProjetWeb/identification.php" />
         <option value="$PROJECT_DIR$/../ProjetWeb/header.php" />
         <option value="$PROJECT_DIR$/aPropos.php" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/afficherSaison.php" />
         <option value="$PROJECT_DIR$/fonctionsDeRecherche.php" />
         <option value="$PROJECT_DIR$/rechercheavancee.php" />
@@ -80,7 +135,18 @@
         <option value="$PROJECT_DIR$/serie.php" />
         <option value="$PROJECT_DIR$/afficherSerie.php" />
         <option value="$PROJECT_DIR$/footer.php" />
+=======
+>>>>>>> 2bfe5ac4e6d33c00c0a038e4b858aed874da4691
         <option value="$PROJECT_DIR$/accueil.php" />
+        <option value="$PROJECT_DIR$/afficherSaison.php" />
+        <option value="$PROJECT_DIR$/fonctionsDeRecherche.php" />
+        <option value="$PROJECT_DIR$/rechercheavancee.php" />
+        <option value="$PROJECT_DIR$/autoSuggest/autoSuggestSeries.php" />
+        <option value="$PROJECT_DIR$/header.php" />
+        <option value="$PROJECT_DIR$/resultatRecherche.php" />
+        <option value="$PROJECT_DIR$/supprimerUtilisateur.php" />
+        <option value="$PROJECT_DIR$/serie.php" />
+        <option value="$PROJECT_DIR$/afficherSerie.php" />
       </list>
     </option>
   </component>
@@ -162,12 +228,20 @@
       <workItem from="1557821883928" duration="4006000" />
       <workItem from="1558096848678" duration="3015000" />
       <workItem from="1558273476787" duration="53000" />
+<<<<<<< HEAD
       <workItem from="1558347461481" duration="4621000" />
+=======
+      <workItem from="1558347461481" duration="2651000" />
+>>>>>>> 2bfe5ac4e6d33c00c0a038e4b858aed874da4691
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="22599000" />
+=======
+    <option name="totallyTimeSpent" value="20629000" />
+>>>>>>> 2bfe5ac4e6d33c00c0a038e4b858aed874da4691
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -236,6 +310,12 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/footer.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+>>>>>>> 2bfe5ac4e6d33c00c0a038e4b858aed874da4691
     <entry file="file://$PROJECT_DIR$/signaler.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -314,6 +394,29 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/accueil.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="569">
+          <caret line="140" column="7" selection-start-line="140" selection-start-column="7" selection-end-line="140" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#center#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#1;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#2;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#2;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+>>>>>>> 2bfe5ac4e6d33c00c0a038e4b858aed874da4691
     <entry file="file://$PROJECT_DIR$/afficherSaison.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -339,6 +442,7 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/rechercheavancee.php">
+<<<<<<< HEAD
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
@@ -348,6 +452,24 @@
     <entry file="file://$PROJECT_DIR$/recherche.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+=======
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/recherche.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="49" column="47" selection-start-line="49" selection-start-column="47" selection-end-line="49" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> 2bfe5ac4e6d33c00c0a038e4b858aed874da4691
     <entry file="file://$PROJECT_DIR$/autoSuggest/autoSuggestSeries.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -355,6 +477,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/serie.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -377,6 +500,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="436">
           <caret line="49" column="47" selection-start-line="49" selection-start-column="47" selection-end-line="49" selection-end-column="47" />
+=======
+    <entry file="file://$PROJECT_DIR$/supprimerUtilisateur.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serie.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="27" column="68" selection-start-line="27" selection-start-column="68" selection-end-line="27" selection-end-column="68" />
+          <folding>
+            <element signature="n#style#0;n#div#3;n#li#0;n#ul#0;n#center#0;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#3;n#li#0;n#ul#0;n#center#0;n#div#0;n#body#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultatRecherche.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="606">
+          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+>>>>>>> 2bfe5ac4e6d33c00c0a038e4b858aed874da4691
         </state>
       </provider>
     </entry>
@@ -386,6 +533,7 @@
           <caret line="33" column="133" selection-start-line="33" selection-start-column="133" selection-end-line="33" selection-end-column="133" />
         </state>
       </provider>
+<<<<<<< HEAD
     </entry>
     <entry file="file://$PROJECT_DIR$/supprimerUtilisateur.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -396,6 +544,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/footer.php">
       <provider selected="true" editor-type-id="text-editor" />
+=======
+>>>>>>> 2bfe5ac4e6d33c00c0a038e4b858aed874da4691
     </entry>
     <entry file="file://$PROJECT_DIR$/accueil.php">
       <provider selected="true" editor-type-id="text-editor">
