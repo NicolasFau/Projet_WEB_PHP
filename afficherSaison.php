@@ -46,7 +46,7 @@ if ($liste_critiques != NULL){
     foreach($liste_critiques as $critique){
         $result = pg_query($linkpdo, "SELECT Pseudou FROM utilisateur WHERE codeutilisateur='".$critique['codeutilisateurcritiquant']."'");
         $row = pg_fetch_array($result);
-        echo 'Critique faite le '.$critique['datecritique'] .' par <a href="compte.php?PseudoU='. $row['pseudou'].'">'.$row['pseudou'].'</a>';
+        echo 'Critique faite le '.$critique['datecritique'] .' par <a href="./compte.php?PseudoU='. $row['pseudou'].'">'.$row['pseudou'].'</a>';
         echo "<br />";
         echo "Note : " .$critique['notationcritique'];
         echo "<br />";
@@ -58,7 +58,7 @@ if ($liste_critiques != NULL){
                 echo "<br />";
                 echo "<br />";
             }else{
-                echo '<a href="signaler.php?idcritique='.$critique['idcritique'].'"> <input type="button" value="Signaler"/></a>';
+                echo '<a href="./signaler.php?idcritique='.$critique['idcritique'].'"> <input type="button" value="Signaler"/></a>';
                 echo "<br />";
                 echo "<br />";
             }

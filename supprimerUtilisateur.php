@@ -39,7 +39,7 @@ if (!est_admin()){
     <form action="supprimerUtilisateur.php" method="post">
       <?php
       echo "Veuillez rentrer le pseudo de l'utilisateur à supprimer : " . "<br>";
-      require("../connexion.php");
+      require("./connexion.php");
       $userList=listeUser($linkpdo);
       if ($userList != NULL) {
           echo '<input  list="listeUser" type="text" name="listeUser">';

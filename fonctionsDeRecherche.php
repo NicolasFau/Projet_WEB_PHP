@@ -46,5 +46,11 @@ function listeUser($linkpdo){
     return $donnees;
 }
 
+function rechercher_critiqueRecente($linkpdo){
+    $requete="Select * FROM critique ORDER BY datecritique DESC limit 5";
+    $result=pg_exec($linkpdo, $requete);
+    $donnees=pg_fetch_all($result);
+    return $donnees;
+}
 
 ?>					
