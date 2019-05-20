@@ -37,8 +37,8 @@ session_start();
             <?php } ?>
         </ul>
 
-        <form id="auto-suggest" action="./afficherSerie.php" method="get">
-            <input type="text" class="search" name="search" value="Rechercher..." onfocus="if(this.value=='Rechercher...')this.value=''" onblur="if(this.value=='')this.value='Rechercher...'" autocomplete="off"/>
+        <form id="auto-suggest" action="./resultatRecherche.php" method="get">
+            <input type="text" class="search" name="nomserie" value="Rechercher..." onfocus="if(this.value=='Rechercher...')this.value=''" onblur="if(this.value=='')this.value='Rechercher...'" autocomplete="off"/>
         </form>
 
 
@@ -47,7 +47,7 @@ session_start();
         <ul >
             <li><a href="./accueil.php">Accueil</a></li>
             <li><a href="./serie.php">Série</a></li>
-            <li><a href="./rechercheserie.php">Recherche Avancée</a></li>
+            <li><a href="./rechercheavancee.php">Recherche Avancée</a></li>
             <li><a href="./proposer_Serie.php">Proposer une Série</a></li>
 
             <?php if ( est_admin() ) { ?>
