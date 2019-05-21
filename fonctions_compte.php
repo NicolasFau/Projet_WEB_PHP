@@ -1,5 +1,6 @@
     <?php
-include '/connexion.php';
+
+include 'connexion.php';
 
 if (isset($_REQUEST['fonction']) && $_REQUEST['fonction'] != '')
 {
@@ -50,7 +51,7 @@ function rechercher_saison_critique($linkpdo, $IDsaison){
 
 
 function modif_type($data){
-    include '../connexion.php';
+    include 'connexion.php';
     $nouveau_type=$_REQUEST['params'] ['nouveau_type'];
     $pseudoU=$_REQUEST['params'] ['pseudoU'];
         
@@ -68,7 +69,7 @@ function modif_type($data){
 
 
 function modif_description($data){
-    include '../connexion.php';
+    include 'connexion.php';
     $nouvelle_description=$_REQUEST['params'] ['nouvelle_description'];
     $pseudoU=$_REQUEST['params'] ['pseudoU'];
     $nouvelle_description=pg_escape_string($nouvelle_description);
@@ -99,7 +100,7 @@ function verification_mdp($data){
 }
 
 function modif_mdp($nouveau_mdp, $pseudoU){
-    include'../connexion.php';
+    include'connexion.php';
     $requete='UPDATE utilisateur SET passwordu= \'' . $nouveau_mdp . '\' WHERE PseudoU= \'' . $pseudoU . '\'';
     $donnees=pg_query($linkpdo, $requete);
     $result=pg_result_error($donnees);
@@ -111,7 +112,8 @@ function modif_mdp($nouveau_mdp, $pseudoU){
 }
 
     function supprimer_critique($data){
-        include '../connexion.php';
+
+        include 'connexion.php';
         $idcritique=$_REQUEST['params'] ['idcritique'];
         $pseudoU=$_REQUEST['params'] ['pseudoU'];
         $requete2='DELETE FROM signalement WHERE idcritique='.$idcritique;

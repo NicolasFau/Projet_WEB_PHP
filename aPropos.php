@@ -1,7 +1,8 @@
 <?php
 $titre = "APropos";
-include'/head.php';
-include'/header.php';
+
+include'head.php';
+include'header.php';
 ?>
     <body>
 

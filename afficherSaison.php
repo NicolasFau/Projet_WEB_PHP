@@ -7,11 +7,12 @@
 </head>
 
 <?php
-require '/connexion.php';
-include '/head.php';
-include '/header.php';
-include '/fonctionsDeRecherche.php';
-include '/fonctions_critique.php';
+
+require 'connexion.php';
+include 'head.php';
+include 'header.php';
+include 'fonctionsDeRecherche.php';
+include 'fonctions_critique.php';
 ?>
 
 <body>

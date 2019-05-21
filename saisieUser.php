@@ -6,8 +6,9 @@
 		        <!-- Latest compiled and minified CSS -->
 		</head>
         <?php
-        include '/head.php';
-        include '/header.php';
+
+        include 'head.php';
+        include 'header.php';
         ?>
 
 		<body>

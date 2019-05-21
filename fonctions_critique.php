@@ -5,7 +5,9 @@ if (isset($_REQUEST['fonction']) && $_REQUEST['fonction'] != '')
 }
 function effectuer_critique($data){
 
-    include '../connexion.php';
+
+    include 'connexion.php';
+
     $note=$_REQUEST['params'] ['note'];
     $avis=$_REQUEST['params'] ['avis'];
     $pseudoU=$_REQUEST['params'] ['pseudoU'];

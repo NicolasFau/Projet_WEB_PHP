@@ -1,8 +1,10 @@
 <?php
 //import des fonction
-require '/connexion.php';
-include '/head.php';
-include '/header.php';
+
+require 'connexion.php';
+include 'head.php';
+include 'header.php';
+
 //Récupération des variables
 $serie=$_POST['listeSerie'];
 $prix=$_POST['listePrix'];

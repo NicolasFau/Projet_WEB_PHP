@@ -1,8 +1,10 @@
 <?php
 $titre = 'accueil';
-include '/head.php';
-include '/header.php';
-include '/fonctionsDeRecherche.php';
+
+include 'head.php';
+include 'header.php';
+include 'fonctionsDeRecherche.php';
+
 ?>
 <style>
     .leftcolumn {
@@ -33,6 +35,19 @@ include '/fonctionsDeRecherche.php';
         margin-top: 20px;
     }
 
+    .liste{
+        width: 100%;
+        height: 300;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+    .ul_liste{
+        width :1500;
+        height: 270;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
 
 </style>
 <body style="  background-color: #f1f1f1;">
@@ -74,8 +89,8 @@ include '/fonctionsDeRecherche.php';
         $listeserie=pg_fetch_all($result);
         ?>
 
-        <div class="liste" style="width: 100%; height: 300; overflow-x: scroll; overflow-y: hidden;">
-            <ul style=" width :1500; height: 270; margin: 0; padding: 0;list-style-type: none;">
+        <div class="liste">
+            <ul class="ul_liste">
                 <?php
                 foreach($listeserie as $serie){
                     ?>
@@ -93,8 +108,9 @@ include '/fonctionsDeRecherche.php';
         $resultat=pg_query($linkpdo, $requete);
         $listeserie=pg_fetch_all($resultat);
         ?>
-        <div class="liste" style="width: 100%; height: 300; overflow-x: scroll; overflow-y: hidden;">
-            <ul style=" width: 1500; height: 270; margin: 0; padding: 0;list-style-type: none;">
+
+        <div class="liste">
+            <ul class="ul_liste">
                 <?php
                 foreach($listeserie as $serie){
                     ?>
@@ -111,14 +127,20 @@ include '/fonctionsDeRecherche.php';
         $resultat=pg_query($linkpdo, $requete);
         $listeserie=pg_fetch_all($resultat);
         ?>
-        <div class="liste" style="width: 100%; height: 300; overflow-x: scroll; overflow-y: hidden;">
-            <ul style=" width: 1500; height: 270; margin: 0; padding: 0;list-style-type: none;">
+
+        <div class="liste">
+            <ul class="ul_liste">
                 <?php
-                foreach($listeserie as $serie){
+                if ($listeserie!=null){
+                      foreach($listeserie as $serie){
                     ?>
-                    <li style ="float: left; margin: 7px;" > <a href="afficherSerie.php?nomserie=<?php echo $serie['nomserie']; ?>"> <img src="<?php echo $serie['urlimageserie']?>"></a></li>
+                        <li style ="float: left; margin: 7px;" > <a href="afficherSerie.php?nomserie=<?php echo $serie['nomserie']; ?>"> <img src="<?php echo $serie['urlimageserie']?>"></a></li>
                     <?php
+                    }
+                }else{
+                    echo "Aucune critique n'a été effectuée";
                 }
+              
                 ?>
             </ul>
         </div>

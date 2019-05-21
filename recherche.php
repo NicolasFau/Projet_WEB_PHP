@@ -1,9 +1,12 @@
-<?php
-include '/head.php';
-include '/header.php';
-include '/fonctionsDeRecherche.php';
-?>
+
+
     <body>
+<?php
+include 'head.php';
+include 'header.php';
+include 'fonctionsDeRecherche.php';
+?>
+
     <?php
     if (isset($_GET['categorie'])){
         $liste_serie=rechercheParTheme($linkpdo, $_GET['categorie']);
@@ -14,7 +17,8 @@ include '/fonctionsDeRecherche.php';
         }
     }
     ?>
-    </body>
+
+</body>
 <?php
-include '/footer.php';
+include 'footer.php';
 ?>

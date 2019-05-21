@@ -1,8 +1,10 @@
 <?php
 //Récupération des variables
-require("/connexion.php");
-include '/head.php';
-include '/header.php';
+
+require("connexion.php");
+include 'head.php';
+include 'header.php';
+
 $date=$_POST['date'];
 $numeroSaison=$_POST['num'];
 $listeSerie=$_POST['listeSerie'];

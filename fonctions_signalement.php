@@ -1,5 +1,7 @@
 <?php
-include '/connexion.php';
+
+include 'connexion.php';
+
 function signaler_critique($linkpdo, $idcritique, $motif){
     $datesig=date("Y-m-d");
     $motif=pg_escape_string($motif);
