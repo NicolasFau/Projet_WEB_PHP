@@ -17,13 +17,15 @@ if (!est_admin()){
     <script>
         $( function() {
             $( "#datepicker" ).datepicker();
+		$( "#listeSerie" ).selectmenu();
+		var spinner = $( "#tentacles" ).spinner();
         } );
     </script>
 </head>
 <body>
 <form action="formajoutsaison.php" method="post">
     <p>Date Sortie <input type="text" name="date" id="datepicker"></p>
-    <p>Numéro Saison<input type="number" id="tentacles" name="num" min="1" max="100"></p>
+    <p>Numéro Saison<input type="number" id="tentacles" name="num"></p>
 
     <label for="choix_serie">Nom Série </label>
 
@@ -33,18 +35,17 @@ if (!est_admin()){
     }
     else{
 
-        require("/connexion.php");
-        $connect=$linkpdo;
+        require("connexion.php");
         $queryNomserie="Select * from serie";
-        $resulatNomListe=pg_exec($connect, $queryNomserie);
+        $resulatNomListe=pg_exec($linkpdo, $queryNomserie);
         //datalist dynamique
-        echo '<input  list="listeSerie" type="text" name="listeSerie">';
-        echo '<datalist id="listeSerie">';
+        //echo '<input  list="listeSerie" type="text" name="listeSerie">';
+        echo '<select id="listeSerie" >';
         while ($data =pg_fetch_array($resulatNomListe)) {
             // on affiche les résultats
-            echo '<option value="'.$data['nomserie'].'">';
+            echo '<option value="'.$data['nomserie'].'">'.$data['nomserie']."</option>";
         }
-        echo  '</datalist>';
+        echo  '</select>';
     }
     ?>
 
