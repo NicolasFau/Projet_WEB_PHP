@@ -20,9 +20,6 @@ if (!est_admin()){
     <script>
   $( function() {
     $( "#datepicker" ).datepicker();
-	var spinner = $( "#listeSerie" ).selectmenu();
-	var spinner = $( "#listeActeur" ).selectmenu();
-
   } );
   </script>
     <body>
@@ -36,32 +33,34 @@ if (!est_admin()){
     <form action="ajoutacteurserie.php" method="post">
       <label for="choix_serie">Nom Série </label>
       <?php
-      require("connexion.php");
+      require("/connexion.php");
+      $connect=$linkpdo;
       $queryNomserie="Select * from serie";
-      $resulatNomListe=pg_exec($linkpdo, $queryNomserie);
+      $resulatNomListe=pg_exec($connect, $queryNomserie);
       //datalist dynamique
-      //echo '<input  list="listeSerie" type="text" name="listeSerie">';
-      echo '<select id="listeSerie">';
+      echo '<input  list="listeSerie" type="text" name="listeSerie">';
+      echo '<datalist id="listeSerie">';
       while ($data =pg_fetch_array($resulatNomListe)) {
       	// on affiche les résultats
-      	echo '<option value="'.$data['nomserie'].'">'.$data['nomserie']."</option>";
+      	echo '<option value="'.$data['nomserie'].'">';
       }
-      echo  '</select>';
+      echo  '</datalist>';
     ?>
 
   <label for="choix_acteur">Acteur </label>
   <?php
-  require("connexion.php");
+  require("/connexion.php");
+  $connect=$linkpdo;
   $queryacteur="Select * from acteur";
-  $resulatacteur=pg_exec($linkpdo, $queryacteur);
+  $resulatacteur=pg_exec($connect, $queryacteur);
   //datalist dynamique
-  //echo '<input  list="listeActeur" type="text" name="listeActeur">';
-  echo '<select id="listeActeur">';
+  echo '<input  list="listeActeur" type="text" name="listeActeur">';
+  echo '<datalist id="listeActeur">';
   while ($data =pg_fetch_array($resulatacteur)) {
     // on affiche les résultats
-    echo '<option value="'.$data['nomacteur'].'">'.$data['nomacteur']."</option>";
+    echo '<option value="'.$data['nomacteur'].'">';
   }
-  echo  '</select>';
+  echo  '</datalist>';
 ?>
     <p><a href="ajoutacteur.php"><input type="submit" name="2" value="Ajouter Acteur/Serie"></a></p>
         <?php
@@ -73,7 +72,7 @@ if (!est_admin()){
     </form>
     <h2>Acteur dans la base</h2>
     <?php
-    require("connexion.php");
+    require("/connexion.php");
     $connect=$linkpdo;
     $queryNomserie="Select * from acteur";
     $resulatNomListe=pg_exec($connect, $queryNomserie);

@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../css/style.css" />
-    <!-- Latest compiled and minified CSS -->
-</head>
-
 <?php
 require 'connexion.php';
 include 'head.php';
@@ -85,17 +77,13 @@ if(est_connecte()){?>
 
     <?php
     }
-    //if(isset($_POST['note']) and isset($_POST['avis']) and $_POST['note']!=null and $_POST['avis']!=null){
-    //    effectuer_critique($linkpdo, $_POST['note'], $_POST['avis'], $_SESSION['PseudoU'], $idsaison);
-    //    $_POST['note']=null;
-    //    $_POST['avis']=null;
-    //    echo $_POST['note'];
-    //}
-
     ?>
-    <!-- </form> -->
 
 </fieldset>
+    <?php
+        include 'footer.php';
+
+    ?>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
 
 <script>

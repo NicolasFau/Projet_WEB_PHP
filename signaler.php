@@ -7,7 +7,7 @@ include 'fonctions_signalement.php';
 <fieldset>
     <form method="post">
         <label>Motif du signalement</label><br>
-        <textarea name="motif" required></textarea><br>
+        <textarea name="motif" id ="avis" required></textarea><br>
         <input type="submit" value ="Envoyer">
     </form>
 </fieldset>
