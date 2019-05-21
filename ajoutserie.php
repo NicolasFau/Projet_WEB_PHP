@@ -10,17 +10,38 @@ if (!est_admin()){
     <head>
         <title>PHP</title>
         <meta charset="utf-8" />
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+    fieldset {
+      border: 0;
+    }
+    label {
+      display: block;
+      margin: 30px 0 0 0;
+    }
+    .overflow {
+      height: 200px;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$( function() {
+    $( "#paysid" ).selectmenu();
+	 $( "#listeGenre" ).selectmenu();
+ });
+</script>
+
+
     </head>
     <body>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script>
-
-</script>
 
     <form action="formAjoutSerie.php" method="post" enctype="multipart/form-data">
          <p>Titre <input type="text" name="titre"></p>
          <p>Pays
-        <select name="pays">
+        <select name="pays" id="paysid" >
         <option value="France" selected="selected">France </option>
 
         <option value="Afghanistan">Afghanistan </option>
@@ -278,9 +299,19 @@ if (!est_admin()){
 
         </select></p>
         <p>Genre <input list="listeGenre" type="text" name="genre"></p>
-        <datalist id="listeGenre">
-          <option value="Fantastique">
-        </datalist>
+        <select  id="listeGenre">
+          <option value="Fantastique">Fantastique</option>
+	<option value="Policier">Policier</option>
+	<option value="Thriller">Thriller</option>
+	<option value="Aventure">Aventure</option>
+	<option value="Historique">Historique</option>
+	<option value="Drame">Drame</option>
+	<option value="Action">Action</option>
+	<option value="Science Fiction">Science Fiction</option>
+	<option value="Medical">Medical</option>
+	<option value="Comedie">Comedie</option>
+	<option value="Epouvante">Epouvante</option>
+        </select>
         <p>Synopsis</br></br><textarea name="synopsis" rows="4" cols="40">Synopsis</textarea></p>
         <label for="image">Image</label>
         <input type="file" name="image" accept="image/png, image/jpeg">
