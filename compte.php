@@ -1,7 +1,7 @@
 <?php
-include '/head.php';
-include '/header.php';
-if(!est_connecte() || !est_admin()) {header('/deconnexion.php');}
+include 'head.php';
+include 'header.php';
+if(!est_connecte() || !est_admin()) {header('deconnexion.php');}
 if (isset($_GET['PseudoU']) && isset($_SESSION['PseudoU'])){
 if ($_GET['PseudoU']==$_SESSION['PseudoU']){
     $modifs=TRUE;
@@ -155,11 +155,11 @@ if ($_GET['PseudoU']==$_SESSION['PseudoU']){
             }
         }
     
-    include '/dialogModifs.js';
+    include 'dialogModifs.js';
 
         ?>
 
 </body>
 <?php
-include '/footer.php';
+include 'footer.php';
 ?>

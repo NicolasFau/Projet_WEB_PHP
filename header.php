@@ -1,9 +1,7 @@
 <?php
-
 include 'connexion.php';
 include 'fonctions_compte.php';
 include 'autoSuggest/autoSuggestSeries.php';
-
 session_start();
 ?>
 

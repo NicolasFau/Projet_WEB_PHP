@@ -1,6 +1,5 @@
 <?php
 //import des fonction
-
 require 'connexion.php';
 include 'head.php';
 include 'header.php';

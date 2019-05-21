@@ -1,6 +1,5 @@
 <?php
 $titre = "APropos";
-
 include'head.php';
 include'header.php';
 ?>

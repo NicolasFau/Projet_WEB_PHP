@@ -1,9 +1,7 @@
 <?php
-
 require("connexion.php");
 include 'head.php';
 include 'header.php';
-
 $nom=$_POST['nom'];
 $prenom=$_POST['prenom'];
 $date=$_POST['date'];

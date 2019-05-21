@@ -1,8 +1,6 @@
 <?php
 //print_r($_POST);
-
 require("connexion.php");
-
 $tab =$_POST['suppr'];
 if($_POST['choix']=='Supprimer'){
     foreach($tab as $value){

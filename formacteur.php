@@ -1,6 +1,5 @@
 <?php
 //Appel du fichier de fonction
-
 require("connexion.php");
 include 'head.php';
 include 'header.php';

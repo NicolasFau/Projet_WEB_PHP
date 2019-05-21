@@ -1,5 +1,4 @@
     <?php
-
 include 'connexion.php';
 
 if (isset($_REQUEST['fonction']) && $_REQUEST['fonction'] != '')
@@ -112,7 +111,6 @@ function modif_mdp($nouveau_mdp, $pseudoU){
 }
 
     function supprimer_critique($data){
-
         include 'connexion.php';
         $idcritique=$_REQUEST['params'] ['idcritique'];
         $pseudoU=$_REQUEST['params'] ['pseudoU'];

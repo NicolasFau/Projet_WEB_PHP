@@ -1,7 +1,7 @@
 <?php
-include '/head.php';
-include '/header.php';
-include '/fonctionsDeRecherche.php';
+include 'head.php';
+include 'header.php';
+include 'fonctionsDeRecherche.php';
 ?>
 <body>
 <fieldset>

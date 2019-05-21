@@ -1,10 +1,8 @@
 <?php
 //import des fichiers de fonctions
-
 require("connexion.php");
 include 'head.php';
 include 'header.php';
-
 //Récupération des valeurs des champs
 $titre=$_POST['titre'];
 $pays=$_POST['pays'];

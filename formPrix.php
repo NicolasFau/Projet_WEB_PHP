@@ -1,10 +1,8 @@
 <?php
 //Appel du fichier de fonction
-
 require("connexion.php");
 include 'head.php';
 include 'header.php';
-
 //Récuperation des variables via post
 $nomprix=$_POST['nom'];
 $villeprix=$_POST['ville'];

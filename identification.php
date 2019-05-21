@@ -7,9 +7,9 @@
 </head>
 
 <?php
-require '/connexion.php';
-include '/head.php';
-include '/header.php';
+require 'connexion.php';
+include 'head.php';
+include 'header.php';
 ?>
 <fieldset>
     <legend>Connexion</legend>

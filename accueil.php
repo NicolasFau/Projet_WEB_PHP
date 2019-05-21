@@ -1,10 +1,8 @@
 <?php
 $titre = 'accueil';
-
 include 'head.php';
 include 'header.php';
 include 'fonctionsDeRecherche.php';
-
 ?>
 <style>
     .leftcolumn {
@@ -15,7 +13,7 @@ include 'fonctionsDeRecherche.php';
         float: left;
         width: 25%;
     }
-    /* Right column */
+
     .rightcolumn {
 
         float: right;
@@ -34,7 +32,6 @@ include 'fonctionsDeRecherche.php';
         padding: 20px;
         margin-top: 20px;
     }
-
     .liste{
         width: 100%;
         height: 300;
@@ -108,7 +105,6 @@ include 'fonctionsDeRecherche.php';
         $resultat=pg_query($linkpdo, $requete);
         $listeserie=pg_fetch_all($resultat);
         ?>
-
         <div class="liste">
             <ul class="ul_liste">
                 <?php
@@ -127,7 +123,6 @@ include 'fonctionsDeRecherche.php';
         $resultat=pg_query($linkpdo, $requete);
         $listeserie=pg_fetch_all($resultat);
         ?>
-
         <div class="liste">
             <ul class="ul_liste">
                 <?php
