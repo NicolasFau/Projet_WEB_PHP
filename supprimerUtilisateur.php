@@ -1,3 +1,4 @@
+
 <?php
 include 'head.php';
 include 'header.php';
@@ -6,6 +7,27 @@ if (!est_admin()){
     header('Location: accueil.php');
 }
  ?>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+    fieldset {
+      border: 0;
+    }
+    label {
+      display: block;
+      margin: 30px 0 0 0;
+    }
+    .overflow {
+      height: 200px;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#listeUser" ).selectmenu();
+});
+</script>
 
 <!DOCTYPE html>
 <html>
@@ -42,12 +64,12 @@ if (!est_admin()){
       require("./connexion.php");
       $userList=listeUser($linkpdo);
       if ($userList != NULL) {
-          echo '<input  list="listeUser" type="text" name="listeUser">';
-          echo '<datalist id="listeUser">';
+          //echo '<input  list="listeUser" type="text" name="listeUser">';
+          echo '<select id="listeUser">';
           foreach ($userList as $user) {
               echo '<option value="' . $user['pseudou'] . '">'.$user['pseudou'].'</option>';
           }
-          echo '</datalist>';
+          echo '</select>';
       } else {
           echo "Aucun utilisateur dans la base";
       }
