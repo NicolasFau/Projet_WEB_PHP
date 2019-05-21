@@ -1,18 +1,7 @@
 <?php
 include 'connexion.php';
 
-/*function rechercher_serie($linkpdo, $recherche){
-    $result = $linkpdo->prepare('SELECT * FROM Serie WHERE NomSerie LIKE :recherche ORDER BY NomSerie ASC');
-    $result->execute(array('recherche' => $recherche));
-    $donnees = $result->fetchAll();
-    return $donnees;
-}
-function rechercher_acteur($linkpdo, $recherche){
-    $result = $linkpdo->prepare('SELECT * FROM Acteur WHERE NomActeur LIKE :recherche ORDER BY NomActeur ASC');
-    $result->execute(array('recherche' => $recherche));
-    $donnees = $result->fetchAll();
-    return $donnees;
-}*/
+
 function listeTheme($linkpdo){
     $requete='SELECT distinct themeserie FROM serie' ;
     $result=pg_exec($linkpdo,$requete);

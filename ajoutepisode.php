@@ -11,19 +11,6 @@ if (!est_admin()){
 <head>
     <title>PHP</title>
     <meta charset="utf-8" />
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="/resources/demos/external/jquery-mousewheel/jquery.mousewheel.js"></script>
-  <script>
-$( function() {
-    var spinner = $( "#listeSerie" ).selectmenu();
-	var spinner = $( "#listeSaison" ).selectmenu();
-	var spinner = $( "#tentacles" ).spinner();
-
-});
-</script>
 </head>
 <body>
 <label for="choix_serie">Nom Série </label>
@@ -33,17 +20,18 @@ $( function() {
         echo "<input list=\"listeSerie\" type=\"text\" name=\"listeSerie\" value=\"".$_GET['nom']."\">";
     }
     else{
-        require("connexion.php");
+        require("/connexion.php");
+        $connect=$linkpdo;
         $queryNomserie="Select * from serie";
-        $resulatNomListe=pg_exec($linkpdo, $queryNomserie);
+        $resulatNomListe=pg_exec($connect, $queryNomserie);
         //datalist dynamique
-        //echo '<input  list="listeSerie" type="text" name="listeSerie">';
-        echo '<select id="listeSerie">';
+        echo '<input  list="listeSerie" type="text" name="listeSerie">';
+        echo '<datalist id="listeSerie">';
         while ($data =pg_fetch_array($resulatNomListe)) {
             // on affiche les résultats
-            echo '<option value="'.$data['nomserie'].'">'.$data['nomserie']."</option>";
+            echo '<option value="'.$data['nomserie'].'">';
         }
-        echo  '</select>';
+        echo  '</datalist>';
     }
     ?>
 
@@ -53,17 +41,18 @@ $( function() {
         echo "<input list=\"listeSaison\" type=\"text\" name=\"listeSaison\" value=\"".$_GET['saison']."\">";
     }
     else{
-        require("connexion.php");
+        require("/connexion.php");
+        $connect=$linkpdo;
         $query="Select * from Serie,Saison WHERE serie.nomserie=saison.nomserie";
-        $resulat=pg_exec($linkpdo, $query);
+        $resulat=pg_exec($connect, $query);
         //datalist dynamique
-        //echo '<input  list="listeSaison" type="text" name="listeSaison">';
-        echo '<select id="listeSaison">';
+        echo '<input  list="listeSaison" type="text" name="listeSaison">';
+        echo '<datalist id="listeSaison">';
         while ($data =pg_fetch_array($resulat)) {
             // on affiche les résultats
-            echo '<option value='.$data['numérosaison'].'>'.$data['numérosaison']."</option>";
+            echo '<option value='.$data['numérosaison'].'>';
         }
-        echo  '</select>';
+        echo  '</datalist>';
     }
     ?>
 

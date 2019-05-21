@@ -1,5 +1,5 @@
 .navigation ul {
-  width: 100%;
+  width: auto;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -9,18 +9,32 @@
 
 }
 
+header{
+    margin:0;
+    width :100% ;
+
+}
+
 .navigation li {
   float: left;
 }
+
+#connexion{
+    padding : 0px;
+    margin : 0px;
+}
+
+
 
 .navigation  li a {
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 16px 16px;
   text-decoration: none;
 }
 a:link {
+  text-decoration: none;
   color: cadetblue;
 }
 
@@ -49,8 +63,9 @@ li.sous-menu {
 
 .contenu-sous-menu {
   display:   none;
+color : black;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color:  grey;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -64,9 +79,7 @@ li.sous-menu {
   text-align: left;
 }
 
-.contenu-sous-menu a:hover {
-  background-color: #f1f1f1
-}
+
 
 .sous-menu:hover .contenu-sous-menu {
   display: block;
@@ -74,32 +87,44 @@ li.sous-menu {
 
 ul.optionsSecondaires{
   list-style-type : none;
-  margin : 0px;
   float : right;
+    box-shadow: none;
+    margin : 0px;
+    padding : 0px;
 
 }
 
 ul.optionsSecondaires li{
   display : inline-block;
+    padding-left : 5px;
+    padding-right:5px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
 }
 
-
 .options{
-	position : abolute;
+    padding-right : 10px;
+    padding-left : 10px;
+	position : relative;
 	left : 5px;
     float : right;
 }
-   
+
+.form{
+    float : right;
+    position : relative;
+}
+
 #auto-suggest {
-    width:250px;
-    margin:0;
+    width:100%;
+    margin-left:20px;
     }
 
 #auto-suggest .search {
-	width:200px;
-    position : relative;
+	width:100%;
     height:33px;
-    margin: 4px;
+
+   /* margin: 4px;*/
     border:1px solid #cdcdcd;
 	color:#ccc;
     font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -121,7 +146,7 @@ ul.optionsSecondaires li{
 }
 
 #auto-suggest .suggestions {
-	width:200px;
+	width:inherit;
     position: fixed;
     margin:-6px auto 0;
     padding:0;
@@ -141,20 +166,32 @@ ul.optionsSecondaires li{
 
 #auto-suggest .suggestions li {
     height:25px;
-    padding:0 10px;
+    padding:0 0px;
     line-height:25px;
     cursor: pointer;
     border-top:1px solid #f5f5f5
     }
 #auto-suggest .suggestions li:hover {
-    background:url(images/tick.png) no-repeat #fffac2;
+    background: no-repeat #fffac2;
     background-position:320px center;
-    border-top-color:#fffac2}
+    border-top-color:#fffac2
+}
+
 #auto-suggest .suggestions li:first-child {
     border:none;
     }
-    
-.optionsConnexion {
+.recherche{
+    float : right;
+    width : 25%;
+    margin-top : 10px;
+    margin-right : 29px; 
+} 
+form.connexion{
+ margin-bottom : 0px;
+}
+button,  input[type="submit"] {
+    cursor: pointer;
+    margin-top : 7px;
 	padding:6px 0 6px 0;
 	font:bold 13px Arial;
 	background:#f5f5f5;
@@ -164,5 +201,85 @@ ul.optionsSecondaires li{
 	border:1px solid #ccc;
 	box-shadow:1px 1px 3px #999;
 }
+body{
+    display: flex;
+    padding : 0;
+    margin : 0;
+    flex-direction: column;
+    background-color: #336666;
+}
 
+footer {
+    margin: 10px;
+    background: white;
+    color: black;
+    padding: 15px;
+    text-align: center;
+ 
+}
+.leftcolumn {
+   float: left;
+    width: 11%;
+    padding-left: 5px;
+}
+li.logo a{
+    padding : 0px;
+    background-color: ;
+}
+.rightcolumn {
+    overflow-wrap: break-word;
+    text-align: justify;
+    overflow :hidden;
+    text-overflow: ellipsis ;
+    float: right;
+    width: 20%;
+    
+}
+
+.centercolumn{
+    float : left;
+    width: 66%;
+    padding-left: 20px;
+
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 0px;
+}
+
+.liste{
+    width: 100%;
+    height: 300;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.ul_liste{
+    width :1500;
+    height: 270;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.contenu{
+    margin-left : 10px;
+    margin-bottom : 10px;
+    margin-top : 0px;
+    margin-right: 10px;
+}
+
+#avis{
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
 
