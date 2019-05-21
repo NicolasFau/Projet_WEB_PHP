@@ -43,7 +43,7 @@ session_start();
 
 
     </div>
-    <nav>
+    <nav class="navigation">
         <ul >
             <li><a href="./accueil.php">Accueil</a></li>
             <li><a href="./serie.php">Série</a></li>

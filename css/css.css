@@ -1,4 +1,4 @@
-nav ul {
+.navigation ul {
   width: 100%;
   list-style-type: none;
   margin: 0;
@@ -9,19 +9,37 @@ nav ul {
 
 }
 
-nav li {
+.navigation li {
   float: left;
 }
 
-nav li a {
+.navigation  li a {
   display: block;
   color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
+a:link {
+  color: cadetblue;
+}
 
-nav li a:hover {
+/* visited link */
+a:visited {
+  color: steelblue;
+}
+
+/* mouse over link */
+a:hover {
+  color: skyblue;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
+
+.navigation  li a:hover {
   background-color: #111;
 }
 
@@ -30,7 +48,7 @@ li.sous-menu {
 }
 
 .contenu-sous-menu {
-  display: none;
+  display:   none;
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
