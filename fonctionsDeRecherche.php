@@ -1,4 +1,5 @@
 <?php
+include 'connexion.php';
 
 /*function rechercher_serie($linkpdo, $recherche){
     $result = $linkpdo->prepare('SELECT * FROM Serie WHERE NomSerie LIKE :recherche ORDER BY NomSerie ASC');
@@ -6,15 +7,12 @@
     $donnees = $result->fetchAll();
     return $donnees;
 }
-
-
 function rechercher_acteur($linkpdo, $recherche){
     $result = $linkpdo->prepare('SELECT * FROM Acteur WHERE NomActeur LIKE :recherche ORDER BY NomActeur ASC');
     $result->execute(array('recherche' => $recherche));
     $donnees = $result->fetchAll();
     return $donnees;
 }*/
-
 function listeTheme($linkpdo){
     $requete='SELECT distinct themeserie FROM serie' ;
     $result=pg_exec($linkpdo,$requete);
@@ -27,9 +25,22 @@ function rechercheParTheme($linkpdo, $theme){
     $donnees = pg_fetch_all($result);
     return $donnees;
 }
-
 function rechercher_critiqueSaison($linkpdo, $idsaison){
     $requete="Select * FROM critique WHERE idsaison= '$idsaison' ORDER BY datecritique DESC";
+    $result=pg_exec($linkpdo, $requete);
+    $donnees=pg_fetch_all($result);
+    return $donnees;
+}
+
+function rechercher_critiqueSignalees($linkpdo){
+    $requete="Select * from critique where estsignalee='True'";
+    $result=pg_exec($linkpdo, $requete);
+    $donnees=pg_fetch_all($result);
+    return $donnees;
+}
+
+function listeUser($linkpdo){
+    $requete="Select * from utilisateur";
     $result=pg_exec($linkpdo, $requete);
     $donnees=pg_fetch_all($result);
     return $donnees;

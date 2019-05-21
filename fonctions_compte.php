@@ -1,4 +1,4 @@
-<?php
+    <?php
 include 'connexion.php';
 
 if (isset($_REQUEST['fonction']) && $_REQUEST['fonction'] != '')
@@ -19,13 +19,11 @@ function est_connecte(){
 
 function est_admin() {
     if (est_connecte()) {
-        if ($_SESSION['estadmin']=="t") {
+        if (isset($_SESSION['estadmin']) && $_SESSION['estadmin']=='t') {
             return true;
         }
-    }else if ($_SESSION['estadmin']=="f"){
-            return false;
-
     }
+    return false;
 }
 
 function rechercher_utilisateur($linkpdo, $pseudoU){
@@ -36,10 +34,10 @@ function rechercher_utilisateur($linkpdo, $pseudoU){
 }
 
 function rechercher_critiques($linkpdo, $pseudoU){
-    $requete='SELECT * FROM critique, utilisateur WHERE codeutilisateurcritiquant = codeutilisateur AND pseudou =\'' .$pseudoU. '\'';
-    $result=pg_exec($linkpdo,$requete);
-    $donnees = pg_fetch_All($result);
-    return $donnees;
+        $requete='SELECT * FROM critique, utilisateur WHERE codeutilisateurcritiquant = codeutilisateur AND pseudou =\'' .$pseudoU. '\'';
+        $result=pg_exec($linkpdo,$requete);
+        $donnees = pg_fetch_All($result);
+        return $donnees;
 }
 
 
@@ -111,21 +109,21 @@ function modif_mdp($nouveau_mdp, $pseudoU){
         echo -2;
     }
 }
-    
-function supprimer_critique($data){
-    include 'connexion.php';
-    $idcritique=$_REQUEST['params'] ['idcritique'];
-    $pseudoU=$_REQUEST['params'] ['pseudoU'];
-    $requete2='DELETE FROM signalement WHERE idcritique='.$idcritique;
-    $donnees=pg_exec($linkpdo,$requete2);
-    $requete='DELETE FROM critique WHERE idcritique=' . $idcritique . 'AND codeutilisateurcritiquant = (SELECT codeutilisateur FROM utilisateur WHERE PseudoU=\'' . $pseudoU . '\' ) ';
-    $donnees=pg_exec($linkpdo, $requete);
-    $result=pg_result_error($donnees);
-    if ($result==""){
-        echo 'L\'opération a été effectuée';
-    }else{
-        echo 'L\'opération a échouée';
+
+    function supprimer_critique($data){
+        include 'connexion.php';
+        $idcritique=$_REQUEST['params'] ['idcritique'];
+        $pseudoU=$_REQUEST['params'] ['pseudoU'];
+        $requete2='DELETE FROM signalement WHERE idcritique='.$idcritique;
+        $donnees=pg_exec($linkpdo,$requete2);
+        $requete='DELETE FROM critique WHERE idcritique=' . $idcritique . 'AND codeutilisateurcritiquant = (SELECT codeutilisateur FROM utilisateur WHERE PseudoU=\'' . $pseudoU . '\' ) ';
+        $donnees=pg_exec($linkpdo, $requete);
+        $result=pg_result_error($donnees);
+        if ($result==""){
+            echo 'L\'opération a été effectuée';
+        }else{
+            echo 'L\'opération a échouée';
+        }
     }
-}
 
 ?>
