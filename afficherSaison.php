@@ -57,6 +57,7 @@ echo '<br />';
 
 <br />
 <?php
+echo "<b>Episodes:</b>"."<br>";
 $idsaison=$row['idsaison'];
 //echo $idsaison;
 $queryepisode="SELECT * FROM episode WHERE idsaison='$idsaison'";
@@ -91,7 +92,7 @@ if ($liste_critiques != NULL){
         echo "<br />";
         if (est_connecte()){
             if($row['pseudou']==$_SESSION['PseudoU']){
-                echo 'Vous ne pouvez pas signaler votre critique mais rendez vous sur votre page pour la supprimer';
+                echo '<br><i>Vous ne pouvez pas signaler votre critique mais rendez vous sur votre page pour la supprimer</i>';
                 echo "<br />";
                 echo "<br />";
             }else{
