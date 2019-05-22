@@ -42,6 +42,9 @@ if (!est_admin()){
       	echo '<option value="'.$data['nomserie'].'">'.$data['nomserie']."</option>";
       }
       echo  '</select>';
+	echo "</br>";
+	echo "</br>";
+
     ?>
 
   <label for="choix_realisateur">Nom du réalisateur </label>
