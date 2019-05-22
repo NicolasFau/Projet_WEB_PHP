@@ -6,7 +6,10 @@ include 'header.php';
 
 //Récupération des variables
 $serie=$_POST['listeSerie'];
-$acteur=$_POST['listeActeur'];
+echo $serie;
+$acteur=$_POST['test'];
+echo $acteur;
+
 //Connexion à la base de donnée
 $connect=$linkpdo;
 $queryid="SELECT * FROM acteur WHERE nomacteur='$acteur'";

@@ -35,7 +35,7 @@ if (!est_admin()){
       $queryNomserie="Select * from serie";
       $resulatNomListe=pg_exec($linkpdo, $queryNomserie);
       //datalist dynamique
-      echo '<select id="listeSerie">';
+      echo '<select name="listeSerie"  id="listeSerie">';
       while ($data =pg_fetch_array($resulatNomListe)) {
       	// on affiche les résultats
       	echo '<option value="'.$data['nomserie'].'">'.$data['nomserie']."</option>";
@@ -49,7 +49,7 @@ if (!est_admin()){
   $queryacteur="Select * from acteur";
   $resulatacteur=pg_exec($linkpdo, $queryacteur);
   //datalist dynamique
-  echo '<select id="listeActeur">';
+  echo '<select name="test"  id="listeActeur">';
   while ($data =pg_fetch_array($resulatacteur)) {
     // on affiche les résultats
     echo '<option value="'.$data['nomacteur'].'">'.$data['nomacteur']."</option>";
