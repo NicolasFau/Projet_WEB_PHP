@@ -152,7 +152,7 @@ if ($_GET['PseudoU']==$_SESSION['PseudoU']){
                     foreach($liste_critiques as $critique){
                         $donnees=rechercher_saison_critique($linkpdo, $critique['idsaison']);
                         foreach($donnees as $saison){   
-                            echo 'Saison '.$saison['numérosaison'] . ' de <a href="./afficherSerie.php?nomserie='.$saison['nomserie'].'">' .$saison['nomserie'] . '<a/><br>le ' . $critique['datecritique'] . '</br>';
+                            echo 'Saison '.$saison['numérosaison'] . ' de <a href="./afficherSerie.php?nomserie='.$saison['nomserie'].'">' .$saison['nomserie'] . '</a><br>le ' . $critique['datecritique'] . '</br>';
                             echo '  ' . $critique['aviscritique'] . '</br>';
                             
                             if($modifs){
