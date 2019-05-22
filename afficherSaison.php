@@ -49,7 +49,6 @@ $moyenne=pg_fetch_result($moyenne,0);
 $moyenne=number_format($moyenne,2);
 echo $moyenne;
 echo '<br />';
-
 ?>
 
         </td>
@@ -63,7 +62,6 @@ $idsaison=$row['idsaison'];
 $queryepisode="SELECT * FROM episode WHERE idsaison='$idsaison'";
 $resultepisode=pg_query($linkpdo,$queryepisode);
 echo "</br>";
-
 while($data=pg_fetch_array($resultepisode)){
 	echo $data['numeroepisode']." ";
 	echo "        ";
@@ -82,7 +80,6 @@ $liste_critiques=rechercher_critiqueSaison($linkpdo, $row['idsaison']);
 if ($liste_critiques != NULL){
     ?>
     <?php
-
     foreach($liste_critiques as $critique){
         $result = pg_query($linkpdo, "SELECT Pseudou FROM utilisateur WHERE codeutilisateur='".$critique['codeutilisateurcritiquant']."'");
         $row = pg_fetch_array($result);
@@ -106,12 +103,9 @@ if ($liste_critiques != NULL){
     echo '<hr>';
     }
 }else{
-
     echo 'Aucun critique n\'est associée à cette saison';
     echo '<br><hr><br>';
 }
-
-
 if(est_connecte()){?>
 <fieldset>
     <!--<form action"ajouter_critique">-->
@@ -143,7 +137,6 @@ if(est_connecte()){?>
     </div>
     <?php
         include 'footer.php';
-
     ?>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
 
@@ -166,12 +159,8 @@ if(est_connecte()){?>
                     document.location.reload();
                 }
             });
-
         }
-
     }
-
-
 </script>
 </body>
 </html>
