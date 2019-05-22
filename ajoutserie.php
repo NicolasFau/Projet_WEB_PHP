@@ -1,13 +1,15 @@
 <?php
-$titre = 'Ajout Serie'
+$titre = 'Ajout Serie';
 include 'head.php';
-if (!est_admin()){
-    header('Location: accueil.php');
-}
- ?>
+?>
+
 <body>
     <?php
     include 'header.php';
+if (!est_admin()){
+    header('Location: accueil.php');
+}
+ 
     ?>
     <script>
 $( function() {

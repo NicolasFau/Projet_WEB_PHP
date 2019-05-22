@@ -1,8 +1,6 @@
 <?php
 include 'head.php';
-if (!est_admin()){
-    header('Location: accueil.php');
-}
+x
 ?>
 
     <body>
@@ -15,6 +13,9 @@ if (!est_admin()){
             </script>
         <?php
             include 'header.php';
+if (!est_admin()){
+    header('Location: accueil.php');
+}
         ?>
 
     <form action="formacteur.php" method="post">

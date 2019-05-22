@@ -1,9 +1,7 @@
 <?php
 include 'head.php';
 include 'fonctionsDeRecherche.php';
-if (!est_admin()){
-    header('Location: accueil.php');
-}
+
  ?>
     <body>
           <script>
@@ -14,6 +12,9 @@ if (!est_admin()){
 
     <?php
     include 'header.php';
+        if (!est_admin()){
+    header('Location: accueil.php');
+}
     if(isset($_POST['listeUser'])){
         $pseudo=$_POST['listeUser'];
         $queryTestExistance= "Select * from utilisateur where pseudou='$pseudo'";
