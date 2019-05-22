@@ -1,18 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <!-- Latest compiled and minified CSS -->
-</head>
+
 
 <?php
+$titre='Identification';
 require 'connexion.php';
 include 'head.php';
+?>
+<body>
+<?php
 include 'header.php';
 ?>
+    <div class="page">
+        <center><h1>Connexion</h1></center>
 <fieldset>
-    <legend>Connexion</legend>
     <div id="infos">
         <form action="identification.php" method="post">
             <p>Identifiant<br><input type="text" name="PseudoU"  required="required" style="text-align: center"/></p>
@@ -43,11 +42,12 @@ if(!isset($_SESSION['PseudoU'])) {
                 $_SESSION['PseudoU'] = $pseudo;
                 $_SESSION['PasswordU'] = $pass;
                 $_SESSION['estadmin'] = $donnees['estadministrateur'];
-                header('Location: accueil.php');
+                header("location: accueil.php");
                 if (isset($_POST['cookie']) && $_POST['cookie'] == 'on') {
                     setcookie('login', $result['PseudoU'], time() + 2 * 3600);
                     setcookie('password', $result['PasswordU'], time() + 2 * 3600);
                 }
+                
             } else {
                 header('Location: identification.php?error=Login ou mot de passe invalide.');
             }
@@ -56,8 +56,15 @@ if(!isset($_SESSION['PseudoU'])) {
         }
     }
 }else{
-    header('Location: accueil.php');
+     header("location: accueil.php");
+
 }
 session_commit();
 ?>
+    </div>
+    <?php
+    include 'footer.php';
+    ?>
+</body>
+
 </html>

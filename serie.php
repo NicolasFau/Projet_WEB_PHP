@@ -14,11 +14,9 @@ $resultat=pg_query($linkpdo, $requete);
 $resultat=pg_fetch_all($resultat);
 ?>
 <div class="page">
-    <div style="width: 100%; margin:0 auto;">
+    <div>
     
-    
-    
-    <center><ul style=" width: inherite ; height: 200; margin: 0; padding: 0;  list-style-type: none; ">
+    <center><ul style=" width: inherite ; height: 205px; margin: 0; padding: 0;  list-style-type: none; ">
             <?php
             foreach($resultat as $serie){
 
@@ -35,7 +33,7 @@ $resultat=pg_fetch_all($resultat);
                     <div><center><a href="afficherSerie.php?nomserie=<?php echo $serie['nomserie']; ?>"><?php echo $serie['nomserie']; ?></a></center></div>
                     <div style=" width:200px;
                          heigth:100px;
-		          "><p style="width: 200px; height:140px;
+		          "><p style="width: 200px; height:150px;
                     overflow-wrap: break-word;
                     text-align: justify;
                     overflow :hidden;

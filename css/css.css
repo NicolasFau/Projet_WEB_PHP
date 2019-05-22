@@ -10,6 +10,8 @@
 }
 
 header{
+    position : fixed;
+    top : 0
     margin:0;
     width :100% ;
 
@@ -123,8 +125,6 @@ ul.optionsSecondaires li{
 #auto-suggest .search {
 	width:100%;
     height:33px;
-
-   /* margin: 4px;*/
     border:1px solid #cdcdcd;
 	color:#ccc;
     font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -182,7 +182,7 @@ ul.optionsSecondaires li{
     }
 .recherche{
     float : right;
-    width : 25%;
+    width : 20%;
     margin-top : 10px;
     margin-right : 29px; 
 } 
@@ -207,16 +207,19 @@ body{
     margin : 0;
     flex-direction: column;
     background-color: #336666;
+    font-family: Calibri;
 }
 
 footer {
     width : 78%;
+    bottom: 0px;
     margin: 10px auto;
     background: white;
     color: black;
     padding: 20px;
     text-align: center;
- 
+    border-radius: 2px;
+
 }
 .leftcolumn {
    float: left;
@@ -268,18 +271,21 @@ li.logo a{
 .contenu{
     margin-left : 10px;
     margin-bottom : 10px;
-    margin-top : 0px;
+    margin-top : 110px;
     margin-right: 10px;
 }
 
 .page{
-    margin: 0 auto;
+    margin-top: 110px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
     width :78%;
     padding-right : 20px;
     padding-bottom: 10px;
     padding-left: 20px;
     background-color : white; 
-    border-radius: 10px;
+    border-radius: 2px;
 }
 
 #avis, #description{

@@ -4,9 +4,11 @@ include 'header.php';
 include 'fonctions_signalement.php';
 ?>
 <body>
-<fieldset>
+    <div class="page">
+        <center><h1>Signaler</h1></center>
+    <fieldset>
     <form method="post">
-        <label>Motif du signalement</label><br>
+        <label>Motif du signalement:</label><br>
         <textarea name="motif" id ="avis" required></textarea><br>
         <input type="submit" value ="Envoyer">
     </form>
@@ -20,4 +22,9 @@ if (isset($_GET['idcritique'])){
     echo '<p>Erreur.</p>';
 }
 ?>
+    
+    </div>
+<?php
+    include 'footer.php';
+    ?>
 </body>
