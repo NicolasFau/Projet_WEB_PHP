@@ -1,19 +1,16 @@
 <?php
 include 'head.php';
-include 'header.php';
+?>
+
+<body>
+    <?php
+    include 'header.php';
 include 'fonctionsDeRecherche.php';
 if (!est_admin()){
     header('Location: accueil.php');
 }
-?>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>PHP</title>
-    <meta charset="utf-8" />
-</head>
-<body>
+    ?>
+    <div class="page">
 <h3>Critiques Signalées</h3>
 <?php
 require("connexion.php");
@@ -39,5 +36,8 @@ if ($liste_critiques != NULL) {
     echo "Aucune critique n'est signalee";
 }
 ?>
-
+</div>
+     <?php
+    include 'footer.php';
+    ?>
 </body>

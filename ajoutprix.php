@@ -4,6 +4,7 @@ include 'head.php';
 
  ?>
     <body>
+
         <?php
         include 'header.php';
         if (!est_admin()){
@@ -17,6 +18,10 @@ include 'head.php';
 	var spinner = $( "#listePrix" ).selectmenu();
   } );
   </script>
+                    <div class="page">
+                            <center><h1>Ajout Prix</h1></center>
+
+
     <form action="formPrix.php" method="post">
 	       <p>Nom <input type="text" name="nom"></p>
 	       <p>Ville<input type="text" name="ville"></p>
@@ -36,7 +41,7 @@ include 'head.php';
       	// on affiche les résultats
       	echo '<option value="'.$data['nomserie'].'">'.$data['nomserie']."</option>";
       }
-      echo  '</select>';
+      echo  '</select><br><br>';
     ?>
 
   <label for="choix_prix">Prix </label>
@@ -83,3 +88,9 @@ include 'head.php';
     }
     echo  '</table>';
     ?>
+        </div>
+         <?php
+    include 'footer.php';
+    ?>
+</body>
+</html>

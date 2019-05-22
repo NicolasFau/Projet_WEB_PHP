@@ -17,6 +17,9 @@ $( function() {
 	 $( "#listeGenre" ).selectmenu();
  });
 </script>
+        <div class="page">
+    <center><h1>Ajout Série</h1></center>
+
     <form action="formAjoutSerie.php" method="post" enctype="multipart/form-data">
          <p>Titre <input type="text" name="titre"></p>
          <p>Pays
@@ -299,6 +302,10 @@ $( function() {
         </form>
 
 
-
+</div>
+    <?php
+    include 'footer.php';
+    ?>
+    
   </body>
   </html>

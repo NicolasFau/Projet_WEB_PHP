@@ -4,17 +4,24 @@ include 'fonctionsDeRecherche.php';
 
  ?>
     <body>
+
           <script>
   $( function() {
     $( "#listeUser" ).selectmenu();
 });
 </script>
 
+
     <?php
     include 'header.php';
         if (!est_admin()){
     header('Location: accueil.php');
 }
+    ?>
+        <div class="page">
+                <center><h1>Supprimer Utilisateur</h1></center>
+
+<?php
     if(isset($_POST['listeUser'])){
         $pseudo=$_POST['listeUser'];
         $queryTestExistance= "Select * from utilisateur where pseudou='$pseudo'";
@@ -65,5 +72,9 @@ include 'fonctionsDeRecherche.php';
 
     <p><input type="submit" value="Supprimer"></p>
     </form>
+        </div>
+         <?php
+    include 'footer.php';
+    ?>
 </body>
 </html>

@@ -4,6 +4,7 @@ include 'head.php';
  ?>
 
 <body>
+
     <?php
         include 'header.php';
     if (!est_admin()){
@@ -17,6 +18,9 @@ include 'head.php';
 	        var spinner = $( "#tentacles" ).spinner();
         });
     </script>
+            <div class="page">
+    <center><h1>Ajout Episode</h1></center>
+
 <label for="choix_serie">Nom Série </label>
 <form action="formajoutepisode.php" method="post">
     <?php
@@ -33,7 +37,7 @@ include 'head.php';
             // on affiche les résultats
             echo '<option value="'.$data['nomserie'].'">'.$data['nomserie']."</option>";
         }
-        echo  '</select>';
+        echo  '</select><br><br>';
     }
     ?>
 
@@ -63,3 +67,9 @@ include 'head.php';
     <p><a href=".dmin.php"><input type="submit" value="Terminer"></a></p>
 
 </form>
+    </div>
+     <?php
+    include 'footer.php';
+    ?>
+</body>
+</html>

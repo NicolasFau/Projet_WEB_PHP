@@ -3,6 +3,7 @@ include 'head.php';
 
  ?>
 <body>
+
     <?php
     include 'header.php';
     if (!est_admin()){
@@ -16,7 +17,9 @@ include 'head.php';
 		var spinner = $( "#tentacles" ).spinner();
         } );
     </script>
-    
+            <div class="page">
+    <center><h1>Ajout Saison</h1></center>
+
 <form action="formajoutsaison.php" method="post">
     <p>Date Sortie <input type="text" name="date" id="datepicker"></p>
     <p>Numéro Saison<input type="number" id="tentacles" name="num"></p>
@@ -45,6 +48,9 @@ include 'head.php';
 
     <p><input type="submit" value="Ajouter"></p>
 </form>
-
+    </div>
+     <?php
+    include 'footer.php';
+    ?>
 </body>
 </html>

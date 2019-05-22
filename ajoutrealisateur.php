@@ -1,28 +1,24 @@
 <?php
 include 'head.php';
-include 'header.php';
+
+ ?>
+
+
+    <body>
+        <?php
+        include 'header.php';
 if (!est_admin()){
     header('Location: accueil.php');
 }
- ?>
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>PHP</title>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
+        ?>
+         <script>
     $( function() {
       $( "#datepicker" ).datepicker();
     } );
     </script>
+        <div class="page">
+                <center><h1>Ajout Réalisateur</h1></center>
 
-    </head>
-    <body>
     <form action="formajoutrealisateur.php" method="post">
 	       <p>Nom <input type="text" name="nom"></p>
 	       <p>Prenom<input type="text" name="prenom"></p>
@@ -32,7 +28,7 @@ if (!est_admin()){
     <form action="ajoutrealisateurserie.php" method="post">
       <label for="choix_serie">Nom Série </label>
       <?php
-      require("/connexion.php");
+      require("connexion.php");
       $connect=$linkpdo;
       $queryNomserie="Select * from serie";
       $resulatNomListe=pg_exec($connect, $queryNomserie);
@@ -48,7 +44,7 @@ if (!est_admin()){
 
   <label for="choix_realisateur">Nom du réalisateur </label>
   <?php
-  require("/connexion.php");
+  require("connexion.php");
   $connect=$linkpdo;
   $queryNomserie="Select * from realisateur";
   $resulatNomListe=pg_exec($connect, $queryNomserie);
@@ -71,7 +67,7 @@ if (!est_admin()){
     </form>
     <h2>Réalisateur dans la base</h2>
     <?php
-    require("/connexion.php");
+    require("connexion.php");
     $connect=$linkpdo;
     $queryNomserie="Select * from realisateur";
     $resulatNomListe=pg_exec($connect, $queryNomserie);
@@ -90,3 +86,10 @@ if (!est_admin()){
     }
     echo  '</table>';
     ?>
+            </div>
+         <?php
+    include 'footer.php';
+    ?>
+</body>
+
+</html>

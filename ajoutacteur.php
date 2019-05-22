@@ -4,6 +4,7 @@ include 'head.php';
 ?>
 
     <body>
+
             <script>
             $( function() {
             $( "#datepicker" ).datepicker();
@@ -17,6 +18,9 @@ if (!est_admin()){
     header('Location: accueil.php');
 }
         ?>
+                    <div class="page">
+    <center><h1>Ajout Acteur</h1></center>
+
 
     <form action="formacteur.php" method="post">
 	       <p>Nom <input type="text" name="nom"></p>
@@ -36,7 +40,7 @@ if (!est_admin()){
       	// on affiche les résultats
       	echo '<option value="'.$data['nomserie'].'">'.$data['nomserie']."</option>";
       }
-      echo  '</select>';
+      echo  '</select><br><br>';
     ?>
 
   <label for="choix_acteur">Acteur </label>
@@ -81,3 +85,9 @@ if (!est_admin()){
     }
     echo  '</table>';
     ?>
+        </div>
+         <?php
+    include 'footer.php';
+    ?>
+</body>
+</html>
