@@ -1,14 +1,18 @@
 <?php
+$titre='Saison';
 require 'connexion.php';
 include 'head.php';
-include 'header.php';
 include 'fonctionsDeRecherche.php';
 include 'fonctions_critique.php';
 ?>
 
 <body>
 <?php
-$numsaison=$_GET['numsai'];
+include 'header.php';
+    ?>
+    <div class="page">
+    <?php
+    $numsaison=$_GET['numsai'];
 $nomSerie=$_GET['nomserie'];
 $result = pg_query($linkpdo, "SELECT * FROM Saison WHERE numérosaison = '$numsaison' AND nomserie= '$nomSerie';");
 $row = pg_fetch_array($result);
@@ -26,7 +30,7 @@ echo '<br />';
 ?>
 
 <br />
-<b>Critiques :</b><br />
+<b>Critiques :</b><br /><hr>
 <br />
 
 <?php
@@ -50,15 +54,17 @@ if ($liste_critiques != NULL){
                 echo "<br />";
                 echo "<br />";
             }else{
-                echo '<a href="./signaler.php?idcritique='.$critique['idcritique'].'"> <input type="button" value="Signaler"/></a>';
+                echo '<a href="./signaler.php?idcritique='.$critique['idcritique'].'"> <input type="submit" style="float : right;"value="Signaler"/></a>';
                 echo "<br />";
                 echo "<br />";
             }
         }
+    echo '<hr>';
     }
 }else{
 
     echo 'Aucun critique n\'est associée à cette saison';
+    echo '<br><hr><br>';
 }
 
 
@@ -76,10 +82,13 @@ if(est_connecte()){?>
 
 
     <?php
-    }
+    }else{
+    echo '<a href="identification.php">Connectez-vous</a> si vous souhaitez faire une critique sur cette saison';
+}
     ?>
 
 </fieldset>
+    </div>
     <?php
         include 'footer.php';
 

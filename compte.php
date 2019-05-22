@@ -1,3 +1,4 @@
+<body>
 <?php
 include 'head.php';
 include 'header.php';
@@ -13,20 +14,17 @@ if ($_GET['PseudoU']==$_SESSION['PseudoU']){
 }
 
 ?>
-
-
-<body>
-    
+    <div class="page">
+         
     <?php
     $resultats_utilisateur = rechercher_utilisateur($linkpdo, $_GET['PseudoU']);
     $liste_critiques = rechercher_critiques($linkpdo, $_GET['PseudoU']);
     if($resultats_utilisateur != NULL){
         foreach ($resultats_utilisateur as $utilisateur){
             ?>
-            <h1>Profil</h1>
-    
+            <center><h1>Profil</h1></center>
+      <div>  
             <h2>Pseudo</h2>
-    
                 <p>
                     <?php
                     echo $utilisateur['pseudou'];
@@ -95,7 +93,7 @@ if ($_GET['PseudoU']==$_SESSION['PseudoU']){
                         <?php
                     }
                 ?>
-    
+    </div>
     
                 <!--Modification du mot passe si c est la page de l utilisateur connecté-->
 
@@ -126,6 +124,7 @@ if ($_GET['PseudoU']==$_SESSION['PseudoU']){
         }
         ?>
             <h2>Critiques</h2>
+            <hr>
     
                 <?php      
                 if ($liste_critiques != NULL){
@@ -140,10 +139,11 @@ if ($_GET['PseudoU']==$_SESSION['PseudoU']){
                             echo '  ' . $critique['aviscritique'] . '</br>';
                             
                             if($modifs){
-                                echo '<button name="supp" id="supprimerCritique' . $i . '" class="suppimer" value="' . $critique['idcritique'] . '" onclick="supprimer(\''. $critique['idcritique'] . '\');">Supprimer cette critique</button> </br> </br>';
+                                echo '<button name="supp" style="float: right;" id="supprimerCritique' . $i . '" class="suppimer" value="' . $critique['idcritique'] . '" onclick="supprimer(\''. $critique['idcritique'] . '\');">Supprimer </button> </br> </br>';
                             $i++;
                             }    
                         }
+                        echo '<hr>';
                     }
                 }else{
                     if ($modifs){
@@ -159,7 +159,10 @@ if ($_GET['PseudoU']==$_SESSION['PseudoU']){
 
         ?>
 
-</body>
+    </div>
+   
+
 <?php
 include 'footer.php';
 ?>
+</body>

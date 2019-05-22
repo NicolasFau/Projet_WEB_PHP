@@ -210,10 +210,11 @@ body{
 }
 
 footer {
-    margin: 10px;
+    width : 78%;
+    margin: 10px auto;
     background: white;
     color: black;
-    padding: 15px;
+    padding: 20px;
     text-align: center;
  
 }
@@ -271,7 +272,17 @@ li.logo a{
     margin-right: 10px;
 }
 
-#avis{
+.page{
+    margin: 0 auto;
+    width :78%;
+    padding-right : 20px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    background-color : white; 
+    border-radius: 10px;
+}
+
+#avis, #description{
   width: 100%;
   height: 150px;
   padding: 12px 20px;
@@ -281,5 +292,6 @@ li.logo a{
   background-color: #f8f8f8;
   font-size: 16px;
   resize: none;
-}
+}  
+
 
