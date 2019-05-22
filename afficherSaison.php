@@ -57,6 +57,23 @@ echo '<br />';
     </table>
 
 <br />
+<?php
+$idsaison=$row['idsaison'];
+//echo $idsaison;
+$queryepisode="SELECT * FROM episode WHERE idsaison='$idsaison'";
+$resultepisode=pg_query($linkpdo,$queryepisode);
+echo "</br>";
+
+while($data=pg_fetch_array($resultepisode)){
+	echo $data['numeroepisode']." ";
+	echo "        ";
+	echo $data['nomepisode']." ";
+	echo "        ";
+	echo "Durée: ".$data['duréeepisode'];
+	echo "</br>";
+}
+echo "</br>";
+?>
 <b>Critiques :</b><br /><hr>
 <br />
 
