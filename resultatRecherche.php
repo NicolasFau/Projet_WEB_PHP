@@ -22,7 +22,7 @@ if(isset($_GET['nbsaison']) and $_GET['nbsaison']!=null){
 }else{
     $nbsaison=0;
 }
-$requete="select  serie.nomserie, serie.urlimageserie from serie inner join saison on saison.nomserie=serie.nomserie and serie.nomserie like '$nomserie' and serie.themeserie like '$categorie' group by serie.nomserie having count(serie.nomserie)>=$nbsaison";
+$requete="select  serie.nomserie, serie.urlimageserie from serie inner join saison on saison.nomserie=serie.nomserie and (lower(serie.nomserie) like lower('%$nomserie%') or lower(serie.nomserie) like lower('%$nomserie') or lower(serie.nomserie) like '$nomserie' or lower(serie.nomserie) like lower('$nomserie')) and serie.themeserie like '$categorie' group by serie.nomserie having count(serie.nomserie)>=$nbsaison";
 $resultat=pg_query($linkpdo, $requete);
 $resultat=pg_fetch_all($resultat);
 
