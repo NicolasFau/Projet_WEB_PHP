@@ -77,24 +77,24 @@ function supprimer(idcritique){
         });   
     }
 
-     if (dialogMajDesc != null){
-        dialogMajDesc.addEventListener('close', function onClose() {
-        if ((textarea.value != "") && (textarea.value != " ")){
-           var nouvelle_description = textarea.value;
-           $.ajax({
-            type: "POST",
-            url: "fonctions_compte.php",
-            data: {
-                fonction:'modif_description',
-                params: {pseudoU, nouvelle_description},
-                },
-                success: function(data)
-                {
-                    location.reload();
-                }
-            }) 
-            }
-        });   
+     if (dialogMajDesc != null){ 
+         confirmBtn1.addEventListener('click', function(){
+            if ((textarea.value != "") && (textarea.value != " ")){
+            var nouvelle_description = textarea.value;
+                $.ajax({
+                    type: "POST",
+                    url: "fonctions_compte.php",
+                    data: {
+                        fonction:'modif_description',
+                        params: {pseudoU, nouvelle_description},
+                    },
+                    success: function(data)
+                    {
+                        location.reload();
+                    }
+                }) 
+            }        
+         });
      }  
     
        
