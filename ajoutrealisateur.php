@@ -14,7 +14,10 @@ if (!est_admin()){
          <script>
     $( function() {
       $( "#datepicker" ).datepicker();
-    } );
+      $( "#listeSerie" ).selectmenu();
+      $( "#listeRea" ).selectmenu();    
+} );
+	
     </script>
         <div class="page">
                 <center><h1>Ajout Réalisateur</h1></center>
@@ -29,33 +32,31 @@ if (!est_admin()){
       <label for="choix_serie">Nom Série </label>
       <?php
       require("connexion.php");
-      $connect=$linkpdo;
       $queryNomserie="Select * from serie";
-      $resulatNomListe=pg_exec($connect, $queryNomserie);
+      $resulatNomListe=pg_exec($linkpdo, $queryNomserie);
       //datalist dynamique
-      echo '<input  list="listeSerie" type="text" name="listeSerie">';
-      echo '<datalist id="listeSerie">';
+      //echo '<input  list="listeSerie" type="text" name="listeSerie">';
+      echo '<select id="listeSerie" name="1" >';
       while ($data =pg_fetch_array($resulatNomListe)) {
       	// on affiche les résultats
-      	echo '<option value="'.$data['nomserie'].'">';
+      	echo '<option value="'.$data['nomserie'].'">'.$data['nomserie']."</option>";
       }
-      echo  '</datalist>';
+      echo  '</select>';
     ?>
 
   <label for="choix_realisateur">Nom du réalisateur </label>
   <?php
   require("connexion.php");
-  $connect=$linkpdo;
   $queryNomserie="Select * from realisateur";
-  $resulatNomListe=pg_exec($connect, $queryNomserie);
+  $resulatNomListe=pg_exec($linkpdo, $queryNomserie);
   //datalist dynamique
-  echo '<input  list="listeRea" type="text" name="listeRea">';
-  echo '<datalist id="listeRea">';
+ // echo '<input  list="listeRea" type="text" name="listeRea">';
+  echo '<select id="listeRea" name="2"  >';
   while ($data =pg_fetch_array($resulatNomListe)) {
     // on affiche les résultats
-    echo '<option value="'.$data['nomrealisateur'].'">';
+    echo '<option value="'.$data['nomrealisateur'].'">'.$data['nomrealisateur']."</option>";
   }
-  echo  '</datalist>';
+  echo  '</select>';
 ?>
     <p><input type="submit" value="Ajouter"></p>
         <?php
