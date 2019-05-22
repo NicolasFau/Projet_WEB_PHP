@@ -35,9 +35,47 @@ include 'head.php';
                                 echo "<b>Synopsis série</b>" . "<br>" . "<br>";
                                 echo $row['synopsisserie'] . "<br>" . "<br>";
                                 ?>
+                               
                             </td>
                         </tr>
                         </table>
+    <div style="margin:15px;">
+     <?php
+		    $queryrea="SELECT nomrealisateur, prenomrealisateur FROM realisateur, realiser WHERE realisateur.idrealisateur=realiser.idrealisateur AND nomserie='$nomserie'"; 		    
+		    $resultrea=pg_query($linkpdo,$queryrea);
+		    
+			echo "<b>Réalisateur:</b>"."</br>";
+			while($data=pg_fetch_array($resultrea)){
+				echo $data['nomrealisateur']." ";
+				echo $data['prenomrealisateur'];
+				echo ", ";
+			}
+             echo "<br>";
+
+			 $queryacteur="SELECT nomacteur, prenomacteur FROM acteur, jouer WHERE acteur.idacteur=jouer.idacteur AND nomserie='$nomserie'";
+                    $resultacteur=pg_query($linkpdo,$queryacteur);
+
+                        echo "<b>Acteur:</b>"."</br>";
+                        while($data=pg_fetch_array($resultacteur)){
+                                echo $data['nomacteur']." ";
+                                echo $data['prenomacteur'];
+                                echo ", ";
+                        }
+                    echo "<br>";
+
+			 $queryprix="SELECT nomprix, villeprix FROM prixdecerne, decerner WHERE prixdecerne.idprix=decerner.idprix AND nomserie='$nomserie'";
+                    $resultprix=pg_query($linkpdo,$queryprix);
+
+                        echo "<b>Prix:</b>"."</br>";
+                           while($data=pg_fetch_array($resultprix)){
+                                echo $data['nomprix']." de ";
+                                echo $data['villeprix']."</br>";
+                        } 
+                   
+                    
+                    echo "<br>";
+			?>
+    </div>
                     <div style="margin: 15px;">
                         <?php
                     echo "<b>Saisons existantes :</b>" . "<br>";
@@ -49,36 +87,7 @@ include 'head.php';
                             $s = $row2[$i]['numérosaison'];
                             echo "<a href='afficherSaison.php?numsai=$s&nomserie=$nomserie'>Saison $s</a>" . "<br>";
                              }?>
-			<?php
-		    $queryrea="SELECT nomrealisateur, prenomrealisateur FROM realisateur, realiser WHERE realisateur.idrealisateur=realiser.idrealisateur AND nomserie='$nomserie'"; 		    
-		    $resultrea=pg_query($linkpdo,$queryrea);
-		    
-			echo "Réalisateur:"."</br>";
-			while($data=pg_fetch_array($resultrea)){
-				echo $data['nomrealisateur']." ";
-				echo $data['prenomrealisateur'];
-				echo "</br>";
-			}
-			 $queryacteur="SELECT nomacteur, prenomacteur FROM acteur, jouer WHERE acteur.idacteur=jouer.idacteur AND nomserie='$nomserie'";
-                    $resultacteur=pg_query($linkpdo,$queryacteur);
-
-                        echo "Acteur:"."</br>";
-                        while($data=pg_fetch_array($resultacteur)){
-                                echo $data['nomacteur']." ";
-                                echo $data['prenomacteur'];
-                                echo "</br>";
-                        }
-
-			 $queryprix="SELECT nomprix, villeprix FROM prixdecerne, decerner WHERE prixdecerne.idprix=decerner.idprix AND nomserie='$nomserie'";
-                    $resultprix=pg_query($linkpdo,$queryprix);
-
-                        echo "Prix:"."</br>";
-                        while($data=pg_fetch_array($resultrea)){
-                                echo $data['nomprix']."</br>";
-                                echo $data['villeprix']."</br>";
-                                echo "</br>";
-                        }
-			?>
+			
                     </div>
                     <?php
                      if (est_connecte()){

@@ -48,16 +48,17 @@ $moyenne=pg_query("SELECT AVG(notationcritique) FROM critique WHERE idsaison=".$
 $moyenne=pg_fetch_result($moyenne,0);
 $moyenne=number_format($moyenne,2);
 echo $moyenne;
-echo '<br />';
+echo '<br /> <br />';
 ?>
-
         </td>
         </tr>
     </table>
 
 <br />
-<?php
-echo "<b>Episodes:</b>"."<br>";
+        <?php
+echo "<b>Episodes:</b>";
+        echo '<div style="height:100px; width : 50%; background-color:#f8f8f8;overflow-y: scroll;"';
+
 $idsaison=$row['idsaison'];
 //echo $idsaison;
 $queryepisode="SELECT * FROM episode WHERE idsaison='$idsaison'";
@@ -71,8 +72,9 @@ while($data=pg_fetch_array($resultepisode)){
 	echo "Durée: ".$data['duréeepisode'];
 	echo "</br>";
 }
-echo "</br>";
+echo "</div></br>";
 ?>
+
 <b>Critiques :</b><br /><hr>
 <br />
 
