@@ -4,8 +4,11 @@ require 'connexion.php';
 include 'head.php';
 include 'header.php';
 //Récupération des variables
-$serie=$_POST['listeSerie'];
-$prix=$_POST['listePrix'];
+$serie=$_POST['1'];
+echo $serie;
+
+$prix=$_POST['2'];
+echo $prix;
 //Connexion à la base de donnée
 $queryid="SELECT * FROM prixdecerne WHERE nomprix='$prix'";
 

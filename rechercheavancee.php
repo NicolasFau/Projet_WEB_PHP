@@ -12,7 +12,7 @@ include 'fonctionsDeRecherche.php';
     <form action="resultatRecherche.php" method="get">
     <p>Nom de la serie<br><input type="text" name="nomserie"/></p>
     <p>Selectionnez une categorie <br>
-        <select name="categorie" >
+        <select name="categorie" id="menu" >
             <option value=""></option>
             <?php
             $liste_categorie=listeTheme($linkpdo);
@@ -21,7 +21,7 @@ include 'fonctionsDeRecherche.php';
             }
             ?>
         </select></p>
-    <p>Nombre de saison minimum<br><input type="number" name="nbsaison" min="0" max="100"/></p>
+    <p>Nombre de saison minimum<br><input type="number" name="nbsaison" id="spinner"/></p>
 
 
     <p><input type="submit" value="Rechercher"></p>
@@ -32,6 +32,12 @@ include 'fonctionsDeRecherche.php';
 <?php
 include 'footer.php';
 ?>
+    <script>
+  $( function() {
+    $( "#menu" ).selectmenu();
+	var spinner = $( "#spinner" ).spinner();
+});
+</script>
 </body>
 
 </html>

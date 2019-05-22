@@ -9,12 +9,19 @@ $saison=$_POST['listeSaison'];
 $nomepisode=$_POST['nom'];
 $numeroepisode=$_POST['num'];
 $duree=$_POST['duree'];
-//Connexion bdd
-$connect=$linkpdo;
+
+
+
+$queryid="SELECT * FROM saison WHERE nomserie = '$serie'";
+$resultid=pg_query($linkpdo,$queryid);
+$tab=pg_fetch_array($resultid);
+$id=$tab['idsaison'];
+echo $id;
+
 //Requete d'insertion à affinnée selon correction model
 $query="INSERT INTO episode(nomepisode,numeroepisode,duréeepisode, idsaison)
-          VALUES('$nomepisode','$numeroepisode','$duree','$saison')";
-$insert=pg_query($connect,$query);
+          VALUES('$nomepisode','$numeroepisode','$duree','$id')";
+$insert=pg_query($linkpdo,$query);
 //Controle d'insertion
 
 if ($insert) {

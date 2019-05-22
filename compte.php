@@ -15,28 +15,38 @@ if ($_GET['PseudoU']==$_SESSION['PseudoU']){
 
 ?>
     <div class="page">
-         
-    <?php
+                    <center><h1>Profil</h1></center>
+
+         <table style="width: 100%">
+                        <tr>
+                            <td><?php
+                    echo "<img src='./image/compte.png' style='float : right; margin-right: 100px; margin-top : 0px;' >" . "<br>" . "<br>";
+                    
+                       ?>
+                            </td>
+                            <td><?php
     $resultats_utilisateur = rechercher_utilisateur($linkpdo, $_GET['PseudoU']);
     $liste_critiques = rechercher_critiques($linkpdo, $_GET['PseudoU']);
     if($resultats_utilisateur != NULL){
         foreach ($resultats_utilisateur as $utilisateur){
             ?>
-            <center><h1>Profil</h1></center>
       <div>  
-            <h2>Pseudo</h2>
-                <p>
+          <p><b><u>Pseudo :</u></b>
+               
                     <?php
                     echo $utilisateur['pseudou'];
                     ?>
                 </p>
     
-            <h2>Fonction</h2>
+            <p><b><u>Fonction :</u></b> 
     
                 <?php
                     echo $utilisateur['typeu'];
+                    
                     if ($modifs){
                         ?> 
+                <button id="modifierType" style="float:right; margin-top:0px;">Modifier</button></p>
+
                         <dialog id="dialogMajType">
                             <form method="dialog">
                             <p><label>Modifier le type d'utilisateur:
@@ -49,32 +59,35 @@ if ($_GET['PseudoU']==$_SESSION['PseudoU']){
                                 </label></p>
                                 <menu>
                                     <button value="<?php echo $utilisateur['typeu']; ?>">Annuler</button>
-                                    <button id="confirmBtnType" value="<?php echo $utilisateur['typeu']; ?>">Confirmer</button>
+                                    <button id="confirmBtnType" value="<?php echo $utilisateur['typeu']; ?>" style="float:right">Confirmer</button>
                                 </menu>
                             </form>
                         </dialog>
-                        <menu>
-                            <button id="modifierType">Modifier</button>
-                        </menu>
                         <output id="retourType" aria-live="polite"></output>
                         <?php
                             }
                         ?>
     
-            <h2>Date de Création du Compte</h2>
+            <p><b><u>Date de Création du Compte :</u></b> 
     
-                <p>
                     <?php
                         echo $utilisateur['datecreationu'];
                     ?>
                 </p>
     
-            <h2>Description</h2>
+            <p><b><u>Description :</u></b> <br>
     
                 <?php
-                    echo $utilisateur['descriptionu'];                
+            echo '<div style="width:500px; float:left; overflow:hidden; overflow-wrap:break-word;">';
+                    echo $utilisateur['descriptionu'];
+                        echo '</div><br>';
+
                     if ($modifs){
                         ?>
+                                      <button id="modifierDesc" style="float:right; margin-top:0px;">Modifier</button></p>
+
+
+
                         <dialog id="dialogMajDesc">
                             <form method="dialog">
                                 <p><label>Modifier la description:</label></p>
@@ -86,9 +99,6 @@ if ($_GET['PseudoU']==$_SESSION['PseudoU']){
                                 </menu>
                             </form>
                         </dialog>
-                        <menu>
-                            <button id="modifierDesc">Modifier</button>
-                        </menu>
                         <output id="retourDesc" aria-live="polite"></output>
                         <?php
                     }
@@ -99,7 +109,7 @@ if ($_GET['PseudoU']==$_SESSION['PseudoU']){
 
         <?php
         if($modifs){?>
-            <h2>Mot de Passe</h2>
+                               
                <dialog id="dialogMajMdp">
                             <form method="dialog">
                                 <p><label>Modifier le mot de passe :</label></p>
@@ -115,14 +125,21 @@ if ($_GET['PseudoU']==$_SESSION['PseudoU']){
                                 </menu>
                             </form>
                         </dialog>
+                        <br>
+                        <br>
                         <menu>
-                            <button id="modifierMdp">Modifier</button>
+                            <button id="modifierMdp" style="width:150px">Modifier le mot de passe</button>
                         </menu>
                         <output id="retourMdp" aria-live="polite"></output>
 
         <?php
         }
         ?>
+                            </td>
+                        </tr>
+                        </table>
+         
+    
             <h2>Critiques</h2>
             <hr>
     
@@ -135,7 +152,7 @@ if ($_GET['PseudoU']==$_SESSION['PseudoU']){
                     foreach($liste_critiques as $critique){
                         $donnees=rechercher_saison_critique($linkpdo, $critique['idsaison']);
                         foreach($donnees as $saison){   
-                            echo 'Critique faite sur la saison ' . $saison['numérosaison'] . ' de la série ' . $saison['nomserie'] . ' le ' . $critique['datecritique'] . '</br>';
+                            echo 'Saison '.$saison['numérosaison'] . ' de <a href="./afficherSerie.php?nomserie='.$saison['nomserie'].'">' .$saison['nomserie'] . '<a/><br>le ' . $critique['datecritique'] . '</br>';
                             echo '  ' . $critique['aviscritique'] . '</br>';
                             
                             if($modifs){

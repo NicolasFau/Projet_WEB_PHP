@@ -1,66 +1,63 @@
 
 <?php
 include 'head.php';
-include 'header.php';
-if (!est_admin()){
+
+ ?>
+    <body>
+
+        <?php
+        include 'header.php';
+        if (!est_admin()){
     header('Location: accueil.php');
 }
- ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>PHP</title>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
+        ?>
+<script>
   $( function() {
     $( "#datepicker" ).datepicker();
+	var spinner = $( "#listeSerie" ).selectmenu();
+	var spinner = $( "#listePrix" ).selectmenu();
   } );
   </script>
+                    <div class="page">
+                            <center><h1>Ajout Prix</h1></center>
 
-    </head>
-    <body>
 
     <form action="formPrix.php" method="post">
 	       <p>Nom <input type="text" name="nom"></p>
 	       <p>Ville<input type="text" name="ville"></p>
-         <p>Date<input type="text" name="date" id="datepicker"></p>
          <p><a href="ajoutprix.php"><input type="submit" value="Ajouter"></a></p>
     </form>
     <form action="ajoutprixserie.php" method="post">
       <label for="choix_serie">Nom Série </label>
       <?php
-      require("/connexion.php");
-      $connect=$linkpdo;
+      require("connexion.php");
+
       $queryNomserie="Select * from serie";
-      $resulatNomListe=pg_exec($connect, $queryNomserie);
+      $resulatNomListe=pg_exec($linkpdo, $queryNomserie);
       //datalist dynamique
-      echo '<input  list="listeSerie" type="text" name="listeSerie">';
-      echo '<datalist id="listeSerie">';
+      echo '<select name="1"  id="listeSerie">';
+
       while ($data =pg_fetch_array($resulatNomListe)) {
       	// on affiche les résultats
-      	echo '<option value="'.$data['nomserie'].'">';
+      	echo '<option value="'.$data['nomserie'].'">'.$data['nomserie']."</option>";
       }
-      echo  '</datalist>';
+      echo  '</select><br><br>';
     ?>
 
   <label for="choix_prix">Prix </label>
   <?php
-  require("/connexion.php");
-  $connect=$linkpdo;
+  require("connexion.php");
+
   $queryprix="Select * from prixdecerne";
-  $resulatprix=pg_exec($connect, $queryprix);
+  $resulatprix=pg_exec($linkpdo, $queryprix);
   //datalist dynamique
-  echo '<input  list="listePrix" type="text" name="listePrix">';
-  echo '<datalist id="listePrix">';
+  echo '<select name="2"  id="listePrix">';
+;
   while ($data =pg_fetch_array($resulatprix)) {
     // on affiche les résultats
-    echo '<option value="'.$data['nomprix'].'">';
+    echo '<option value="'.$data['nomprix'].'">'.$data['nomprix']."</option>";
   }
-  echo  '</datalist>';
+  echo  '</select>';
 ?>
     <p><a href="ajoutprix.php"><input type="submit" value="Ajouter"></a></p>
         <?php
@@ -72,7 +69,7 @@ if (!est_admin()){
     </form>
     <h2>Prix dans la base</h2>
     <?php
-    require("/connexion.php");
+    require("connexion.php");
     $connect=$linkpdo;
     $queryNomserie="Select * from prixdecerne";
     $resulatNomListe=pg_exec($connect, $queryNomserie);
@@ -91,3 +88,9 @@ if (!est_admin()){
     }
     echo  '</table>';
     ?>
+        </div>
+         <?php
+    include 'footer.php';
+    ?>
+</body>
+</html>

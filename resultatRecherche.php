@@ -1,9 +1,11 @@
 <?php
-include 'head.php';
-include 'header.php';
-include 'fonctionsDeRecherche.php';
 $titre = 'Resultat recherche';
+include 'head.php';
 ?>
+<body>
+    <?php
+    include 'header.php';
+    ?>
 <?php
 if(isset($_GET['nomserie']) and $_GET['nomserie']!=null){
     $nomserie=pg_escape_string($_GET['nomserie']);
@@ -27,8 +29,8 @@ $resultat=pg_fetch_all($resultat);
 
 ?>
 
-<body>
-
+    
+    <div class="page">
 <div style="display:block">
     <center><ul style=" width: inherite ; height: 200; margin: 0; padding: 0;  list-style-type: none; ">
             <?php
@@ -55,12 +57,13 @@ $resultat=pg_fetch_all($resultat);
     ?>
 
 </div>
-
+    </div>
+    <?php
+include 'footer.php';
+?>
 
 </body>
 
 
-<?php
-include 'footer.php';
-?>
+
 </html>
