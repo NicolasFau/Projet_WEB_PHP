@@ -1,16 +1,23 @@
 <?php
-include 'head.php';
-include 'header.php';
-include 'fonctionsDeRecherche.php';
 $titre = 'Série';
+include 'head.php';
+
 ?>
 <body style=" position : absolute;">
 <?php
+
+include 'header.php';
+include 'fonctionsDeRecherche.php';
+
 $requete= "SELECT * FROM serie ORDER BY nomserie";
 $resultat=pg_query($linkpdo, $requete);
 $resultat=pg_fetch_all($resultat);
 ?>
-<div style="display:block">
+<div class="page">
+    <div style="width: 100%; margin:0 auto;">
+    
+    
+    
     <center><ul style=" width: inherite ; height: 200; margin: 0; padding: 0;  list-style-type: none; ">
             <?php
             foreach($resultat as $serie){
@@ -42,13 +49,14 @@ $resultat=pg_fetch_all($resultat);
             }
             ?>
         </ul></center>
-</div>
-
+    </div>
+    </div>
+<?php
+include 'footer.php';
+?>
 
 </body>
 
 
-<?php
-include 'footer.php';
-?>
+
 </html>

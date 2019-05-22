@@ -1,10 +1,15 @@
 <?php
+$titre='Proposer Serie';
 include 'head.php';
-include 'header.php';
 include 'fonctionsDeRecherche.php';
 ?>
 <body>
-<fieldset>
+    <?php
+        include 'header.php';
+    ?>
+    <div class="page">
+        <center><h1>Proposez une Serie</h1></center>
+    <fieldset>
     <form method="post">
         <label>Proposez la série</label><br>
         <label>Titre</label><br>
@@ -16,6 +21,10 @@ include 'fonctionsDeRecherche.php';
         <input type="submit" value ="Envoyer">
     </form>
 </fieldset>
+    
+    
+    </div>
+
 
 
 <?php
@@ -31,5 +40,6 @@ if (isset($_POST['titre'])/* and (isset($POST['description']))*/) {
             echo '<p>Erreur.</p>';
     }
 }
+    include 'footer.php';
 ?>
 </body>

@@ -1,13 +1,15 @@
-
-
 <?php
+$titre=$_GET['nomserie'];
 require 'connexion.php';
 include 'head.php';
-include 'header.php';
 ?>
 
 
 <body>
+<?php
+    include 'header.php';
+?>
+<div class="page">
 <?php
             $nomserie=pg_escape_string($_GET['nomserie']);
             $result = pg_query($linkpdo, "SELECT * FROM Serie WHERE NomSerie = '$nomserie';");
@@ -57,6 +59,9 @@ include 'header.php';
                 else{
                     echo("Série introuvable");
                 }
+    ?>
+    </div>
+    <?php
     include 'footer.php';
             ?>
 </body>
