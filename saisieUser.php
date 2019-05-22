@@ -15,15 +15,14 @@
                                         <p>Password  <br><input type="password" name="PasswordU" required="required" onInvalid="setCustomValidity('Veuillez entrer un mot de passe avec au moins une majuscule et un chiffre')"/></p>
                                         <p>Mail <br><input type="email" name="MailU" required="required" placeholder="test@gmail.com" style="text-align: center"/></p>
                                         <p>Description <br><textarea id="Description" name="DescriptionU" required="required" maxlength="255"  style="text-align: center"></textarea></p>
-                                        <p>Type <br>
-                                        <select name="TypeU" required="required">
+                                        <p>Type <br><select name="TypeU" id="menu" required="required">
                                         <option>Amateur</option>
                                         <option>Journaliste</option>
                                         <option>Blogeur</option>
                                         </select>
                                         </p>
                                 
-                                        <p>Date Naissance <br><input type="date" name="DDNU" required="required" max="2009-01-01" min="1919-01-01" style="text-align: center"/></p>
+                                        <p>Date Naissance <br><input type="text" name="DDNU" id="date" required="required" max="2009-01-01" min="1919-01-01" style="text-align: center"/></p>
                                         <?php
                                         if(isset($_GET['error'])){
                                             $erreur = $_GET['error'];
@@ -39,6 +38,13 @@
             include 'footer.php';
             
             ?>
+              <script>
+  $( function() {
+    $( "#date" ).datepicker();
+  
+    $( "#menu" ).selectmenu();
+});
+  </script>
 		</body>
 	</html>
 

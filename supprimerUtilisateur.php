@@ -1,16 +1,19 @@
 <?php
 include 'head.php';
-include 'header.php';
 include 'fonctionsDeRecherche.php';
 if (!est_admin()){
     header('Location: accueil.php');
 }
  ?>
-
-<!DOCTYPE html>
-<html>
     <body>
+          <script>
+  $( function() {
+    $( "#listeUser" ).selectmenu();
+});
+</script>
+
     <?php
+    include 'header.php';
     if(isset($_POST['listeUser'])){
         $pseudo=$_POST['listeUser'];
         $queryTestExistance= "Select * from utilisateur where pseudou='$pseudo'";
@@ -42,12 +45,12 @@ if (!est_admin()){
       require("./connexion.php");
       $userList=listeUser($linkpdo);
       if ($userList != NULL) {
-          echo '<input  list="listeUser" type="text" name="listeUser">';
-          echo '<datalist id="listeUser">';
+          echo '<select id="listeUser">';
+
           foreach ($userList as $user) {
               echo '<option value="' . $user['pseudou'] . '">'.$user['pseudou'].'</option>';
           }
-          echo '</datalist>';
+          echo '</select>';
       } else {
           echo "Aucun utilisateur dans la base";
       }
@@ -61,3 +64,5 @@ if (!est_admin()){
 
     <p><input type="submit" value="Supprimer"></p>
     </form>
+</body>
+</html>
