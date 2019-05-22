@@ -212,7 +212,6 @@ body{
 
 footer {
     width : 78%;
-    bottom: 0px;
     margin: 10px auto;
     background: white;
     color: black;
@@ -299,5 +298,32 @@ li.logo a{
   font-size: 16px;
   resize: none;
 }  
+figure {
+        border: thin #c0c0c0 solid;
+        display: flex;
+        flex-flow: column;
+        padding: 5px;
+        max-width: 182px;
+        margin: auto;
+    }
 
+    img {
+        max-width: 182px;
+        max-height: 268px;
+    }
+
+    figcaption {
+        background-color: #222;
+        color: #fff;
+        font: italic smaller sans-serif;
+        padding: 3px;
+        text-align: center;
+    }
+
+    h1{
+        text-align: center;
+    }
+    td{
+        padding: 15px;
+    }
 
