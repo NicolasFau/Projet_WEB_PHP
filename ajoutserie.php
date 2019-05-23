@@ -1,10 +1,12 @@
 <?php
+//Appel du head
 $titre = 'Ajout Serie';
 include 'head.php';
 ?>
 
 <body>
     <?php
+    //Appel du header
     include 'header.php';
 if (!est_admin()){
     header('Location: accueil.php');
@@ -304,6 +306,7 @@ $( function() {
 
 </div>
     <?php
+    //Ajout du footer
     include 'footer.php';
     ?>
     
