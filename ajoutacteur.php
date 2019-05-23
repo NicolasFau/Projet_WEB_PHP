@@ -31,13 +31,16 @@ if (!est_admin()){
     <form action="ajoutacteurserie.php" method="post">
       <label for="choix_serie">Nom Série </label>
       <?php
+      //Appel de la fonction de connection
       require("connexion.php");
+      //Requete sql
       $queryNomserie="Select * from serie";
+      //Soumission de la requetes
       $resulatNomListe=pg_exec($linkpdo, $queryNomserie);
-      //datalist dynamique
+      //select dynamique
       echo '<select name="listeSerie"  id="listeSerie">';
       while ($data =pg_fetch_array($resulatNomListe)) {
-      	// on affiche les résultats
+      	//Affiche des résultats
       	echo '<option value="'.$data['nomserie'].'">'.$data['nomserie']."</option>";
       }
       echo  '</select><br><br>';
@@ -45,19 +48,23 @@ if (!est_admin()){
 
   <label for="choix_acteur">Acteur </label>
   <?php
+  //Appel de la fonction de connection
   require("connexion.php");
+  //Requete sql
   $queryacteur="Select * from acteur";
+  //Soumission de la requetes
   $resulatacteur=pg_exec($linkpdo, $queryacteur);
-  //datalist dynamique
+  //select dynamique
   echo '<select name="test"  id="listeActeur">';
   while ($data =pg_fetch_array($resulatacteur)) {
-    // on affiche les résultats
+    //Affichage les résultats
     echo '<option value="'.$data['nomacteur'].'">'.$data['nomacteur']."</option>";
   }
   echo  '</select>';
 ?>
     <p><a href="ajoutacteur.php"><input type="submit" name="2" value="Ajouter Acteur/Serie"></a></p>
         <?php
+        //Test sur la variable GET
         if(isset($_GET['info'])){
             $info = $_GET['info'];
             echo "<p class = 'error'>$info</p>";
@@ -66,18 +73,20 @@ if (!est_admin()){
     </form>
     <h2>Acteur dans la base</h2>
     <?php
+    //Appel de la fonction connection
     require("connexion.php");
-    $connect=$linkpdo;
+    //Requete sql
     $queryNomserie="Select * from acteur";
-    $resulatNomListe=pg_exec($connect, $queryNomserie);
-    //datalist dynamique
+    //Soumission de la requete
+    $resulatNomListe=pg_exec($linkpdo, $queryNomserie);
+    //select dynamique
     echo '<table>';
     echo "<tr>
        <th>Prenom</th>
        <th>Nom</th>
    </tr>";
     while ($data =pg_fetch_array($resulatNomListe)) {
-      // on affiche les résultats
+      //affichage les résultats
       echo "<tr>";
       echo '<td>'.$data['prenomacteur'].'</td>';
       echo '<td>'.$data['nomacteur'].'</td>';
