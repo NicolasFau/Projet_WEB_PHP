@@ -91,8 +91,7 @@ if ($_GET['PseudoU']==$_SESSION['PseudoU']){
                         <dialog id="dialogMajDesc">
                             <form method="dialog">
                                 <p><label>Modifier la description:</label></p>
-                                    <textarea id="description" maxlength="255"></textarea>
-                                
+                                    <textarea id="description" maxlength="255"><?php echo $utilisateur['descriptionu'];?></textarea>
                                 <menu>
                                     <button value="<?php echo $utilisateur['descriptionu']; ?>">Annuler</button>
                                     <button id="confirmBtn1" value="<?php echo $utilisateur['descriptionu']; ?>">Confirmer</button>
