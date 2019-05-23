@@ -23,7 +23,7 @@ include 'fonctionsDeRecherche.php';
 </fieldset>
     
     
-    </div>
+
 
 
 
@@ -40,6 +40,8 @@ if (isset($_POST['titre'])/* and (isset($POST['description']))*/) {
             echo '<p>Erreur.</p>';
     }
 }
-    include 'footer.php';
+?>
+</div>
+ <?php   include 'footer.php';
 ?>
 </body>
