@@ -26,12 +26,17 @@ if ($liste_critiques != NULL) {
         $resulttab = pg_fetch_array($result);
         echo "</br>Motif:</br>";
         echo $resulttab['motifsignalement'];
+        echo "</br>";
+         echo "</br>";
+         echo "</br>";
 
-        echo "<div><input type=\"radio\" id=\"dewey\" name=\"choix\" value=\"Laisser\"><label for=\"dewey\">Ignorer</label></div>";
+
+        
+    }
+    echo "<div><input type=\"radio\" id=\"dewey\" name=\"choix\" value=\"Laisser\"><label for=\"dewey\">Ignorer</label></div>";
         echo "<div><input type=\"radio\" id=\"dewey\" name=\"choix\" value=\"Supprimer\"><label for=\"dewey\">Supprimer</label></div>";
         echo "<p><input type=\"submit\" value=\"Valider\"></p>";
         echo "</form>";
-    }
 }else{
     echo "Aucune critique n'est signalee";
 }
