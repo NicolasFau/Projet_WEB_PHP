@@ -29,7 +29,7 @@
                                             echo "<p class = 'error'>$erreur</p>";
                                         }
                                         ?>
-                                        <p><input type="submit" value="Enregistrer">        <input type="reset" value="Effacer les champs"></p>
+                                        <p><input type="submit" value="Enregistrer">        <input type="reset" value="Effacer les champs" style="width:150px"></p>
                             </form>
                     </div>
 				</fieldset>
