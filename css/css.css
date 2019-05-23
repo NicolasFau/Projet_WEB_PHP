@@ -189,7 +189,7 @@ ul.optionsSecondaires li{
 form.connexion{
  margin-bottom : 0px;
 }
-button,  input[type="submit"] {
+button,  input[type="submit"], input[type="reset"] {
     cursor: pointer;
     margin-top : 7px;
 	padding:6px 0 6px 0;
