@@ -76,8 +76,9 @@ include 'head.php';//Inclusion du CSS et Metacharset UTF-8
                     $resultprix=pg_query($linkpdo,$queryprix);
 
                         echo "<b>Prix</b>"."</br>";
-                        if($queryprix){
-                           while($data=pg_fetch_array($resultprix)){
+                        $data=pg_fetch_array($resultprix);
+                        if($data){
+                           while($data){
                                 echo $data['nomprix']." de ";
                                 echo $data['villeprix']."</br>";
                         }
