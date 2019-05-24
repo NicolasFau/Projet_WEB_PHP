@@ -6,7 +6,7 @@ include 'head.php';
     <body>
 
         <?php
-        //Appell du header
+        //Appel du header
         include 'header.php';
         if (!est_admin()){
     header('Location: accueil.php');
@@ -31,6 +31,7 @@ include 'head.php';
     <form action="ajoutprixserie.php" method="post">
       <label for="choix_serie">Nom Série </label>
       <?php
+      //Affichage des series
       //Appel  de la fonction connection
       require("connexion.php");
       //Requete sql
@@ -49,11 +50,12 @@ include 'head.php';
 
   <label for="choix_prix">Prix </label>
   <?php
-  //Appel de la fonctino connexion
+  //Affichage des nom des prix
+  //Appel de la fonction connexion
   require("connexion.php");
   //Requete sql
   $queryprix="Select * from prixdecerne";
-  //Sommission de la requete 
+  //Sommission de la requete
   $resulatprix=pg_exec($linkpdo, $queryprix);
   //datalist dynamique
   echo '<select name="2"  id="listePrix">';
@@ -74,6 +76,7 @@ include 'head.php';
     </form>
     <h2>Prix dans la base</h2>
     <?php
+    //Affichage des Prix
     //Appel de la fonction connexion
     require("connexion.php");
     //Requete sql
@@ -85,7 +88,7 @@ include 'head.php';
        <th>Nom</th>
        <th>Ville</th>
    </tr>";
-   //Parcour du tableau
+   //Parcours du tableau
     while ($data =pg_fetch_array($resulatNomListe)) {
       // Affichage des résultats
       echo "<tr>";

@@ -1,26 +1,28 @@
 <?php
-//Appel du fichier de fonction
+//Appel du fichier de fonctions
 require("connexion.php");
 include 'head.php';
 include 'header.php';
 //Récuperation des variables via post
 $nomprix=$_POST['nom'];
 $villeprix=$_POST['ville'];
-//$date=$_POST['date'];
-//Connexion bdd
+
+//Control de l'existance du prix dans la base
 $querycontrol="SELECT * FROM prixdecerne";
+//Soumission de requete
 $result=pg_query($linkpdo,$querycontrol);
+//Parcours du tableau
 while ($tab=pg_fetch_array($result)) {
     if($tab['nomprix']==$nomprix && $tab['villeprix']==$villeprix){
         $exit=1;
     }
 }
 if($exit!=1){
-//Requete d'insertion
-    $query="INSERT INTO prixdecerne(nomprix, villeprix)
-        VALUES('$nomprix','$villeprix')";
+    //Requete sql
+    $query="INSERT INTO prixdecerne(nomprix, villeprix) VALUES('$nomprix','$villeprix')";
+    //Soumission de requete
     $insert=pg_query($linkpdo,$query);
-//Controle d'insertion
+    //Controle d'insertion
     if ($insert) {
         header("Location: ajoutprix.php");
     } else {

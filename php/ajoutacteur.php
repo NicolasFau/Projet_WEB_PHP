@@ -31,6 +31,7 @@ if (!est_admin()){
     <form action="ajoutacteurserie.php" method="post">
       <label for="choix_serie">Nom Série </label>
       <?php
+      //Affichage des séries de la base
       //Appel de la fonction de connection
       require("connexion.php");
       //Requete sql
@@ -48,6 +49,7 @@ if (!est_admin()){
 
   <label for="choix_acteur">Acteur </label>
   <?php
+  //Affichage des acteurs de la base
   //Appel de la fonction de connection
   require("connexion.php");
   //Requete sql
@@ -73,6 +75,7 @@ if (!est_admin()){
     </form>
     <h2>Acteur dans la base</h2>
     <?php
+    //Affichage des acteurs
     //Appel de la fonction connection
     require("connexion.php");
     //Requete sql
@@ -86,7 +89,7 @@ if (!est_admin()){
        <th>Nom</th>
    </tr>";
     while ($data =pg_fetch_array($resulatNomListe)) {
-      //affichage les résultats
+      //Affichage les résultats
       echo "<tr>";
       echo '<td>'.$data['prenomacteur'].'</td>';
       echo '<td>'.$data['nomacteur'].'</td>';
@@ -96,6 +99,7 @@ if (!est_admin()){
     ?>
         </div>
          <?php
+    //Appel du footer
     include 'footer.php';
     ?>
 </body>

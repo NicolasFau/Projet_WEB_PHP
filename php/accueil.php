@@ -28,7 +28,7 @@
         
         <div class="centercolumn">
             <div class="card">
-                <center><img src="image/logo.png" style="width: 30%;" /></center>
+                <center><img src="../image/logo.png" style="width: 30%;" /></center>
                 <center><h1>Bienvenue sur la plateforme de critiques d'oeuvres</h1></center>
                 <?php
                     echo '<h2>Sélection aléatoire de séries </h><hr>';

@@ -16,9 +16,9 @@ if (!est_admin()){
     $( function() {
       $( "#datepicker" ).datepicker();
       $( "#listeSerie" ).selectmenu();
-      $( "#listeRea" ).selectmenu();    
+      $( "#listeRea" ).selectmenu();
 } );
-	
+
     </script>
         <div class="page">
                 <center><h1>Ajout Réalisateur</h1></center>
@@ -32,6 +32,7 @@ if (!est_admin()){
     <form action="ajoutrealisateurserie.php" method="post">
       <label for="choix_serie">Nom Série </label>
       <?php
+      //Affichage des series
       //Appel de la fonction connection
       require("connexion.php");
       //Requete sql
@@ -52,14 +53,15 @@ if (!est_admin()){
 
   <label for="choix_realisateur">Nom du réalisateur </label>
   <?php
+  //Affichage des réalisateur
   //Appel de la fonction connexion
   require("connexion.php");
   //Requete sql
   $queryNomserie="Select * from realisateur";
-  //Soumisson de la requete
+  //Soumission de la requete
   $resulatNomListe=pg_exec($linkpdo, $queryNomserie);
-  //selectlist dynamique
- 
+  //select dynamique
+
   echo '<select id="listeRea" name="2"  >';
   //Parcour du tableau
   while ($data =pg_fetch_array($resulatNomListe)) {
@@ -78,6 +80,7 @@ if (!est_admin()){
     </form>
     <h2>Réalisateur dans la base</h2>
     <?php
+    //Affichage des réaalisateurs
     //Appel de la fonction connection
     require("connexion.php");
     $queryNomserie="Select * from realisateur";
@@ -101,7 +104,7 @@ if (!est_admin()){
     ?>
             </div>
          <?php
-    
+
     //Appel du footer
     include 'footer.php';
     ?>

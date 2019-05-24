@@ -1,4 +1,5 @@
 <?php
+//Appel du head
 include 'head.php';
 
  ?>
@@ -6,6 +7,7 @@ include 'head.php';
 <body>
 
     <?php
+    //Appel du header
         include 'header.php';
     if (!est_admin()){
     header('Location: accueil.php');
@@ -28,13 +30,17 @@ include 'head.php';
         echo "<input list=\"listeSerie\" type=\"text\" name=\"listeSerie\" value=\"".$_GET['nom']."\">";
     }
     else{
+        //Affichage des nom des séries
+        //Appel de la fonction de connexion
         require("connexion.php");
+        //Requete sql
         $queryNomserie="Select * from serie";
+        //Soumission de la requete
         $resulatNomListe=pg_exec($linkpdo, $queryNomserie);
-        //datalist dynamique
+        //select dynamique
         echo '<select id="listeSerie">';
         while ($data =pg_fetch_array($resulatNomListe)) {
-            // on affiche les résultats
+            //Affichage des résultats
             echo '<option value="'.$data['nomserie'].'">'.$data['nomserie']."</option>";
         }
         echo  '</select><br><br>';
@@ -47,13 +53,17 @@ include 'head.php';
         echo "<input list=\"listeSaison\" type=\"text\" name=\"listeSaison\" value=\"".$_GET['saison']."\">";
     }
     else{
+        //Affichage des numéros de saisons
+        //Appel de la fonction de connexion
         require("connexion.php");
+        //Requete sql
         $query="Select * from Serie,Saison WHERE serie.nomserie=saison.nomserie";
+        //Soumission de la requete
         $resulat=pg_exec($linkpdo, $query);
-        //datalist dynamique
+        //select dynamique
         echo '<select id="listeSaison">';
         while ($data =pg_fetch_array($resulat)) {
-            // on affiche les résultats
+            //Affichage des résultats
             echo '<option value='.$data['numérosaison'].'>'.$data['numérosaison']."</option>";
         }
         echo  '</select>';
@@ -69,6 +79,7 @@ include 'head.php';
 </form>
     </div>
      <?php
+     //Appel du footer
     include 'footer.php';
     ?>
 </body>

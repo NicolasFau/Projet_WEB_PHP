@@ -1,25 +1,19 @@
 <?php
-//import des fonction
+//Import des fonction
 require 'connexion.php';
 include 'head.php';
 include 'header.php';
 //Récupération des variables
 $serie=$_POST['1'];
-echo $serie;
-
 $prix=$_POST['2'];
-echo $prix;
-//Connexion à la base de donnée
+//Requete sql
 $queryid="SELECT * FROM prixdecerne WHERE nomprix='$prix'";
-
+//Récupération de l'id
 $idresult=pg_query($linkpdo,$queryid);
 $idligne=pg_fetch_array($idresult);
 $id=$idligne['idprix'];
-
-
-//Requete
-$query="INSERT INTO decerner(nomserie,idprix)
-        VALUES('$serie','$id');";
+//Requete sql
+$query="INSERT INTO decerner(nomserie,idprix) VALUES('$serie','$id');";
 //Réalisation de la requete
 $queryupdate=pg_query($linkpdo,$query);
 //Controle sur la requete

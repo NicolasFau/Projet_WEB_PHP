@@ -35,7 +35,7 @@ function rechercher_critiqueSignalees($linkpdo){
 
 //Fonction de recherche des utilisateurs de la base 
 function listeUser($linkpdo){
-    $requete="Select * from utilisateur";
+    $requete="Select * from utilisateur WHERE estadministrateur='false' ";
     $result=pg_exec($linkpdo, $requete);
     $donnees=pg_fetch_all($result);
     return $donnees;

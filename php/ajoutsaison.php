@@ -1,10 +1,12 @@
 <?php
+//Appel du head
 include 'head.php';
 
  ?>
 <body>
 
     <?php
+    //Appel du header
     include 'header.php';
     if (!est_admin()){
     header('Location: accueil.php');
@@ -28,17 +30,20 @@ include 'head.php';
 
     <?php
     if(isset($_GET['nom'])){
+        //Affichage de la série entrée dans le formulaire précédent 
         echo "<input list=\"listeSerie\" type=\"text\" name=\"listeSerie\" value=\"".$_GET['nom']."\">";
     }
     else{
-
+        //Affichage des series
         require("connexion.php");
+        //Requete sql
         $queryNomserie="Select * from serie";
+        //Soumission de la requete
         $resulatNomListe=pg_exec($linkpdo, $queryNomserie);
-        //datalist dynamique
+        //select dynamique
         echo '<select id="listeSerie" >';
         while ($data =pg_fetch_array($resulatNomListe)) {
-            // on affiche les résultats
+            //Affichage des résultats
             echo '<option value="'.$data['nomserie'].'">'.$data['nomserie']."</option>";
         }
         echo  '</select>';
@@ -50,6 +55,7 @@ include 'head.php';
 </form>
     </div>
      <?php
+     //Appel du footer
     include 'footer.php';
     ?>
 </body>

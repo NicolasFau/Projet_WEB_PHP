@@ -22,7 +22,7 @@ include 'head.php';//Appel du head
             <center><h1>Profil</h1></center>
             <table style="width: 100%">
                 <tr>
-                    <td><?php echo "<img src='./image/compte.png' style='float : right; margin-right: 100px; margin-top : 0px;' >" . "<br>" . "<br>"; ?></td>
+                    <td><?php echo "<img src='../image/compte.png' style='float : right; margin-right: 100px; margin-top : 0px;' >" . "<br>" . "<br>"; ?></td>
                     <td><?php
                         $resultats_utilisateur = rechercher_utilisateur($linkpdo, $_GET['PseudoU']);//appel de la foncition de recherche de recherche de l'utilisateur
                         $liste_critiques = rechercher_critiques($linkpdo, $_GET['PseudoU']);////appel de la foncition de recherche de critiques faites par cet utilisateur
@@ -149,7 +149,7 @@ include 'head.php';//Appel du head
         echo 'Cet utilisateur n\'existe pas';                        
     }
 
-    include 'dialogModifs.js'; //appel de la page contenant les scripts de modification et de suppression
+    include '../js/dialogModifs.js'; //appel de la page contenant les scripts de modification et de suppression
 
     ?>
     </div>   
