@@ -5,7 +5,7 @@
         
             <title>
                 <?php
-                if(isset($titre)){
+                if(isset($titre)){ //Récupération du titre de la page
                     echo $titre;
 
                 }else{

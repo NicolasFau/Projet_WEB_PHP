@@ -6,6 +6,7 @@ include 'head.php';
 
     <body>
         <?php
+        //Appel du header
         include 'header.php';
 if (!est_admin()){
     header('Location: accueil.php');
@@ -31,14 +32,16 @@ if (!est_admin()){
     <form action="ajoutrealisateurserie.php" method="post">
       <label for="choix_serie">Nom Série </label>
       <?php
+      //Appel de la fonction connection
       require("connexion.php");
+      //Requete sql
       $queryNomserie="Select * from serie";
+      //Soumission de la requete
       $resulatNomListe=pg_exec($linkpdo, $queryNomserie);
-      //datalist dynamique
-      //echo '<input  list="listeSerie" type="text" name="listeSerie">';
+      //select dynamique
       echo '<select id="listeSerie" name="1" >';
       while ($data =pg_fetch_array($resulatNomListe)) {
-      	// on affiche les résultats
+      	//Affichage les résultats
       	echo '<option value="'.$data['nomserie'].'">'.$data['nomserie']."</option>";
       }
       echo  '</select>';
@@ -49,14 +52,18 @@ if (!est_admin()){
 
   <label for="choix_realisateur">Nom du réalisateur </label>
   <?php
+  //Appel de la fonction connexion
   require("connexion.php");
+  //Requete sql
   $queryNomserie="Select * from realisateur";
+  //Soumisson de la requete
   $resulatNomListe=pg_exec($linkpdo, $queryNomserie);
-  //datalist dynamique
- // echo '<input  list="listeRea" type="text" name="listeRea">';
+  //selectlist dynamique
+ 
   echo '<select id="listeRea" name="2"  >';
+  //Parcour du tableau
   while ($data =pg_fetch_array($resulatNomListe)) {
-    // on affiche les résultats
+    //Affichage des résultats
     echo '<option value="'.$data['nomrealisateur'].'">'.$data['nomrealisateur']."</option>";
   }
   echo  '</select>';
@@ -71,18 +78,20 @@ if (!est_admin()){
     </form>
     <h2>Réalisateur dans la base</h2>
     <?php
+    //Appel de la fonction connection
     require("connexion.php");
-    $connect=$linkpdo;
     $queryNomserie="Select * from realisateur";
-    $resulatNomListe=pg_exec($connect, $queryNomserie);
-    //datalist dynamique
+    //Soumission de la requete
+    $resulatNomListe=pg_exec($linkpdo, $queryNomserie);
+    //select dynamique
     echo '<table>';
     echo "<tr>
        <th>Prenom</th>
        <th>Nom</th>
    </tr>";
+   //Parcour du tableau
     while ($data =pg_fetch_array($resulatNomListe)) {
-      // on affiche les résultats
+      //Affichage les résultats
       echo "<tr>";
       echo '<td>'.$data['prenomrealisateur'].'</td>';
       echo '<td>'.$data['nomrealisateur'].'</td>';
@@ -92,6 +101,8 @@ if (!est_admin()){
     ?>
             </div>
          <?php
+    
+    //Appel du footer
     include 'footer.php';
     ?>
 </body>

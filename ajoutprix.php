@@ -6,6 +6,7 @@ include 'head.php';
     <body>
 
         <?php
+        //Appell du header
         include 'header.php';
         if (!est_admin()){
     header('Location: accueil.php');
@@ -30,15 +31,17 @@ include 'head.php';
     <form action="ajoutprixserie.php" method="post">
       <label for="choix_serie">Nom Série </label>
       <?php
+      //Appel  de la fonction connection
       require("connexion.php");
-
+      //Requete sql
       $queryNomserie="Select * from serie";
+      //Soumission de la requete
       $resulatNomListe=pg_exec($linkpdo, $queryNomserie);
-      //datalist dynamique
+      //select dynamique
       echo '<select name="1"  id="listeSerie">';
-
+        //Parcour du tableau
       while ($data =pg_fetch_array($resulatNomListe)) {
-      	// on affiche les résultats
+      	//Affichage des résultats les résultats
       	echo '<option value="'.$data['nomserie'].'">'.$data['nomserie']."</option>";
       }
       echo  '</select><br><br>';
@@ -46,15 +49,17 @@ include 'head.php';
 
   <label for="choix_prix">Prix </label>
   <?php
+  //Appel de la fonctino connexion
   require("connexion.php");
-
+  //Requete sql
   $queryprix="Select * from prixdecerne";
+  //Sommission de la requete 
   $resulatprix=pg_exec($linkpdo, $queryprix);
   //datalist dynamique
   echo '<select name="2"  id="listePrix">';
-;
+//Parcour du tableau
   while ($data =pg_fetch_array($resulatprix)) {
-    // on affiche les résultats
+    //Affichage les résultats
     echo '<option value="'.$data['nomprix'].'">'.$data['nomprix']."</option>";
   }
   echo  '</select>';
@@ -69,18 +74,20 @@ include 'head.php';
     </form>
     <h2>Prix dans la base</h2>
     <?php
+    //Appel de la fonction connexion
     require("connexion.php");
-    $connect=$linkpdo;
+    //Requete sql
     $queryNomserie="Select * from prixdecerne";
-    $resulatNomListe=pg_exec($connect, $queryNomserie);
-    //datalist dynamique
+    $resulatNomListe=pg_exec($linkpdo, $queryNomserie);
+    //select dynamique
     echo '<table>';
     echo "<tr>
        <th>Nom</th>
        <th>Ville</th>
    </tr>";
+   //Parcour du tableau
     while ($data =pg_fetch_array($resulatNomListe)) {
-      // on affiche les résultats
+      // Affichage des résultats
       echo "<tr>";
       echo '<td>'.$data['nomprix'].'</td>';
       echo '<td>'.$data['villeprix'].'</td>';
@@ -90,6 +97,7 @@ include 'head.php';
     ?>
         </div>
          <?php
+         //Appel du footer
     include 'footer.php';
     ?>
 </body>

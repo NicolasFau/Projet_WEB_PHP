@@ -1,162 +1,175 @@
-   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script> 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script> 
 <script> 
-function supprimer(idcritique){
-   var pseudoU= '<?php echo $_SESSION['PseudoU']; ?>';
-   if (confirm('Etes-vous sûr de vouloir supprimer cette critique')){
-       $.ajax({
-           type : "POST",
-           url: "fonctions_compte.php",
-           data:{
-                fonction:'supprimer_critique',
-                params: {pseudoU, idcritique},
-                },
-                success: function(data)
-                {
-                    alert(data);
-                    location.reload();
-                }
-       }); 
-    }                    
-}
 
-(function() {
-    var pseudoU= '<?php echo $_SESSION['PseudoU']; ?>';   
-    var modifierType = document.getElementById('modifierType');
-    var dialogMajType = document.getElementById('dialogMajType');
-    var retourType = document.getElementById('retourType');
-    var selectEl = document.getElementsByTagName('select')[0];
-    var confirmBtnType = document.getElementById('confirmBtnType');
-             
-    if (modifierType != null){
-        modifierType.addEventListener('click', function onOpen() {
-        if (typeof dialogMajType.showModal === "function") {
-            dialogMajType.showModal();
-        } else {
-            console.error("L'API dialog n'est pas prise en charge par votre navigateur");
-        }
-    });
-    }
-    if (selectEl !=null){
-        selectEl.addEventListener('change', function onSelect(e) {
-        confirmBtnType.value = selectEl.value;
-        });   
-    }
-    
-    if (dialogMajType != null){
-        dialogMajType.addEventListener('close', function onClose() {
-        var nouveau_type = dialogMajType.returnValue;
-        $.ajax({
-            type: "POST",
-            url: "fonctions_compte.php",
-            data: {
-                fonction:'modif_type',
-                params: {pseudoU, nouveau_type},
-                },
-                success: function(data)
-                {
-                    location.reload();
-                }
-        })
-        });
-    }
-    
-       
-    var modifierDesc = document.getElementById('modifierDesc');
-    var dialogMajDesc = document.getElementById('dialogMajDesc');
-    var retourDesc = document.getElementById('retourDesc');
-    var textarea = document.getElementsByTagName('textarea')[0];
-    var confirmBtn1 = document.getElementById('confirmBtn1');
-
-    if (modifierDesc != null){
-        modifierDesc.addEventListener('click', function onOpen() {
-        if (typeof dialogMajDesc.showModal === "function") {
-            dialogMajDesc.showModal();
-        } else {
-            console.error("L'API dialog n'est pas prise en charge par votre navigateur");
-        }
-        });   
-    }
-
-     if (dialogMajDesc != null){ 
-         confirmBtn1.addEventListener('click', function(){
-            if ((textarea.value != "") && (textarea.value != " ")){
-            var nouvelle_description = textarea.value;
-                $.ajax({
-                    type: "POST",
-                    url: "fonctions_compte.php",
-                    data: {
-                        fonction:'modif_description',
-                        params: {pseudoU, nouvelle_description},
+    //Fonction qui permet la suppression d'une critique
+    function supprimer(idcritique){
+        var pseudoU= '<?php echo $_SESSION['PseudoU']; ?>';
+        if (confirm('Etes-vous sûr de vouloir supprimer cette critique')){ //Demande de confirmation de la suppression Si oui poursuite du processus de suppression
+            $.ajax({ //Appel de la fonction de suppression en ajax
+                type : "POST",
+                url: "fonctions_compte.php",
+                data:{
+                    fonction:'supprimer_critique',
+                    params: {pseudoU, idcritique}, //Passage des paramètres
                     },
                     success: function(data)
                     {
-                        location.reload();
+                        alert(data); //Affichage du retour de la fonction supprimer_critique()
+                        location.reload(); //Mise à jour de la page
                     }
-                }) 
-            }        
-         });
-     }  
-    
-       
-    var modifierMdp = document.getElementById('modifierMdp');
-    var dialogMajMdp = document.getElementById('dialogMajMdp');
-    var retourMdp = document.getElementById('retourMdp');
-    var verification =document.getElementById('verification');
-    var passwordu = document.getElementsByTagName('input')[3];
-    var confirmationMdp = document.getElementById('confirmation');
-    var confirmBtnMdp = document.getElementById('confirmBtnMdp');
-       
-    if (modifierMdp !=null){
-        modifierMdp.addEventListener('click', function onOpen() {
-            if (confirm('Etes vous sûr de vouloir modifier le mot de passe ?')){
-                if (typeof dialogMajMdp.showModal === "function") {
-                    dialogMajMdp.showModal();
-                } else {
-                    console.error("L'API dialog n'est pas prise en charge par votre navigateur");   
-                }            
-            }
-        });   
+            }); 
+        }                    
     }
+
+    (function() {
     
-    if(confirmBtnMdp !=null){
-       confirmBtnMdp.addEventListener('click', function(){
-       var mdp = passwordu.value;
-       var confirmation_mdp = confirmationMdp.value;
-        $.ajax({
-            type: "POST",
-            url: "fonctions_compte.php",
-            data: {
-                fonction:'verification_mdp',
-                params: {mdp, confirmation_mdp, pseudoU},
-                },
-                success: function(data)
-                {
-                    switch (data){
-                        case '-1' : 
-                            document.getElementById('Type_erreur').innerHTML = 'Champs différents';
-                            passwordu.value = "";
-                            confirmationMdp.value="";
-                            break;
-                        case '-2' :
-                            document.getElementById('Type_erreur').innerHTML = 'Erreur dans le traitement de la requête';
-                            passwordu.value = "";
-                            confirmationMdp.value="";
-                            break;
-                        case '-3':
-                            document.getElementById('Type_erreur').innerHTML = 'Il faut une majuscule et un chiffre';
-                            passwordu.value = "";
-                            confirmationMdp.value="";
-                            break;
-                        case '0':
-                            document.getElementById('Type_erreur').innerHTML = '';
-                            $('.btnsubmit').click();
-                            retourMdp.value = 'Les changements ont été pris en compte';
-                            break;
-                    }   
+                    /*-----------TRAITEMENT MODIFICATION TYPE UTILISATEUR-------------*/
+    
+        var pseudoU= '<?php echo $_SESSION['PseudoU']; ?>'; //Récupération du pseudo
+        var modifierType = document.getElementById('modifierType');//Bouton de modification du type d'utilisateur
+        var dialogMajType = document.getElementById('dialogMajType');//Boite de dialogue
+        var selectEl = document.getElementsByTagName('select')[0];//Menu de selection du type d'utilisateur
+        var confirmBtnType = document.getElementById('confirmBtnType');//Bouton de confirmation
+             
+        if (modifierType != null){ //Si le bouton modifier existe
+            modifierType.addEventListener('click', function onOpen() { //Lorsque le bouton est pressé
+            if (typeof dialogMajType.showModal === "function") {//Vérification de la prise en charge des boites de dialogue
+                dialogMajType.showModal();
+            } else {
+                console.error("L'API dialog n'est pas prise en charge par votre navigateur");
+            }
+            });
+        }
+    
+        if (selectEl !=null){//Si un élément a été sélectionné
+            selectEl.addEventListener('change', function onSelect(e) {//Lorsque la valeur change
+                confirmBtnType.value = selectEl.value;//Le bouton de confirmation prends la valeur de la séléction
+            });   
+        }
+    
+        if (dialogMajType != null){
+            dialogMajType.addEventListener('close', function onClose() {//Lorsque la boite de dialogue se ferme
+                var nouveau_type = dialogMajType.returnValue;//la variable prends la valeur de la séléction faite par l'utilisateur
+                $.ajax({//Appel de la fonction de mise à jour du type d'utilisateur en ajax
+                    type: "POST",
+                    url: "fonctions_compte.php",
+                    data: {
+                        fonction:'modif_type',
+                        params: {pseudoU, nouveau_type}, //Passage des variables à la fonction
+                        },
+                        success: function(data)
+                        {
+                            location.reload();//En cas de réussite rafraichissement de la page
+                        }
+                })
+            });
+        }
+    
+    
+    
+                    /*-----------TRAITEMENT MODIFICATION DESCRIPTION UTILISATEUR-------------*/
+
+        var modifierDesc = document.getElementById('modifierDesc');//Bouton de modification de la description
+        var dialogMajDesc = document.getElementById('dialogMajDesc');//Boite de dialogue
+        var textarea = document.getElementsByTagName('textarea')[0];//Zone de texte
+        var confirmBtn1 = document.getElementById('confirmBtn1');//Bouton de confirmation
+
+        if (modifierDesc != null){//Si le bouton modifier existe
+            modifierDesc.addEventListener('click', function onOpen() {//Lorsque le bouton est pressé
+            if (typeof dialogMajDesc.showModal === "function") {//Vérification de la prise en charge des boites de dialogue
+                dialogMajDesc.showModal();
+            } else {
+                console.error("L'API dialog n'est pas prise en charge par votre navigateur");
+            }
+            });   
+        }
+
+        if (dialogMajDesc != null){ 
+            confirmBtn1.addEventListener('click', function(){//Lorsque le bouton de confirmation est pressé
+                if ((textarea.value != "") && (textarea.value != " ")){//Si la zone de texte n'est pas vide
+                    var nouvelle_description = textarea.value; //Recuperation du contenu de la zone de texte
+                    $.ajax({//Appel de la fonction de modification de la description en ajax
+                        type: "POST",
+                        url: "fonctions_compte.php",
+                        data: {
+                            fonction:'modif_description',
+                            params: {pseudoU, nouvelle_description},//Passage des variables à la fonction
+                        },
+                        success: function(data)
+                        {
+                            location.reload();//Si l'appel à focntionné rafraichissement de la page
+                        }
+                    }) 
+                }        
+            });
+        }  
+    
+    
+    
+    
+                    /*-----------TRAITEMENT MODIFICATION MOT DE PASSE-------------*/
+
+        var modifierMdp = document.getElementById('modifierMdp');//Bouton de modification du mot de passe
+        var dialogMajMdp = document.getElementById('dialogMajMdp');//Boite de dialogue
+        var retourMdp = document.getElementById('retourMdp');//Zone de texte où les retours sont affiché
+        var passwordu = document.getElementsByTagName('input')[3];//nouveau mot de passe
+        var confirmationMdp = document.getElementById('confirmation');//confirmation du nouveau mot de passe
+        var confirmBtnMdp = document.getElementById('confirmBtnMdp');//Bouton pour confirmer le changement
+
+        if (modifierMdp !=null){//Si le bouton modifier existe
+            modifierMdp.addEventListener('click', function onOpen() {//Lorsque le bouton est pressé
+                if (confirm('Etes vous sûr de vouloir modifier le mot de passe ?')){
+                    if (typeof dialogMajMdp.showModal === "function") {//Vérification de la prise en charge des boites de dialogue
+                        dialogMajMdp.showModal();
+                    } else {
+                        console.error("L'API dialog n'est pas prise en charge par votre navigateur");   
+                    }            
                 }
-        }) 
-        });     
-    } 
+            });   
+        }
     
+        if(confirmBtnMdp !=null){
+           confirmBtnMdp.addEventListener('click', function(){
+           var mdp = passwordu.value;//Valeur du champ nouveau mdp
+           var confirmation_mdp = confirmationMdp.value; //valeur du champ confirmation mdp
+            $.ajax({
+                type: "POST",
+                url: "fonctions_compte.php",
+                data: {
+                    fonction:'verification_mdp', //appel de la fonction de vérification du mdp qui appelera la fonction de modification mdp
+                    params: {mdp, confirmation_mdp, pseudoU},
+                    },
+                    success: function(data)
+                    {
+                        var retour= data;
+                        retour = parseInt(retour);//Traduction du retour en int
+
+                        switch(retour){// En fonction du retour de la fonction de modification de mdp
+                            case -1 : //Champ différent
+                                document.getElementById('Type_erreur').innerHTML = 'Champs différents';//Ecriture de l'erreur dans la boite de dialogue
+                                passwordu.value = "";//Champ vidé
+                                confirmationMdp.value="";//Champ vidé
+                                break;
+                            case -2 ://Erreur de traitement
+                                document.getElementById('Type_erreur').innerHTML = 'Erreur dans le traitement de la requête';//Ecriture de l'erreur dans la boite de dialogue
+                                passwordu.value = "";//Champ vidé
+                                confirmationMdp.value="";//Champ vidé
+                                break;
+                            case -3:// Mdp non conforme
+                                document.getElementById('Type_erreur').innerHTML = 'Il faut une majuscule et un chiffre';//Ecriture de l'erreur dans la boite de dialogue
+                                passwordu.value = "";//Champ vidé
+                                confirmationMdp.value="";//Champ vidé
+                                break;
+                            case 0:// Mdp modifié
+                                document.getElementById('Type_erreur').innerHTML = '';
+                                $('.btnsubmit').click();
+                                alert('Les changements ont été pris en compte');//Affichage message succes
+                                break;
+                        }   
+                    }
+            }) 
+            });     
+        } 
+
 })();
 </script>
