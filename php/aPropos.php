@@ -12,8 +12,8 @@ include'header.php';
         Une critique est composée d’une notation (De 0 à 5 par pas de 1) ainsi que d’un avis textuel. Pour jouir pleinement des fonctionnalités du site il vous faut avoir un compte qui vous permettra de critiquer une saison d'une série ainsi que de signaler des critiques indésirables.
     </p>
     <center>
-        <a href="https://www.upssitech.eu/"><img src="./image/logo_upssitech.png" style="height:100px"/></a>
-        <a href="http://www.stri.ups-tlse.fr/"><img src="./image/logo_stri.png" style="height:100px"/></a>
+        <a href="https://www.upssitech.eu/"><img src="../image/logo_upssitech.png" style="height:100px"/></a>
+        <a href="http://www.stri.ups-tlse.fr/"><img src="../image/logo_stri.png" style="height:100px"/></a>
     </center>
 
         </div>
