@@ -68,7 +68,7 @@ include 'fonctions_critique.php';//Fonction pour effectuer une critique
 
         $idsaison=$row['idsaison'];
         //En fonction de l'ID de la saison on effectue une requete SELECT dans la BD sur la table épisode
-        $queryepisode="SELECT * FROM episode WHERE idsaison='$idsaison'";
+        $queryepisode="SELECT * FROM episode WHERE idsaison='$idsaison' order by numeroepisode";
         $resultepisode=pg_query($linkpdo,$queryepisode);
         echo "</br>";
         //Affichage de tous les épisodes avec les données correspondantes
