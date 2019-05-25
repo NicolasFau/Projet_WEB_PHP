@@ -22,14 +22,18 @@ include 'head.php';
                     <div class="page">
                             <center><h1>Ajout Prix</h1></center>
 
-
+                        <h2>Ajouter un prix dans la base</h2>
     <form action="formPrix.php" method="post">
-	       <p>Nom <input type="text" name="nom"></p>
-	       <p>Ville<input type="text" name="ville"></p>
+        <p>Nom</p>
+        <input type="text" name="nom">
+        <p>Ville</p>
+        <input type="text" name="ville">
          <p><a href="ajoutprix.php"><input type="submit" value="Ajouter"></a></p>
     </form>
+                        <h2>Lier un prix à une série</h2>
     <form action="ajoutprixserie.php" method="post">
-      <label for="choix_serie">Nom Série </label>
+        <p>Nom série</p>
+      <label for="choix_serie"></label>
       <?php
       //Affichage des series
       //Appel  de la fonction connection
@@ -45,10 +49,10 @@ include 'head.php';
       	//Affichage des résultats les résultats
       	echo '<option value="'.$data['nomserie'].'">'.$data['nomserie']."</option>";
       }
-      echo  '</select><br><br>';
+      echo  '</select><br>';
     ?>
-
-  <label for="choix_prix">Prix </label>
+<p>Prix</p>
+  <label for="choix_prix"></label>
   <?php
   //Affichage des nom des prix
   //Appel de la fonction connexion

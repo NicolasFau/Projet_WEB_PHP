@@ -23,8 +23,9 @@ $( function() {
     <center><h1>Ajout Série</h1></center>
 
     <form action="formAjoutSerie.php" method="post" enctype="multipart/form-data">
-         <p>Titre <input type="text" name="titre"></p>
-         <p>Pays
+        <p>Titre</p>
+        <input type="text" name="titre" placeholder="Game of Thrones">
+        <p>Pays</p>
         <select name="pays" id="paysid" >
         <option value="France" selected="selected">France </option>
 
@@ -281,10 +282,10 @@ $( function() {
         <option value="Zambie">Zambie </option>
         <option value="Zimbabwe">Zimbabwe </option>
 
-        </select></p>
-        <p>Genre <input list="listeGenre" type="text" name="genre"></p>
+        </select>
+        <p>Genre</p>
          <select  id="listeGenre">
-            <option value="Fantastique">Fantastique</option>
+             <option value="Fantastique">Fantastique</option>
 	       <option value="Policier">Policier</option>
 	       <option value="Thriller">Thriller</option>
 	       <option value="Aventure">Aventure</option>
@@ -296,7 +297,7 @@ $( function() {
 	       <option value="Comedie">Comedie</option>
 	       <option value="Epouvante">Epouvante</option>
         </select>
-        <p>Synopsis<br><br><textarea name="synopsis" rows="4" cols="40">Synopsis</textarea></p>
+        <p>Synopsis<br><br><textarea name="synopsis" rows="4" cols="40" placeholder="Entrez le synonpsis ici"></textarea></p>
         <label for="image">Image</label>
         <input type="file" name="image" accept="image/png, image/jpeg">
 

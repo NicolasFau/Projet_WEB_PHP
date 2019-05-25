@@ -22,15 +22,20 @@ if (!est_admin()){
     </script>
         <div class="page">
                 <center><h1>Ajout Réalisateur</h1></center>
-
+            <h2>Ajouter un réalisateur dans la base</h2>
     <form action="formajoutrealisateur.php" method="post">
-	       <p>Nom <input type="text" name="nom"></p>
-	       <p>Prenom<input type="text" name="prenom"></p>
-         <p>Date de naissance<input type="text" name="date" id="datepicker"></p>
+        <p>Nom</p>
+        <input type="text" name="nom">
+        <p>Prenom</p>
+        <input type="text" name="prenom">
+        <p>Date de naissance</p>
+        <input type="text" name="date" id="datepicker">
          <p><input type="submit" value="Ajouter"></p>
     </form>
+            <h2>Lier un réalisateur à une série</h2>
     <form action="ajoutrealisateurserie.php" method="post">
-      <label for="choix_serie">Nom Série </label>
+        <p>Nom série</p>
+      <label for="choix_serie"></label>
       <?php
       //Affichage des series
       //Appel de la fonction connection
@@ -47,11 +52,10 @@ if (!est_admin()){
       }
       echo  '</select>';
 	echo "</br>";
-	echo "</br>";
 
     ?>
-
-  <label for="choix_realisateur">Nom du réalisateur </label>
+        <p>Nom du réalisateur</p>
+  <label for="choix_realisateur"></label>
   <?php
   //Affichage des réalisateur
   //Appel de la fonction connexion

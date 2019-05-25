@@ -21,15 +21,20 @@ if (!est_admin()){
                     <div class="page">
     <center><h1>Ajout Acteur</h1></center>
 
-
+    <h2>Ajouter un acteur dans la base</h2>
     <form action="formacteur.php" method="post">
-	       <p>Nom <input type="text" name="nom"></p>
-	       <p>Prenom<input type="text" name="prenom"></p>
-         <p>Date de naissance<input type="text" name="date" id="datepicker"></p>
-         <p><a href="ajoutacteur.php"><input type="submit" name="1" value="Ajouter Acteur"></a></p>
+        <p>Nom</p>
+        <input type="text" name="nom">
+        <p>Prenom</p>
+        <input type="text" name="prenom">
+        <p>Date de naissance</p>
+        <input type="text" name="date" id="datepicker">
+         <p><a href="ajoutacteur.php"><input type="submit" name="1" value="Ajouter"></a></p>
     </form>
+                        <h2>Lier un acteur à une série</h2>
     <form action="ajoutacteurserie.php" method="post">
-      <label for="choix_serie">Nom Série </label>
+        <p>Nom série</p>
+      <label for="choix_serie"></label>
       <?php
       //Affichage des séries de la base
       //Appel de la fonction de connection
@@ -44,10 +49,11 @@ if (!est_admin()){
       	//Affiche des résultats
       	echo '<option value="'.$data['nomserie'].'">'.$data['nomserie']."</option>";
       }
-      echo  '</select><br><br>';
+      echo  '</select><br>';
     ?>
 
-  <label for="choix_acteur">Acteur </label>
+<p>Acteur</p>
+  <label for="choix_acteur"></label>
   <?php
   //Affichage des acteurs de la base
   //Appel de la fonction de connection
@@ -64,7 +70,7 @@ if (!est_admin()){
   }
   echo  '</select>';
 ?>
-    <p><a href="ajoutacteur.php"><input type="submit" name="2" value="Ajouter Acteur/Serie"></a></p>
+    <p><a href="ajoutacteur.php"><input type="submit" name="2" value="Ajouter"></a></p>
         <?php
         //Test sur la variable GET
         if(isset($_GET['info'])){

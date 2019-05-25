@@ -22,7 +22,7 @@ include 'fonctionsDeRecherche.php';
                     ?>
                 </select>
             </p>
-            <p>Nombre de saison minimum<br><input type="number" name="nbsaison" id="spinner"/></p>
+            <p>Nombre de saison minimum<br><input type="number" name="nbsaison" id="spinner" min="0"/></p>
             <p><input type="submit" value="Rechercher"></p>
         </form>
     </div>

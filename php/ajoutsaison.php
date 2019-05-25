@@ -23,10 +23,18 @@ include 'head.php';
     <center><h1>Ajout Saison</h1></center>
 
 <form action="formajoutsaison.php" method="post">
-    <p>Date Sortie <input type="text" name="date" id="datepicker"></p>
-    <p>Numéro Saison<input type="number" id="tentacles" name="num"></p>
-
-    <label for="choix_serie">Nom Série </label>
+    <p>Date Sortie</p>
+    <input type="text" name="date" id="datepicker">
+    <p>Numéro Saison</p>
+    <input type="text" id="tentacles" name="num" min="1" max="100">
+    <p>Nom série</p>
+    <label for="choix_serie"></label>
+    <?php
+    if (isset($_GET['error'])) {
+        $erreur = $_GET['error'];
+        echo "<p class = 'error'>$erreur</p>";
+    }
+    ?>
 
     <?php
     if(isset($_GET['nom'])){
